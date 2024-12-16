@@ -1,0 +1,72 @@
+{
+  "collapse-filter": false,
+  "search": "",
+  "showTags": false,
+  "showAttachments": false,
+  "hideUnresolved": false,
+  "showOrphans": true,
+  "collapse-color-groups": false,
+  "colorGroups": [
+    {
+      "query": "tag: #math  ",
+      "color": {
+        "a": 1,
+        "rgb": 14701138
+      }
+    },
+    {
+      "query": "tag:#ml/dl",
+      "color": {
+        "a": 1,
+        "rgb": 4702975
+      }
+    },
+    {
+      "query": "tag: #ml",
+      "color": {
+        "a": 1,
+        "rgb": 5002977
+      }
+    },
+    {
+      "query": "tag: #stats",
+      "color": {
+        "a": 1,
+        "rgb": 3783936
+      }
+    },
+    {
+      "query": "tag: #compsys",
+      "color": {
+        "a": 1,
+        "rgb": 11510177
+      }
+    },
+    {
+      "query": "tag: #OMSCS",
+      "color": {
+        "a": 1,
+        "rgb": 11772777
+      }
+    },
+    {
+      "query": "tag: #GIOS",
+      "color": {
+        "a": 1,
+        "rgb": 16777215
+      }
+    }
+  ],
+  "collapse-display": true,
+  "showArrow": false,
+  "textFadeMultiplier": 0,
+  "nodeSizeMultiplier": 1,
+  "lineSizeMultiplier": 1,
+  "collapse-forces": false,
+  "centerStrength": 0.734375,
+  "repelStrength": 17.6041666666667,
+  "linkStrength": 1,
+  "linkDistance": 94,
+  "scale": 0.37359715324876597,
+  "close": false
+}

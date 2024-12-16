@@ -1,0 +1,12 @@
+# excluding directories containing books/papers for copyright reasons
+cs-resources/*
+math-resources/*
+ml-finance-resources/*
+ml-resources/*
+stats-resources/*
+
+# garbage out
+.trash/*
+
+
+

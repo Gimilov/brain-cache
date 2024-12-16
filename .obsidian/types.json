@@ -1,0 +1,22 @@
+{
+  "types": {
+    "aliases": "aliases",
+    "cssclasses": "multitext",
+    "tags": "tags",
+    "Equivalences": "multitext",
+    "Constructions": "multitext",
+    "Types": "multitext",
+    "Examples": "multitext",
+    "Generalizations": "multitext",
+    "Properties": "multitext",
+    "Sufficiencies": "multitext",
+    "Justifications": "multitext",
+    "Excursions": "multitext",
+    "Abstractions": "multitext",
+    "Context": "multitext",
+    "Proved by": "multitext",
+    "References": "multitext",
+    "Specializations": "multitext",
+    "Papers": "multitext"
+  }
+}
