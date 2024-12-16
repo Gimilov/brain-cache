@@ -8,5 +8,7 @@ stats-resources/*
 # garbage out
 .trash/*
 
+# irrelevant
+math.png
 
 

@@ -4,22 +4,17 @@
     "type": "split",
     "children": [
       {
-        "id": "7b3dfc88347fd71d",
+        "id": "dce6d55a8158ea28",
         "type": "tabs",
         "children": [
           {
-            "id": "10ce31f7a9312f34",
+            "id": "88065f9f8a4067bc",
             "type": "leaf",
             "state": {
-              "type": "markdown",
-              "state": {
-                "file": "notes/Templates for mathematical proofs.md",
-                "mode": "source",
-                "backlinks": true,
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "Templates for mathematical proofs"
+              "type": "graph",
+              "state": {},
+              "icon": "lucide-git-fork",
+              "title": "Graph view"
             }
           }
         ]
@@ -100,12 +95,89 @@
               "icon": "lucide-tags",
               "title": "Tags"
             }
+          },
+          {
+            "id": "047bb66f36fc5c6a",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-coming-in",
+              "title": "Backlinks"
+            }
+          },
+          {
+            "id": "fd5718f9a255f671",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-going-out",
+              "title": "Outgoing links"
+            }
+          },
+          {
+            "id": "b804beecfc7964b1",
+            "type": "leaf",
+            "state": {
+              "type": "all-properties",
+              "state": {
+                "sortOrder": "frequency",
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-archive",
+              "title": "All properties"
+            }
+          },
+          {
+            "id": "ad605958ef3cf1d5",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {},
+              "icon": "lucide-list",
+              "title": "Outline"
+            }
+          },
+          {
+            "id": "134effc0a5660b32",
+            "type": "leaf",
+            "state": {
+              "type": "review-queue-list-view",
+              "state": {},
+              "icon": "SpacedRepIcon",
+              "title": "Notes Review Queue"
+            }
+          },
+          {
+            "id": "e1bdc3c56edb0e6e",
+            "type": "leaf",
+            "state": {
+              "type": "review-queue-list-view",
+              "state": {},
+              "icon": "SpacedRepIcon",
+              "title": "Notes Review Queue"
+            }
           }
-        ]
+        ],
+        "currentTab": 6
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 300,
+    "collapsed": true
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -118,44 +190,47 @@
       "obsidian-spaced-repetition:Review flashcards": false
     }
   },
-  "active": "10ce31f7a9312f34",
+  "active": "88065f9f8a4067bc",
   "lastOpenFiles": [
-    "cs-resources/the-linux-programming-interface-michael-kerrisk-1.pdf",
-    "notes/Deep Learning.md",
-    "notes/Templates for mathematical proofs.md",
-    "templates/math-definition-template.md",
-    "math-resources/discrete-mathematics/mit-ocw-math-for-cs.pdf",
-    "templates/math-axiom-template.md",
+    "img/obsidian-graph.png",
+    "obsidian-graph.png",
+    "Screenshot from 2024-12-16 17-21-21.png",
+    "templates/ml-definition-template.md",
+    "templates/ml-MOC-template.md",
     "templates/math_readme.md",
-    "notes/GIOS/P4L4 - Datacenter Technologies.md",
-    "notes/Applications of Bayesian Networks.md",
-    "notes/Bayesian Networks.md",
-    "notes/GIOS/P4L2 - Distributed File Systems.md",
-    "notes/GIOS/P4L1 - Remote Procedure Calls.md",
-    "notes/GIOS/P4L3 - Distributed Shared Memory.md",
-    "notes/GIOS/Paper - P4L1 - Implementing Remote Procedure Calls (Birell).md",
-    "notes/GIOS/Paper - P4L2 - Caching in the Sprite Network File System (Nelson).md",
-    "math-resources/linear-algebra-books/linear-algebra-done-right-by-axler.pdf.md",
-    "notes/Zero list.md",
-    "notes/Vector Subspace.md",
-    "notes/Vector Space.md",
-    "notes/Sum of vector subspaces is the smallest containing subspace.md",
-    "notes/Set of functions from S to F is a vector space.md",
-    "notes/Set {0,1} is a field.md",
-    "notes/Set.md",
-    "notes/Scalar multiplication in a field.md",
-    "notes/Properties of complex arithmetics.md",
-    "notes/List.md",
-    "notes/Field.md",
+    "templates/math-theorem-template.md",
+    "templates/math-definition-template.md",
+    "templates/math-axiom-template.md",
+    "templates/math-MOC-template.md",
+    "templates/GIOS-template.md",
+    "templates",
+    "notes/word2vec.md",
+    "notes/t-SNE.md",
+    "notes/Xception.md",
+    "notes/Word embedding.md",
+    "notes/VGG16.md",
+    "notes/Unsupervised Learning.md",
+    "notes/Univariate Kernel Density Estimation.md",
+    "notes/Univariate Kernel Density Classification.md",
+    "notes/Undercomplete Autoencoders.md",
+    "notes/Transformer encoder for text classification example.md",
+    "notes/Transformer architecture.md",
+    "notes/Transfer learning.md",
+    "notes/The limits of fully connected layers for computer vision.md",
+    "notes/The convolution operation.md",
+    "notes/Text standardization.md",
+    "notes/Text splitting (tokenization).md",
+    "notes/Templates for mathematical proofs.md",
+    "notes/GIOS",
+    "notes",
+    "math.png",
+    "cs-resources/the-linux-programming-interface-michael-kerrisk-1.pdf",
+    "math-resources/discrete-mathematics/mit-ocw-math-for-cs.pdf",
     "cs-resources/Graduate Intro to OS - Papers/the-linux-programming-interface-michael-kerrisk-1.pdf",
     "cs-resources/Graduate Intro to OS - Papers/P4L3-Distributed-Shared-Memory-Concepts-and-Systems.pdf",
     "cs-resources/Graduate Intro to OS - Papers/P4L2-Caching-in-the-Sprite-Network-File-System.pdf",
     "cs-resources/Graduate Intro to OS - Papers/P4L1-implementing-RPC.pdf",
     "cs-resources/Graduate Intro to OS - Papers/P3L6-VMM-current-technology-and-future-trends.pdf",
-    "cs-resources/Graduate Intro to OS - Papers/P3L5-Formal-Requirements-for-Virtualizable-Third-Generation-Architectures.pdf",
-    "cs-resources/Graduate Intro to OS - Papers/P3L4-Performance-of-Spin-Lock-Alternatives-for-Shared-Memory-Multiprocessor.pdf",
-    "cs-resources/Graduate Intro to OS - Papers/P3L1-Chip-Multithreading-Systems-Need-a-New-Operating-System-Scheduler.pdf",
-    "cs-resources/Graduate Intro to OS - Papers/P2L5-Flash-portable-efficient-web-server.pdf",
     "img/P4L4-berkeley-data-analytics-stack.png",
     "img/P4L4-hadoop.png",
     "img/P4L4-cloud-service-models.png",
@@ -163,9 +238,6 @@
     "img/P4L4-cloud-computing-requirements-1.png",
     "img/P4L3-weak-consistency-2.png",
     "img/P4L3-weak-consistency-1.png",
-    "img/P4L3-causal-consistency-4.png",
-    "img/P4L3-causal-consistency-2.png",
-    "img/P4L3-causal-consistency-3.png",
     "Untitled.canvas",
     "Untitled 1.canvas"
   ]
