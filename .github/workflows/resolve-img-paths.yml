@@ -1,0 +1,30 @@
+name: Resolve Image Paths
+
+on: 
+  push:
+    branches:
+      - master
+
+jobs:
+  fix-markdown-paths:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Run Bash Script to Resolve Paths
+        run: |
+          find . -name "*.md" -exec sed -i \
+          -e 's/\!\[\]\[/\!\[\]\(\/img\//g' \
+          -e 's/\!\[\[/\!\[\]\(\/img\//g' \
+          -e 's/\.gif\]\]/\.gif\)/g' \
+          -e 's/\.jpg\]\]/\.jpg\)/g' \
+          -e 's/\.png\]\]/\.png\)/g' \
+          -e 's/\.webp\]\]/\.webp\)/g' \
+          -e 's/\.gif\]/\.gif\)/g' \
+          -e 's/\.jpg\]/\.jpg\)/g' \
+          -e 's/\.png\]/\.png\)/g' \
+          -e 's/\.webp\]/\.webp\)/g' \
+          -e 's/\.pdf\]\]/\.pdf\)/g' \
+          -e 's/\.pdf\]/\.pdf\)/g' {} +
