@@ -27,7 +27,7 @@ While this is generally not true, it does simplify the estimation dramatically:
 - If a component $X_j$ of $X$ is discrete, then an appropriate histogram estimate can be used. This provides a seamless way of mixing variable types in feature vector.
 
 Despite optimistic assumptions, Naive Bayes classifier often outperform far more sophisticated alternatives. The reason relates to the graph below, where although the individual class density estimates may be biased, this bias might not hurt the posterior probabilities as much, especially near the decision regions. In fact **the problem may be able to withstand considerable bias for the savings in variance such a "naive"  assumption earns.**
-![][esl-figure-6.15.png]
+![](/img/esl-figure-6.15.png)
 
 We can derive a logit transform from a formula above (using class $J$ as the base):
 $$
@@ -41,4 +41,4 @@ $$
 $$
 This has the form of a [[Generalized Additive Model]] . The models are fit in quite different ways though. The relationship between naive Bayes and generalized additive models is analogous to that between linear discriminant analysis and logistic regression. 
 # References
-1.![][ml-resources/elements-of-statistical-learning.pdf#page=229]
+1.![](/img/ml-resources/elements-of-statistical-learning.pdf#page=229]

@@ -37,7 +37,7 @@ Two ways forward:
 # 2. Fine-tuning a pretrained model
 
 Here, we unfreeze a few of the convolutional base and allow those weights to be updated. Recall, early layers identify edges and shapes and later layers put these together to make higher order parts. The more our images deviate from the images used to create the pretrained model, the the more likely you will want to retrain the last few layers.
-![][cv-cnn-finetuning-pretrained-model.jpg]
+![](/img/cv-cnn-finetuning-pretrained-model.jpg)
 To fine-tune a pretrained model we should:
 1. Add our custom network on top of an already-trained base network
 2. Freeze the base network

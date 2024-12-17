@@ -19,4 +19,4 @@ Created: 2023-10-24 20:20
 
 
 # References
-1.![][ml-resources/elements-of-statistical-learning.pdf#page=295]
+1.![](/img/ml-resources/elements-of-statistical-learning.pdf#page=295]

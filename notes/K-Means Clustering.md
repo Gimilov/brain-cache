@@ -19,7 +19,7 @@ Created: 2023-10-24 16:30
 # Definition
 
 Simple, elegant approach for partitioning dataset into K distinct, non-overlapping clusters. First, we need to specify the desired number of clusters $K$ . 
-![][isl-figure-12.7.png]
+![](/img/isl-figure-12.7.png)
 
 Let $C_1, \dots, C_k$ denote sets containing the indices of the observations in each cluster. These sets satisfy two properties:
 1. $C_1 \cup C_2 \cup \cdots \cup C_k = \{1, \dots, n\}$ . In other words, each observation belongs to at least one of the $K$ clusters
@@ -50,6 +50,6 @@ $$
  \frac{1}{|C_k|}\sum_{i,i' \in C_k} \sum_{j=1}^p(x_{ij} - x_{i'j})^2 = 2\sum_{i \in C_k} \sum^p_{j=1} (x_{ij} - \overline x_{kj})^2 
 $$
 where $\overline x_{kj} = \frac{1}{|C_k|} \sum_{i \in C_k} x_{ij}$ is the mean for the feature $j$ in a cluster $C_k$. The factor of 2 is here because the square difference has to be doubled if it's the mean vs each observation separate. Next figure shows the progression of the algorithm defined above.
-![][isl-figure-12.8.png]
+![](/img/isl-figure-12.8.png)
 Since the algorithm finds the local optima, we should run the analysis using different initializations and select the one with the lowest objective.
-![][isl-figure-12.9.png]
+![](/img/isl-figure-12.9.png)

@@ -20,7 +20,7 @@ K-shape is a shape-based algorithm that generalizes K-means for sequential data 
 
 ### Shape similarity
 A key issue when comparing two sequences is how to handle the variety of distortions that are characteristic of sequences. The figure displays some ECG sequences from a dataset with patients that exhibit patterns that belong in two distinct groups. 
-![][stats-k-shape.png]
+![](/img/stats-k-shape.png)
 Shape-based clustering aim to generate a partition where sequences exhibiting similar patterns are placed in the same cluster based on their shape similarity, regardless of differences in scaling (amplitude) and shifting (phase).
 
 ### Cross-correlation and shape-based distance
@@ -35,7 +35,7 @@ x_{1-s}, \dots, x_{m-1}, x_m, \underbrace{0,\dots, 0}_{|s|}, \qquad s<0
 \end{cases}
 $$
 #### Example: shifts of x
-![][stats-k-shape-example.png]
+![](/img/stats-k-shape-example.png)
 
 
 When all possible shifts of $x$ are considered, we produce the cross-correlation sequence by computing the inner product between every possible shift of $x$ over $y$. 
@@ -44,7 +44,7 @@ CC_w(x,y) \qquad w \in \{1,2,\dots, 2m-1\}
 $$
 where $C_w(x,y)$ is the inner product between $x_{(w-m)}$ and $y$. Not that in large values of the inner product $C_w(x,y)$ indicate that $x_{(w-m)}$ and $y$ are similar, in the sense that large/small values (in absolute sense) of $x_{(w-m)}$ and $y$ tend to occur at the same positions, e.g. points in time (and vice versa).
 #### Example: the cross-correlation sequence
-![][stats-k-shape-example-1.png]
+![](/img/stats-k-shape-example-1.png)
 
 The maximum value of $CC_w(x,y)$ across $w$ informs us about the similarity between $x$ and $y$ when accounting for differences in shifting.  The dissimilarity measure used by K-shape is called shape-based distance (SBD), and is computed from a normalized version of the maximum value of $CC_w(x,y)$. 
 $$
@@ -56,13 +56,13 @@ SBD takes values between $0$ and $2$, regardless of any initial data normalizati
 K-shape is a centroid-based clustering method that relies on the notion of average sequence. The naive approach to extracting an average sequence is to compute each coordinate of the average sequence as the mean of the corresponding coordinates of all sequences. K-means relies on this naive approach for computing centroids. 
 
 K-shape formulates centroid computation as an optimization problem where the objective is to find the maximizer of the squared cross-correlation to all other sequences.
-![][stats-k-shape-example-2.png]
+![](/img/stats-k-shape-example-2.png)
 #### K-shape clustering algorithm
 1. Fix an initial set of clusters (randomly or based on prior knowledge)
 2. Iterate on the following two steps until cluster assignments no longer change
 	(a). For a given set of clusters, cluster centroids are computed by finding the maximizer of the squared cross-correlations to all other sequences
 	(b). For a given set of cluster centroids, assign each observation to the cluster of the closest centroid, relying on the shape-based distance (SBD) measure.
-![][stats-k-shape-example-3.png]
+![](/img/stats-k-shape-example-3.png)
 
 
 ### Practical considerations

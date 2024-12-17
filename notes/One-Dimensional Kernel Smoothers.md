@@ -37,7 +37,7 @@ $$D(t) =
 $$
 Fitted function is now continuous, and quite smooth. One can, however, use such adaptive neighbourhoods with kernels but we need to use a more general notation. Let $h_\lambda(x_0)$ be a width function (indexed by $\lambda$) that determines the width of the neighbourhood at $x_0$ . Then, more generally, we have (with $h_\lambda (x_0) = \lambda$ ):
 $$K_\lambda(x_o,x)=D(\frac{|x - x_0|}{h_\lambda(x_0)})$$
-![][esl-figure-6.1.png]
+![](/img/esl-figure-6.1.png)
 ### Practical considerations
 - The smoothing parameter λ, which determines the width of the local neighbourhood, has to be determined. Large λ implies lower variance (averages over more observations) but higher bias (we essentially assume the true function is constant within the window).
 - Metric window widths (constant $h_\lambda (x)$) tend to keep the bias of the estimate constant, but the variance is inversely proportional to the local density. Nearest-neighbour window widths exhibit the opposite behaviours, the variance stays constant and the absolute bias varies inversely with local density.
@@ -52,7 +52,7 @@ $$D(t) =
 \end{cases}
 $$
 This is flatter on the top (like the nearest-neighbour box) and its differentiable at the boundary of its support. The Gaussian density function $D(t) = \phi(t)$  is a popular noncompact kernel, with the standard deviation playing the role of the window size. Figure below encompasses the three.
-![][esl-figure-6.2.png]
+![](/img/esl-figure-6.2.png)
 
 
 
@@ -61,7 +61,7 @@ This is flatter on the top (like the nearest-neighbour box) and its differentiab
 ### Local Linear Regression
 
 As seen in the graph below, Locally-weighted averages can be badly-biased on the boundaries of the domain, because of the asymmetry of a kernel in that region.
-![][esl-figure-6.3.png]
+![](/img/esl-figure-6.3.png)
 We can remove this bias exactly to first order by fitting straight lines rather than constants locally. This bias can happen in the interior of the domain as well, if the $X$ values are not equally spaced. We make a first-order correction.
 
 Locally weighted regression solves a separate weighted least squares problem **at each target point** $x_0$:
@@ -74,7 +74,7 @@ Further, let's define a vector-based function $b(x)^T = (1,x)$ . Let $B$ be the 
 $$
 \hat f(x_0) = b(x_0)^T (B^TW(x_0)B)^{-1} B^TW(x_0)y = \sum^N_{i=1}l_i(x_0)y_i
 $$
-![][esl-figure-6.4.png]
+![](/img/esl-figure-6.4.png)
 Historically, the bias in the Nadaraya–Watson and other local average kernel methods were corrected by modifying the kernel. These modifications were based on theoretical asymptotic mean-square-error considerations, and besides being tedious to implement, are only approximate for finite sample sizes.  Local linear regression automatically modifies the kernel to correct the bias exactly to first order, a phenomenon dubbed as automatic kernel carpentry.
 
 Consider the following expansion for $E \hat f(x_0)$ , using the linearity of local regression and a series expansion of the true function $f$ around $x_0$ .  
@@ -100,8 +100,8 @@ with a solution of
 $$\hat f (x_0) = \hat \alpha(x_0) + \sum_{j=1}^d \hat \beta_j(x_0)x_0^j$$
 There is of course a price to be paid for this bias reduction, and that is increased variance. 
 $\Bigg[ \text{insert variance and expected values formulas once you are here again actually doing this book with math understanding} \Bigg]$
-![][esl-figure-6.5.png]
-![][esl-figure-6.6.png]
+![](/img/esl-figure-6.5.png)
+![](/img/esl-figure-6.6.png)
 
 ### Selecting the width of the kernel
 
@@ -119,4 +119,4 @@ There is a natural bias–variance trade-off as we change the width of the avera
 
 
 # References
-1. ![][ml-resources/elements-of-statistical-learning.pdf#page=211]
+1. ![](/img/ml-resources/elements-of-statistical-learning.pdf#page=211]

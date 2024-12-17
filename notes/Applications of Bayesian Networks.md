@@ -8,4 +8,4 @@ Created: 2023-10-17 14:35
 
 In the neat slide pack here we can see various applications of [[Bayesian Networks]].
 
-![][stats-resources/customer-analytics/bn-applications.pdf]
+![](/img/stats-resources/customer-analytics/bn-applications.pdf)

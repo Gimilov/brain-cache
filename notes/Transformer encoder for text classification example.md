@@ -115,7 +115,7 @@ We get 87.5% test accuracy. This is not as good as the bi-directional LSTM and n
 - then we’ll add these position embeddings to the word embeddings
 - the result is a **position-aware word embedding**
 The implementation of positional embedding that we will use is explained here: [[Positional encoding#Keras Implementation]].
-![][nlp-transformer-encoding.png]
+![](/img/nlp-transformer-encoding.png)
 Let's try again! Notice that `PositionalEmbedding` does the word embedding as well :)
 ```python
 vocab_size = 20000

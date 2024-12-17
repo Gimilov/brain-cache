@@ -7,7 +7,7 @@ Created: 2023-09-05 19:36
 # Definition
 
 A transformer architecture consist of an encoder and decoder. Both of these relies on the [[Self-attention mechanism]]. A transformer encoder processes the source sequence, while Transformer decoder uses the source sequence to generate translated version.
-![][nlp-transformer.png]
+![](/img/nlp-transformer.png)
 
 |   | Word order awareness | Context awareness (cross-word interactions) |
 | :---: | :---: | :---: |
@@ -26,9 +26,9 @@ The Transformer is a hybrid approach
 
 # Transformer Encoder
 The `TransformerEncoder` chains together a `MultiHeadAttention` layer with a dense projection. It also adds normalization and residual connection.
-![][nlp-transformer-encoder.png]
+![](/img/nlp-transformer-encoder.png)
 For example. for text classification we need the encoder only. See [[Transformer encoder for text classification example]].
 
 
 ## References
-![][attention-is-all-you-need.pdf]
+![](/img/attention-is-all-you-need.pdf)

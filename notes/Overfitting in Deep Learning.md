@@ -16,14 +16,14 @@ In other words, the model learns complex patterns in the training set, focuses o
 1. INCREASE INPUT 
    - makes it easier to find the optimum and avoid overfitting because the training process gets less noisy
    - makes it less likely that the model overfits to rare observations that are just flukes
-![][overfitting-more-data.png]
+![](/img/overfitting-more-data.png)
 2. DECREASE CAPACITY
    - If the model has limited memorization resources, it can’t just memorize its training data,
    - to minimize loss, the model is forced to learn _compressed representations_ that have predictive power
    - Find compromise between too much and too little capacity
    - No magical formula to determine the right number of layers or neurons
    - Model building principle: **start low and increase until diminishing returns to validation loss**. Model is too large if it overfits straight away, or validation loss looks choppy.
-![][overfitting-decrease-capacity.png]
+![](/img/overfitting-decrease-capacity.png)
 
 3. ADDING WEIGHT REGULARIZATION
    - makes the model simpler

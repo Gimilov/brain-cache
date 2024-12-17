@@ -5,4 +5,4 @@ tags:
 Created: 2023-10-17 21:09
 # Lecture
 
-![][customer-analytics/Association-Association-rule-mining.pdf]
+![](/img/customer-analytics/Association-Association-rule-mining.pdf)

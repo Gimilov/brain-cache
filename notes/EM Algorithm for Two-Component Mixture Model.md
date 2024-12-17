@@ -18,7 +18,7 @@ Created: 2023-10-24 20:11
 
 ## Context
 The EM algorithm is a popular tool for simplifying difficult maximum likelihood problems. We first describe it in a context of a simple mixture model.
-![][esl-figure-8.5.png]
+![](/img/esl-figure-8.5.png)
 
 We can see from the distribution that there is bi-modality in the data, therefore a Gaussian distribution would not be appropriate. Since there seems to be two separate underlying regimes, we model $Y$ as a mixture of two normal distributions:
 $$Y_1 \sim N(\mu_1, \sigma_1^2)$$
@@ -69,7 +69,7 @@ and the mixing probability $\hat \pi = \sum_{i=1}^N \hat \gamma_i / N$.
 A good way to construct initial guesses for $\hat \mu_1$ and $\hat \mu_2$ is simply to choose two of $y_i$ at random. Both $\hat \sigma_1^2$ and $\hat \sigma_2^2$ can be set equal to the overall sample variance $\sum_{i=1}^N (y_i-\overline y)^2/N$. The mixing proportion $\hat \pi$ can be started at the value of $0.5$. 
 
 Note that the actual maximizer of the likelihood occurs when we put spike of infinite height at any of the data point, that is $\hat \mu_1 = y_i$ for some $i$ and $\hat \sigma_1^2 = 0$ . This gives infinite likelihood, but is not a useful solution. Hence, we are actually looking for a good local maximum of the likelihood, one for which $\hat \sigma_1^2 , \hat \sigma_2^2 > 0$ . To further complicate matters, the re can be more than one local maximum having $\hat \sigma_1^2 , \hat \sigma_2^2 > 0$ . In our example , we ran the EM algorithm with a number of different initial guess for the parameters, all having $\hat \sigma_k^2 > 0.5$ , and chose the run that gave us the highest maximized likelihood. Figure below shows the progress of EM algorithm in maximizing the log-likelihood. The table shows $\hat \pi = \sum_i \hat \gamma/N$ , the maximum likelihood estimate of the proportion of  observations in class $2$ , at selected iterations of the EM procedure.
-![][esl-figure-8.6.png]
+![](/img/esl-figure-8.6.png)
 
 | Iteration | Proportion |
 | :---: | :---: |
@@ -88,4 +88,4 @@ $$
 $$
 In the first figure of this note we can actually see the estimated Gaussian mixture density from this procedure, along with the responsibilities.
 # References
-1.![][ml-resources/elements-of-statistical-learning.pdf#page=291]
+1.![](/img/ml-resources/elements-of-statistical-learning.pdf#page=291]

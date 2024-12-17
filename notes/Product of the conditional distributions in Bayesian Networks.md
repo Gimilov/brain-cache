@@ -19,4 +19,4 @@ $$ P(X)= \prod^{p}_{i=1}P(X_i|\Pi_{X_i}) $$
 
 # Example
 
-![][stats-bn-product-of-conditional-distributions-example.png]
+![](/img/stats-bn-product-of-conditional-distributions-example.png)

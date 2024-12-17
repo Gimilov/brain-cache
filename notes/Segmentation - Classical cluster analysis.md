@@ -5,4 +5,4 @@ tags:
 Created: 2023-10-17 21:09
 # Lecture
 
-![][customer-analytics/Segmentation_I-Classical-cluster-analysis.pdf]
+![](/img/customer-analytics/Segmentation_I-Classical-cluster-analysis.pdf)

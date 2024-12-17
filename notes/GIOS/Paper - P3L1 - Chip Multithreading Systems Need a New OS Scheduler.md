@@ -73,6 +73,6 @@ Source: .zip file on OMSCS reddit ([Author](https://github.com/wynand1004))
  - This paper has demonstrated that CMT systems need new schedulers b/c a naive schduler can waste up to 50% of application performance and existing SMT scheduling algorigthms do not scale to dozensof threads.
  - A CPI-based scheduler can expect a 2x improvement over a naive scheduler.
 # Paper
-![[P3L1-Chip-Multithreading-Systems-Need-a-New-Operating-System-Scheduler.pdf]]
+![](/img/P3L1-Chip-Multithreading-Systems-Need-a-New-Operating-System-Scheduler.pdf)
 
 

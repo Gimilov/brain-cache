@@ -25,7 +25,7 @@ A **process** is an instance of an executing program and is synonymous to "task"
 
 
 ### What is a process?
-![[P2L1-process.png]]
+![](/img/P2L1-process.png)
 OS manages hardware on behalf of applications. An application is some program on disk or flash memory (i.e, it's a static entity). A **process**, however, is a state of a program when executing and loaded in memory (i.e. it's an active entity).
 
 If the same program is launched more than once then multiple processes will be created. They will be executing the same program, but have different states. For example, if you had two Word files opened, then you have two instances created (i.e., two processes). Thus, a **process** represents the execution state of an **active** application - it doesn't necessarily mean that it's running, it may be waiting for input or for some other process to finish. 
@@ -33,7 +33,7 @@ If the same program is launched more than once then multiple processes will be c
 
 
 ### What does a process look like?
-![[P2L1-process-look.png]]
+![](/img/P2L1-process-look.png)
 A process encapsulates all of this data of running application (the code, the data, all the variables that application needs to allocate). Every single element has to be uniquely identified by its address - thus OS abstraction used to encapsulate of all the process state is an **address space**. The range of these addresses are defined to be from $V_0$ to $V_{max}$ . It includes the following types of state:
 - **text and data**:
 	- static state when process first loads
@@ -44,10 +44,10 @@ A process encapsulates all of this data of running application (the code, the da
 
 
 ### Process Address Space and Memory Management
-![[P2L1-process-address.png]]
+![](/img/P2L1-process-address.png)
 As we mentioned, **address space** is an "in memory" representation of a process. These are called **virtual**, because they do not have to correspond to physical memory (i.e., DRAM). Instead, memory management hardware and OS components responsible for memory management like page tables make a mapping between virtual addresses and physical addresses. It's completely decoupled and it allows to keep physical memory management simple, and not dictated by data layout of processes that are executed.
 
-![[P2L1-process-address-2.png]]
+![](/img/P2L1-process-address-2.png)
 Not all  processes require entire entire address space from $V_0$ to $V_{max}$ (there may be portions of this address space that is not allocated). Also, we may not have enough physical memory to store all this state even if we need it (32bits $\to$ 4GB).
 
 OS dynamically decides what portion of which address space will be present where in physical memory.
@@ -58,7 +58,7 @@ OS dynamically decides what portion of which address space will be present where
 
 
 ### Process Execution State
-![[P2L1-how-does-OS-know-process.png]]
+![](/img/P2L1-how-does-OS-know-process.png)
 For OS to manage processes, it has to has to have some idea what they are doing. If it stops the process, it must know what it was doing when it was stopped, so it can be restarted from the exact same point.
 
 Before applications are execute, its source code must be compiled, and binaries are produced (which do not have to be executed sequentially - jumps, loops, interrupts).
@@ -71,7 +71,7 @@ To maintain all the information about it, for every single process, OS maintains
 
 
 ### Process Control Block
-![[P2L1-PCB.png]]
+![](/img/P2L1-PCB.png)
 It's a data structure that OS maintains for every one of processes that it manages. 
 - It is created when a process initially created itself, and it's also initialized at that time (i.e., program counter set to point to the very first instruction in this process). 
 - Certain fields are updated when process state changes. For example, when a process request more memory, OS will allocate more memory and will establish new valid virtual-to-physical memory mapping for this process (this will reflect memory limits information, valid virtual address regions for this process etc.)
@@ -81,7 +81,7 @@ It's OS job to make sure to collect and save all information that CPU tracks for
 
 
 ### How is PCB used?
-![[P2L1-PCB-usage.png]]
+![](/img/P2L1-PCB-usage.png)
 Let's assume OS manages two processes: P1 and P2. It has already created them, and their PCB_P1, PCB_P2 are stored somewhere in the memory.
 - When, initially, P1 is running, then the CPU registers will hold the values that correspond to the state of P1, so they will need to be stored in PCB_P1.  
 - At some point OS decides to interrupt P1 and it becomes idle. All the state information regarding P1 (including registers) into the PCB_P1.  Next, the OS must restore the state of P2. It has to update CPU registers with values corresponding to PCB_P2.
@@ -91,7 +91,7 @@ Each time the swapping between processes is performed, OS performs **context swi
 
 
 ### Context Switch
-![[P2L1-context-switch.png]]
+![](/img/P2L1-context-switch.png)
 The **context switch** is a mechanism used by OS to switch the execution context from the one process to another process (P1  $\to$ P2 and the reverse).  It can get expensive.
 - **direct costs**: number of cycles for loading & storing instructions (all values from PCBs )
 - **indirect costs**: when P1 is running on CPU, a lot of its data will be stored on processor's cache. As long as P1 is executing, a lot of its data is slightly present somewhere in cache hierarchy (L1, L2, etc.). Accessing cache is muuuuch faster (cycles vs. hundreds of cycles on MM). 
@@ -102,7 +102,7 @@ Therefore we want to **LIMIT HOW FREQUENTLY CONTEXT SWITCHING IS DONE!**
 
 
 ### Process Lifecycle
-![[P2L1-PLC.png]]
+![](/img/P2L1-PLC.png)
 When a process is running, it may be interrupted and context-switched. In that case it is in idle state, but is in "ready-state". It's ready to execute, but it's not the current process running on a CPU.  
 
 *What other states can the process be in and how is that determined?* The image above is a good summary.
@@ -116,7 +116,7 @@ In the "running" state it may be interrupted and get back to "ready" state. It m
 
 
 ### Process Lifecycle: Creation
-![[P2L1-Process-Creation.png]]
+![](/img/P2L1-Process-Creation.png)
 In OS, a process can create child processes. In the diagram, we can see that all processes with come from a single root and they will have some relation with each other, where the creating process is the **parent** and the created process is a **child**. Some of these are privileged processes (like three first nodes in the diagram). When OS is booted, it will create some number of initial processes. When user logs in to the system, an user shell process is created, and when any command is executed (ls, emacs), then new processes are spawned from this shell parent process.
 
 Mechanisms for process creation:
@@ -135,7 +135,7 @@ Mechanisms for process creation:
 
 
 ### Role of CPU Scheduler
-![[P2L1-CPU-scheduler.png]]
+![](/img/P2L1-CPU-scheduler.png)
 A **CPU scheduler** determines **which one** of the currently **ready** processes will be **dispatched** to the CPU to start running, and **how long** it should run for.
 
 OS must.. **BE EFFICIENT**, because CPU resources are precious! It is thus important for OS to perform these tasks as fast as possible:
@@ -148,7 +148,7 @@ Efficient designs, algorithms and data structures that are used to represent rea
 
 
 ### Length of Process
-![[P2L1-process-timeslice.png]]
+![](/img/P2L1-process-timeslice.png)
 How long should a process run for? How frequently should we run the scheduler? The longer the process runs, the less times we need to actually use the scheduler. The more frequently we run scheduler, the more time is "wasted" on running it instead of applications' processes.
 
 Given that $timeslice = \text{time } T_p \text{ allocated to a process on the CPU}$ , there are some **Scheduling Design Decisions**:
@@ -168,7 +168,7 @@ $$
 
 
 ### What about I/O?
-![[P2L1-ready-process-path.png]]
+![](/img/P2L1-ready-process-path.png)
 The diagram shows how a running process may end up in being a ready process again.
 
 But how I/O operations affects schedule? 
@@ -185,7 +185,7 @@ Let's go back to describing how a process may go back to "ready" state from "run
 
 ### Inter Process Communication
  Most applications comprise of multiple processes that communicate with each other.
- ![[P2L1-IPC-example.png]]
+ ![](/img/P2L1-IPC-example.png)
  In this example, we have two processes:
  - P1 (web server) - frontend, accepts customers' requests
  - P2 (database) - backend, database that stores customers' profiles and other information
@@ -199,7 +199,7 @@ OS go through a lot deal to protect and isolate processes from one another (sepa
 One mechanism that OS support is **message-passing IPC**:
 - OS provides communication channel, like shared buffer
 - processes write (send) / read (recv) messages to/from each channel
- ![[P2L1-IPC-example,message-passing.png]]
+ ![](/img/P2L1-IPC-example,message-passing.png)
 It's "message-passing" because every process has to put the information that it want to send to the other process explicitly in the message and send it to this dedicated communication channel.
 +OS manages the channel and OS provide the exact same APIs / system calls of writing/sending data to/from this operation channel 
 -overheads. Every piece of information needs to be copied from the user space of the first process into the channel that's sitting in the OS (kernel) memory and then back to address space of the second process.
@@ -208,7 +208,7 @@ It's "message-passing" because every process has to put the information that it 
 - OS establishes a shared memory channel and maps it into each process address space
 - processes directly read/write from this memory
 - OS is out of the way!
-![[P2L1-IPC-example,shared-memory.png]]
+![](/img/P2L1-IPC-example,shared-memory.png)
 +OS is out of the way. It means no overheads from the OS during communicating
 -(re-)implement code. Since OS is out of the way, it no longer supports fixed and well-defined APIs how this particular shared memory is used. Thus, sometimes it becomes more error-prone or developers have to re-implement code to use this shared memory region in a correct way.
 

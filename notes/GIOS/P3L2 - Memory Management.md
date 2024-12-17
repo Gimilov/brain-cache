@@ -38,22 +38,22 @@ Another way that hardware supports memory management is by assigning designated 
 Since the memory address translation happens on every memory reference, most MMU incorporate a small cache of virtual/physical address translations. This is a called the **translation lookaside buffer** (TLB). This buffer makes the entire translation process a lot faster.
 
 Finally, the actual translation of the physical address from the virtual address is done by the hardware. While the operating system maintains page tables which are necessary for the translation process; however, the actual hardware performs it. This implies that the hardware dictates what type of memory management modes are available, be they page-based or segment-based.
-![[P3L2-hardware-support.png]]
+![](/img/P3L2-hardware-support.png)
 ## Page Tables
 
 Pages are the more popular method for memory management. Page tables are used to convert the virtual memory addresses into physical memory addresses.
 
 For each virtual address, an entry in the page table is used to determine the actual physical address associated with that virtual address. To this end, the page table serves as a map, mapping virtual addresses to physical addresses.
-![[P3L2-page-tables-1.png]]
+![](/img/P3L2-page-tables-1.png)
 The sizes of the pages in virtual memory is identical to the sizes of the page frames in physical memory. By keeping the size of these the same, the operating system does not need to manage the translation of every single virtual address within a page. Instead, we can only translate the first virtual address in a page to the first physical address in a page frame. The rest of the memory address in the page map to the corresponding offsets in the page frame. As a result, we can reduce the number of entries we have in the page table.
 
 What this means is that only the first portion of the virtual address is used to index into the page table. We call this part of the address the **virtual page number** (VPN), and the rest of the of the virtual address is the **offset**. The VPN is used as an index into the page table, which will produce the **physical frame number** (PFN), which is the first physical address of the frame in DRAM. To complete the full translation, the PFN needs to be summed with the offset specified in the latter portion of the virtual address to produce the actual physical address. The PFN with the offset can be used to reference a specific location in DRAM.
-![[P3L2-page-tables-2.png]]Let's say we want to initialize an array for the very first time. We have already allocated the memory for that array into the virtual address space for the process, we have just never accessed it before. Since this portion of the address space has not been accessed before, the operating system has not yet allocated memory for it.
+![](/img/P3L2-page-tables-2.png)Let's say we want to initialize an array for the very first time. We have already allocated the memory for that array into the virtual address space for the process, we have just never accessed it before. Since this portion of the address space has not been accessed before, the operating system has not yet allocated memory for it.
 
 What will happen the first time we access this memory is that the operating system will realize that there isn't physical memory that corresponds to this range of virtual memory addresses, so it will take a free page of physical memory, and create a page table entry linking the two.
 
 The physical memory is only allocated when the process is trying to access it. This is called **allocation on first touch**. The reason for this is to make sure that physical memory is only allocated when it's really needed. Sometimes, programmers may create data structures that they don't really use.
-![[P3L2-page-tables-3.png]]
+![](/img/P3L2-page-tables-3.png)
 If a process hasn't used some of its memory pages for a long time, it is possible that those pages will be reclaimed. The contents will no longer be present in physical memory. They will be swapped out to disk, and some other content will end up in the corresponding physical memory slot.
 
 In order to detect this, page table entries also have a number of bits that give the memory management system some more information about the validity of the access. For instance, if the page is in memory and the mapping is valid, its valid bit will be 1. Otherwise, it will be 0.
@@ -63,7 +63,7 @@ If the MMU sees that this bit is 0 when an access is occurring, it will raise a 
 Ultimately, if the access is granted, there will be a new page mapping that is reestablished after access is granted. This is because it is unlikely the physical address will exist at the exact same PFN + offset as before.
 
 In summary, the operating system creates a page table for every single process in the system. That means that whenever a context switch is performed, the operating system must swap in the page table associated with the new process. Hardware assists with page table access by maintaining a register that points to the active page table. On x86 platforms, this register is the **CR3 register**.
-![[P3L2-page-tables-4.png]]
+![](/img/P3L2-page-tables-4.png)
 ## Page Table Entry
 
 Every page table entry will have at least a PFN and a valid bit. This bit is also called a present bit, as it represents whether or not the contents of the virtual memory are present in physical memory or not.
@@ -77,7 +77,7 @@ It's also useful to keep track of an **access bit**, which can tell us whether t
 We can also keep track of **protection bits** which specify whether a page is allowed to be read, written, or executed.
 
 Pentium x86 Page Table Entry
-![[P3L2-page-table-entry.png]]
+![](/img/P3L2-page-table-entry.png)
 The MMU uses the page table entry not just to perform the address translation, but also to rely on these bits to determine the validity of the access. If the hardware determines that a physical memory access cannot be performed, it causes a page fault.
 
 If this happens, then the CPU will place an error code on the stack of the kernel, and it will generate a trap into the OS kernel, which will in turn invoke the **page fault handler**. This handler determines the action to take based on the error code and the faulting address.
@@ -101,7 +101,7 @@ It is important to know that a process will not use all of the theoretically ava
 ## Multi Level Page Tables
 
 We don't really design flat page tables anymore. Instead, we now use a more hierarchical page table structure.
-![[P3L2-multi-level-page-tables-1.png]]
+![](/img/P3L2-multi-level-page-tables-1.png)
 The outer level is referred to as a **page table directory**. Its elements are not pointers to individual page frames, but rather pointers to page tables themselves.
 
 The inner level has proper page tables that actually to point to page frames in physical memory. Their entries have the page frame number and all the protection bits for the physical addresses that are represented by the corresponding virtual addresses.
@@ -111,11 +111,11 @@ The internal page tables exist only for those virtual memory regions that are ac
 If a process requests more memory to be allocated to it via `malloc` the OS will check and potentially create another page table for the process, adding a new entry in the page table directory. The new internal page table entry will correspond to some new virtual memory region that the process has requested.
 
 To find the right element in the page table structure, the virtual address is split into more components.
-![[P3L2-multi-level-page-tables-2.png]]
+![](/img/P3L2-multi-level-page-tables-2.png)
 The last part of the logical address is still the offset, which is used to actually index into the physical page frame. The first two components of the address are used to index into the different levels of the page tables, and they ultimately will produce the PFN that is the starting address of the physical memory region being accessed. The first portion indexes into the page table directory to get the page table, and the second portion indexes into the page table to get the PFN.
 
 In this particular scenario, the address format is such that the outer index occupies 12 bits, the inner index occupies 10 bits, and the offset occupies 10 bits.
-![[P3L2-multi-level-page-tables-3.png]]
+![](/img/P3L2-multi-level-page-tables-3.png)
 This means that a given page table can contain 2^10 entries (p2), and each entry can address 2^10 bytes of physical memory (d). Loosely, we can think about the page table pointing to 2^10 "rows" of physical memory, with each row having 2^10 "cells". P2 gives us the memory "row", and d gives us the "cell" within that "row". This means that each page table can address 1MB of memory.
 
 Whenever there is a gap in virtual memory that is 1MB (or greater), we don't need to fill in the gap with (unused) page tables. For example, if we have a page table containing pages 0-999, and we allocate another page table containing pages 30000-30999, we don't need to allocate the 29 page tables in between. This will reduce the overall size of the page table(s) that are required for a particular process. This is in contrast to the "flat" page table, in which every entry needs to be able to translate every single virtual address and it has entries for every virtual page number. There can't be any gaps in a flat page table.
@@ -127,7 +127,7 @@ This technique is important on 64-bit architectures. The page table requirements
 Because of this, we have larger gaps between page tables that are actually allocated. With four level addressing structures, we may be able to save entire page table directories from being allocated as a result of these gaps.
 
 Let's look at two different addressing schemes for 64-bit platforms.
-![[P3L2-multi-level-page-tables-4.png]]
+![](/img/P3L2-multi-level-page-tables-4.png)
 In the top figure, we have two page table layers, while in the bottom figure, we have three page table layers. Both figures have page frames in physical memory that are 4KB (4 * 2^10).
 
 As we add more levels, the internal page tables/directories end up covering smaller regions of the virtual address space. As a result, it is more likely that the virtual address space will have gaps that will match that granularity, and we will be able to reduce the size of the page table as a result.
@@ -157,11 +157,11 @@ Perhaps it makes more sense to have a virtual memory representation that is clos
 The representation of a logical memory address when using inverted page tables is slightly different. The memory address contains the **process id** (PID) of the process attempting the memory address, as well as the virtual address and the offset.
 
 A linear scan of the inverted page table is performed when a process attempts to perform a memory access. When the correct entry is found - validated by the combination of the PID and the virtual address - it is the index of that entry that is the frame number in physical memory. That index combined with the offset serves to reference the exact physical address.
-![[P3L2-inverted-page-tables-1.png]]
+![](/img/P3L2-inverted-page-tables-1.png)
 Linear scans are slow, but thankfully, the TLB comes to the rescue to speed up lookups. That being said, we still have to perform these scans with some frequency, and we need a way to improve the performance.
 
 Inverted page tables are often supplemented with **hashing page tables**. Basically, the address is hashed and looked up in a hash table, where the hash points to a (small) linked list of possible matches. This allows us to speed up the linear search to consider just a few possibilities.
-![[P3L2-inverted-page-tables-2.png]]
+![](/img/P3L2-inverted-page-tables-2.png)
 ## Segmentation
 
 Virtual to physical memory mappings can also be maintained using **segments**. With segments, the address space is divided into components of arbitrary size, and the components will correspond to some logically meaningful section of the address space, like the code, heap, data or stack.
@@ -173,7 +173,7 @@ In its pure form, a segment could be represented with a contiguous section of ph
 In practice, segmentation and paging are used together. The linear address that is produced from the logical address by the segmentation process is then passed to the paging unit to ultimately produce the physical address.
 
 The type of address translation that is possible on a particular platform is determined by the hardware. Intel x86_32 platforms support segmentation and paging. Linux supports up to 8K segments per process and another 8K global segments. Intel x86_64 platforms support segmentation for backward compatibility, but the default mode is to use just paging.
-![[P3L2-segmentation.png]]
+![](/img/P3L2-segmentation.png)
 ## Page Size
 
 The size of the memory page, or frame, is determined by the number of bits in the offset. For example, if we have a 10-bit offset, our page size is 2^10 bytes, or 1KB. A 12-bit offset means we have a page size of 4KB.
@@ -201,17 +201,17 @@ Once the kernel allocates some memory through a `malloc` call, the kernel is no 
 ## Memory Allocation Challenges
 
 Consider a page-based memory management system that needs to manage 16 page frames. This system takes requests for 2 or 4 pages frames at a time and is currently facing one request for two page frames, and three requests for four page frames. The frames must be allocated contiguously for a given request.
-![[P3L2-memory-allocation-challenges-1.png]]
+![](/img/P3L2-memory-allocation-challenges-1.png)
 The operating system may choose to allocate the pages as follows.
-![[P3L2-memory-allocation-challenges-2.png]]
+![](/img/P3L2-memory-allocation-challenges-2.png)
 Now suppose that the initial two request frames are freed. The page table may look like this now.
-![[P3L2-memory-allocation-challenges-3.png]]
+![](/img/P3L2-memory-allocation-challenges-3.png)
 What do we do when a request for four page frames comes in now? We do have four available page frames, but the allocator cannot satisfy this request because the pages are not contiguous.
 
 This example illustrates a problem called **external fragmentation**. This occurs when we have noncontiguous holes of free memory, but requests for large contiguous blocks of memory cannot be satisfied.
 
 Perhaps we can do better, using the following allocation strategy.
-![[P3L2-memory-allocation-challenges-4.png]]
+![](/img/P3L2-memory-allocation-challenges-4.png)
 Now when the free request comes in, the first two frames are again freed. However, because of the way that we have laid out our memory, we now have four _contiguous_ free frames. Now a new request for four pages can granted successfully.
 
 In summary, an allocator must allocate memory in such a way that it can coalesce free page frames when that memory is no longer in use in order to limit external fragmentation.
@@ -222,7 +222,7 @@ The linux kernel relies on two main allocators: the buddy allocator, and the sla
 The **buddy allocator** starts with some consecutive memory region that is free that is a power of two. Whenever a request comes in, the allocator subdivides the area into smaller chunks such that every one of them is also a power of two. It will continue subdividing until it finds a small enough chunk that is power of two that can satisfy the request.
 
 Let's look at the following sequence of requests and frees.
-![[P3L2-linux-kernel-allocators-1.png]]
+![](/img/P3L2-linux-kernel-allocators-1.png)
 First, a request for 8 units comes in. The allocator divides the 64 unit chunk into two chunks of 32. One chunk of 32 becomes 2 chunks of 16, and one of those chunks becomes two chunks of 8. We can fill our first request. Suppose a request for 8 more units comes in. We have another free chunk of 8 units from splitting 16, so we can fill our second request. Suppose a request for 4 units comes in. We now have to subdivide our other chunk of 16 units into two chunks of 8, and we subdivide one of the chunks of 8 into two chunks of 4. At this point we can fill our third request.
 
 When we release one chunk of 8 units, we have a little bit of fragmentation, but once we release the other chunk of 8 units, those two chunks are combined to make one free chunk of 16 units.
@@ -236,7 +236,7 @@ The reason that the chunks are powers of two is so that the addresses of budding
 Because the buddy allocator has granularity of powers of two, there will be some internal fragmentation using the buddy allocator. This is a problem because there are a lot of data structures in the Linux kernel that are not close to powers of 2 in size. For example, the task struct used to represent processes/threads is 1.7Kb.
 
 Thankfully, we can leverage the **slab allocator**. The slab allocator builds custom object caches on top of slabs. The slabs themselves represent contiguously allocated physical memory. When the kernel starts it will pre-create caches for different objects, like the task struct. Then, when an allocation request occurs, it will go straight to the cache and it will use one of the elements in the cache. If none of the entries is available, the kernel will allocate another slab, and it will pre-allocate another portion of contiguous memory to be managed by the slab allocator.
-![[P3L2-linux-kernel-allocators-2.png]]
+![](/img/P3L2-linux-kernel-allocators-2.png)
 The benefit of the slab allocator is that internal fragmentation is avoided. The entities being allocated in the slab are the exact size of the objects being stored in them. External fragmentation isn't really an issue either. Since each entry can store an object of a given size, and only objects of a given size will be stored, there will never be any un-fillable gaps in the slab.
 ## Demand Paging
 
@@ -251,7 +251,7 @@ At that point, the kernel can establish that the page has been swapped out, and 
 Once the page is brought into memory, the OS will determine a free frame where this page can be placed (this will _not_ be the same frame where it resided before), and it will use the PFN to appropriately update the page table entry that corresponds to the virtual address for that page.
 
 At that point, control is handed back to the process that issued this reference, and the program counter of the process will be restarted with the same instruction, so that this reference will now be made again. This time, the reference will succeed.
-![[P3L2-demand-paging.png]]
+![](/img/P3L2-demand-paging.png)
 We may require a page to be constantly present in memory, or maintain its original physical address throughout its lifetime. We will have to **pin** the page. In order words, we disable swapping. This is useful when the CPU is interacting with devices that support direct memory access, and therefore don't pass through the MMU.
 ## Page Replacement
 
@@ -285,7 +285,7 @@ Operating systems rely on the MMU to perform address translation as well as acce
 One such mechanism is called **Copy-on-Write** (COW). When we need to create a new process, we need to re-create the entire parent process by copying over its entire address space. However, many of the pages in the parent address space are static - they won't change - so it's unclear why we have to incur the copying cost.
 
 In order to avoid unnecessary copying, a new process's address space, entirely or in part, will just point to the address space of its parent. The same physical address may be referred to by two completely different virtual addresses belonging to the two processes. We have to make sure to **write protect** the page as a way to track accesses to it.
-![[P3L2-copy-on-write.png]]
+![](/img/P3L2-copy-on-write.png)
 If the page is only going to be read, we save memory and we also save on the CPU cycles we would waste performing the unnecessary copy.
 
 If a write request is issued for the physical address via either one of the virtual addresses, the MMU will detect that the page is write protected and will issue a page fault.

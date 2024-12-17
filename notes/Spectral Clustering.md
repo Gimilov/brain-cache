@@ -41,7 +41,7 @@ Spectral clustering finds the $m$ eigenvectors $Z_{N \times m}$ corresponding to
 
 ### Example
 An example is presented in figure below. The top left panel shows 450 simulated data points in three circular clusters indicated by the colours. K-means clustering would clearly have difficulty identifying the outer clusters. We applied spectral clustering using a 10-nearest neighbour similarity graph, and display the eigenvector corresponding to the second and third smallest eigenvalue of the graph Laplacian in the lower left. The 15 smallest eigenvalues are shown in the top right panel. The two eigenvectors shown have identified the three clusters, and a scatterplot of the rows of the eigenvector matrix $Y$ in the bottom right clearly separates the clusters. A procedure such as K-means clustering applied to these transformed points would easily identify the three groups.
-![][stats-cluster-spectral.png]
+![](/img/stats-cluster-spectral.png)
 ### Why does spectral clustering work?
 Why does spectral clustering work? For any vector $f$ we have
 $$
@@ -53,7 +53,7 @@ Formula suggests that a small value of $f^T L f$ will be achieved if pairs of po
 Spectral clustering is an interesting approach for finding non-convex clusters. When a normalized graph Laplacian is used, there is another way to view this method. Defining $P = G^{-1}W$, we consider a random walk on the graph with transition probability matrix $P$. Then spectral clustering yields groups of nodes such that the random walk seldom transitions from one group to another.
 
 There are a number of issues that one must deal with in applying spectral clustering in practice. We must choose the type of similarity graph—e.g., fully connected or nearest neighbours, and associated parameters such as the number of nearest neighbours $k$ or the scale parameter of the kernel $c$. We must also choose the number of eigenvectors to extract from $L$ and finally, as with all clustering methods, the number of clusters. In the toy example of figure below we obtained good results for $k \in [5, 200]$, the value 200 corresponding to a fully connected graph. With $k < 5$ the results deteriorated. Looking at the top-right panel of Figure below we see no strong separation between the smallest three eigenvalues and the rest. Hence it is not clear how many eigenvectors to select.
-![][esl-figure-14.29.png]
+![](/img/esl-figure-14.29.png)
 
 # References
-1.![][ml-resources/elements-of-statistical-learning.pdf#page=563]
+1.![](/img/ml-resources/elements-of-statistical-learning.pdf#page=563]

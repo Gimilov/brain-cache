@@ -7,4 +7,4 @@ Created: 2023-10-17 20:37
 
 Lecture in which we go over definitions and differences between Principal Component Analysis and Exploratory Factor Analysis.
 
-![][customer-analytics/PCA-and-(E)FA.pdf]
+![](/img/customer-analytics/PCA-and-(E)FA.pdf)

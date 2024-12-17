@@ -42,7 +42,7 @@ If a semaphore is initialized with a 1 - a binary semaphore - it will behave lik
 ## POSIX Semaphores
 
 The simple POSIX semaphore API defines one type `sem_t` as well as three operations that manipulate that type. These operations create the semaphore, wait on the semaphore, and unlock the semaphore.
-![[P3L4-POSIX-semaphores.png]]
+![](/img/P3L4-POSIX-semaphores.png)
 **NB** The pshared flag indicates whether the semaphore is to be shared across processes.
 ## Reader/Writer Locks
 
@@ -56,7 +56,7 @@ A reader/writer lock behaves similarly to a mutex; however, now the developer on
 ## Using Reader/Writer Locks
 
 Here is the primary API for reader/writer locks in Linux.
-![[P3L4-using-reader-writer-locks.png]]
+![](/img/P3L4-using-reader-writer-locks.png)
 As usual, we have a datatype - `rwlock_t` and we perform operations on that data type. We can lock/unlock the lock for reads as well as for writes.
 
 Reader/writer locks are supported in many operating systems and language runtimes.
@@ -132,13 +132,13 @@ Which specific atomic instructions are available on a given platform varies from
 ## Shared Memory Multiprocessors
 
 A multiprocessor system consists of more than one CPU and some memory unit that is accessible to all of these CPUs. That is, the memory component is shared by the CPUs.
-![[P3L4-shared-memory-multiprocessors-1.png]]
+![](/img/P3L4-shared-memory-multiprocessors-1.png)
 In the interconnect-based configuration, multiple memory references can be in flight at a given moment, one to each connected memory module. In a bus-based configuration, the shared bus can only support one memory reference at a time.
 
 Shared memory multiprocessors are also referred to as symmetric multiprocessors, or just SMPs.
 
 Each of the CPUs in an SMP platform will have a cache.
-![[P3L4-shared-memory-multiprocessors-2.png]]
+![](/img/P3L4-shared-memory-multiprocessors-2.png)
 In general, access to the cache data is faster than access to data in main memory. Put another way, caches hide memory latency. This latency is even more pronounced in shared memory systems because there may be contention amongst different CPUs for the shared memory components. This contention will cause memory accesses to be delayed, making cached lookups appear that much faster.
 
 When CPUs perform a write, many things can happen.
@@ -151,7 +151,7 @@ A final alternative is to apply the write immediately to the cache, and perform 
 ## Cache Coherence
 
 What happens when multiple CPUs reference the same data?
-![[P3L4-cache-coherence.png]]
+![](/img/P3L4-cache-coherence.png)
 On some architectures this problem needs to be dealt with completely in software; otherwise, the caches will be incoherent. For instance, if one CPU writes a new version of `X` to its cache, the hardware will not update the value across the other CPU caches. These architectures are called **non-cache-coherent** (NCC) architectures.
 
 On **cache-coherent** (CC) architectures, the hardware will take care of all of the necessary steps to ensure that the caches are coherent. If one CPU writes a new version of `X` to its cache, the hardware will step in and ensure that the value is updated across CPU caches.
@@ -194,7 +194,7 @@ Finally, we would like a design that _reduces contention_ on the shared bus or i
 ## Test and Set Spinlock
 
 Here is the API for the **test-and-set spinlock**.
-![[P3L4-test-and-set-spinlock.png]]
+![](/img/P3L4-test-and-set-spinlock.png)
 The `test_and_set` instruction is a very common atomic that most hardware platforms support.
 
 From a latency perspective, this spinlock is as good as it gets. We only execute one atomic operation, and there is no way we can do better than this.
@@ -211,7 +211,7 @@ The problem with the previous implementation is that all of the CPUs are spinnin
 The intuition is that CPUs can potentially test their cached copy of the lock and only execute the atomic if it detects that its cached copy has changed.
 
 Here is the resulting spinlock `lock` operation.
-![[P3L4-test-and-test-and-set-spinlock.png]]
+![](/img/P3L4-test-and-test-and-set-spinlock.png)
 First we check if the lock is busy. Importantly, this check is performed against the cached value. As long as the lock is busy, we will stay in the while loop, and we won't need to evaluate the second part of the predicate. Only when the lock becomes free - when `lock == busy` evaluates to false - do we actually execute the atomic.
 
 This spinlock is referred to as the **test-and-test-and-set spinlock**. It is also called a spin-on-read or spin-on-cached-value spinlock.
@@ -234,7 +234,7 @@ However, write-invalidate will invalidate the cached copy. Even if the value has
 ## Spinlock "Delay" Alternatives
 
 We can introduce a delay in order to deal with the problems introduced by the `test_and_set` and `test_and_test_and_set` spin locks.
-![[P3L4-spinlock-delay-alternatives-1.png]]
+![](/img/P3L4-spinlock-delay-alternatives-1.png)
 This implementation introduces a delay every time the thread notices that the lock is free.
 
 The rationale behind this is to prevent every thread from executing the atomic instruction at the same time.
@@ -248,7 +248,7 @@ From a latency perspective, this lock is okay. We still have to perform a memory
 From a delay perspective, clearly our performance has decreased. Once a thread sees that a lock is free, we have to delay for some (seemingly arbitrary) amount of time. If there is no contention for the lock that delay is wasted time.
 
 An alternative delay-based lock introduces a delay after each memory reference.
-![[P3L4-spinlock-delay-alternatives-2.png]]
+![](/img/P3L4-spinlock-delay-alternatives-2.png)
 The main benefit of this is that it works on NCC architectures. Since a thread has to go to main memory on every reference on NCC architectures, introducing an artificial delay great decreases the number of reference the thread has to perform while spinning.
 
 Unfortunately, this alternative will hurt the delay much more, because the thread will delay every time the lock is referenced, not just when the thread detects the lock has become free.
@@ -276,7 +276,7 @@ The reason for introducing a delay is to guard against the case where every thre
 Alternatively, if we can prevent every thread from seeing that the lock has been freed _at the same time_, we can indirectly prevent the case of all threads rushing to acquire the lock simultaneously.
 
 The lock that controls which thread(s) see that the lock is free at which time is the **queuing lock**.
-![[P3L4-queueing-a-lock.png]]
+![](/img/P3L4-queueing-a-lock.png)
 The queueing lock uses an array of flags with up to `n` elements, where `n` is the number of threads in the system. Each element in the array will have one of two values: either `has_lock` or `must_wait`. In addition, one pointer will indicate the current lock holder (which will have a value of `has_lock`), and another pointer will reference the last element on the queue.
 
 When a new thread arrives at the lock, it will receive a ticket, which corresponds to the current position of the thread in the lock. This will be done by adding it after the existing last element in the queue.
@@ -291,7 +291,7 @@ This strategy has two drawbacks. First, it requires support for the `read_and_in
 
 In addition, this lock requires much more space than other locks. All other locks required a single memory location to track the value of the lock. This lock requires `n` such locations, one for each thread.
 ## Queuing Lock Implementation
-![[P3L4-queueing-lock-implementation.png]]
+![](/img/P3L4-queueing-lock-implementation.png)
 The atomic operation involves the variable `queuelast`, but the rest of the locking code doesn't involve that variable. Any invalidation traffic concerned with cached values of `queuelock` aren't going to concern the spinning that occurs on any of the elements in the flags array.
 
 From a latency perspective, this lock is not very efficient. It performs a more complex atomic operation, `read_and_increment` which takes more cycles than a standard `test_and_set`.
@@ -302,7 +302,7 @@ From a contention perspective, this lock is much better than any locks we have d
 
 In order to realize these contention gains, we must have a cache coherent architecture. Otherwise, spinning must involve remote memory references. In addition, we have to make sure that every element is on a different cache line. Otherwise, when we change the value of one element in the array, we will invalidate the entire cache line, so the processors spinning on other elements will have their caches invalidated.
 ## Spinlock Performance Comparisons
-![[P3L4-spinlock-performance-comparisions.png]]
+![](/img/P3L4-spinlock-performance-comparisions.png)
 This figures shows measurements that were gathered from executing a program that had multiple processes. Each process executed a critical section in a loop, one million times. The number of processes in the system was varied such that there was only one process per processor.
 
 The platform that was used was Sequent Symmetry, which has twenty processors, which explains why the number of processors on the graph is capped at 20. This platform is cache coherent with write-invalidate.

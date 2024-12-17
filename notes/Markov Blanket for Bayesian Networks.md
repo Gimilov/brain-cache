@@ -20,7 +20,7 @@ The Markov Blanket of a node includes:
 - the parents of the node
 - the children
 - other parents of those children
-![][stats-bn-markov-blanket.png]
+![](/img/stats-bn-markov-blanket.png)
 
 The Markov Blanked of the node $X_i$ contains all the nodes that, if we know their states (i.e. we have evidence for these nodes), it will isolate the node $X_i$ from the rest of the network (i.e. it will make $X_i$ independent of all the other nodes given its Markov Blanket). Note the inclusion of other parents of its children - it's to avoid "discounting away" type of information flow.
 
@@ -35,4 +35,4 @@ Technically, the Markov condition is **guaranteed by learning the DAG from the d
 In a causal Bayesian Networks, the [[Markov Property]] is satisfied given that **all common causes** are represented in the graph (i.e. there are no hidden common causes acting as confounding factors)q.
 
 In our Season example, we can say there is no way for `Rain` to influence `Slippery` except by way of causing `Wet` or not. Thus, we can assume there is no hidden variable connecting `Rain` and `Slippery` . Every independency suggested by **lack of an arrow** between `Rain` and `Slippery` is actually **real in the system**.
-![][stats-bn-information-flow-example-3.png]
+![](/img/stats-bn-information-flow-example-3.png)

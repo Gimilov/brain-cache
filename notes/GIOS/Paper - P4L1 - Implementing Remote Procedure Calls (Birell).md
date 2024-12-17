@@ -5,6 +5,6 @@ tags:
 ---
 Created: 2024-11-04 20:47
 # Paper
-![[P4L1-implementing-RPC.pdf]]
+![](/img/P4L1-implementing-RPC.pdf)
 
 

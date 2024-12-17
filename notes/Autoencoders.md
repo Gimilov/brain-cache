@@ -14,7 +14,7 @@ Autoencoder transforms an input (observation) $x$ to an output $r$ (reconstructi
 - ENCODER: used to learn the encoder function $h=f(x)$ that maps the input to a low-dimensional space
 - DECODER: used to learn a decoder function $r = g(h) = h(f(x))$ that reconstructs the input from its low-dimensional representation.
 Note that the hidden layer representation $h$ describes a code used to represent the input.
-![][dl-autoencoder-example.png]
+![](/img/dl-autoencoder-example.png)
 # Loss function
 Like any other neural network, we train an autoencoder by minimizing a loss function, i.e. the reconstruction error between $x \in \mathbb{R}^p$ and $r=g(f(x)) \in \mathbb{R}^p$ . 
 
@@ -30,7 +30,7 @@ Like for any other neural network, we may use stochastic gradient (with gradient
 
 # Deep Autoencoders
 So far, we have focused on shallow autoencoders, i.e. single layer autoencoders. Like for other neural networks, we often benefit from adding multiple layers after each other to construct deep autoencoders, or stacked autoencoders.
-![][dl-deep-autoencoder.png]
+![](/img/dl-deep-autoencoder.png)
 We may also benefit from using different types of layers in the autoencoder:
 - DENSE LAYER: the fully connected layer considered thus far
 - CONVOLUTIONAL LAYER: exploits the spatial dependence in data with grid-like structure like images and requires fewer parameters to estimate than a dense layer.

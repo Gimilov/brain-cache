@@ -23,4 +23,4 @@ Dropout is applied to the layer before it.
 
 - Clear improvement
 - In case of IMDB movies we get lower loss than L2 regularization
-![][dropout.png]
+![](/img/dropout.png)

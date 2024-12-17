@@ -7,9 +7,9 @@ Created: 2023-09-30 17:11
 # Definition
 
 A general overview of CNN model structure:
-![][cv-cnn-structure.png]
+![](/img/cv-cnn-structure.png)
 While dense layers learn global patterns involving all pixels, Conv2D learn local patterns found in small 2d windows.
-![][cv-cnn-breakdown.png]
+![](/img/cv-cnn-breakdown.png)
 This gives convnets two interesting properties that we desire:
 1. The patterns they learn are translation-invariant
    - pattern learned in the lower-right corner of an image can be recognized anywhere
@@ -37,22 +37,22 @@ We still use the ReLU activation function. It is applied across each feature map
 ```
 layers.Conv2D(..., activation="relu", ...)
 ```
-![][cv-cnn-relu.png]
+![](/img/cv-cnn-relu.png)
 
 # Multiple convolutions and pooling
 
 Early layers will resemble the initial images the most and subsequent layers create abstract images that only make sense mathematically.
-![][cv-cnn-abstraction.png]
+![](/img/cv-cnn-abstraction.png)
 We can use this tool to play around with visualization: https://adamharley.com/nn_vis/cnn/2d.html
 
 # Flattening
 
 Flattening takes our last multidimensional convolution and flattens it into a vector
-![][cv-cnn-flattening.png]
+![](/img/cv-cnn-flattening.png)
 
 # Visualized
 
-![][cv-cnn-visualized.gif]
+![](/img/cv-cnn-visualized.gif)
 
 # Simple CNN on MNIST
 ```python

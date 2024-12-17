@@ -36,7 +36,7 @@ f(y|x) = f(y)
 $$
 
 If the two categorical variables are **independent**, in each cell of the contingency table, the joint probability is equal to the product of the corresponding marginal probabilities.
-![][stats-independence.png]
+![](/img/stats-independence.png)
 
 Often, it is preferred the characterization of independent variables that does not involve the density of $X$, that is:
 $$P(Y|X)=P(Y)$$

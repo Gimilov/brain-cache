@@ -25,7 +25,7 @@ $$
 p_{j|i} = \frac{exp(-||x_i - x_j||_2^2 / 2\sigma_i^2 )}{\sum_{k \neq i } exp(-||x_i-x_k||_2^2 / 2\sigma ^2_i)}
 $$
 In a sense, $\sigma_i$ determines the neighbourhoods we are trying to preserve; the method for determining $\sigma_i$ is discussed in Van der Maaten & Hinton (2013). Below is the illustration of how to compute the numerator in the expression for $p_{j|i}$ for some two-dimensional data, i.e. the unscaled similarity between observations. The denominator in $p_{j|i}$ the re-scales these similarities so that they sum to one. 
-![][dl-tsne-2.png]
+![](/img/dl-tsne-2.png)
 We want to construct low-dimensional counterparts $y_i$ and $y_j$ of the observations $x_i$ and $x_j$ such that the similarity between $y_i$ and $y_j$ match that between $x_i$ and $x_j$. We compute the conditional probability that $y_i$ picks $y_j$ as its neighbour.
 $$
 q_{j|i} = \frac{exp(-||y_i - y_j||_2^2  )}{\sum_{k \neq i } exp(-||y_i-y_k||_2^2 )}

@@ -16,7 +16,7 @@ The positive effects of batch normalization.
 - **Improves accuracy**. These two pros combined often result in better accuracy.
 - Some very deep networks can only be trained if they include multiple batch norm layers - it helps with gradient propagation similarly to residual connections
 - ResNet50, Inception V3 and [[Xception]] all are designed with liberal uses of batch norm
-![][batchnorm2.png]
+![](/img/batchnorm2.png)
 
 # Batch normalization in code & explanations
 The `BatchNormalization` layer can be used after any layer
@@ -42,8 +42,8 @@ Each layer of a neural network has inputs with a corresponding distribution, whi
 Batch normalization was initially proposed to mitigate internal covariate shift. During the training stage of networks, as the parameters of the preceding layers change, the distribution of inputs to the current layer changes accordingly, such that the current layer needs to constantly readjust to new distributions. This problem is especially severe for deep networks, because small changes in shallower hidden layers will be amplified as they propagate within the network, resulting in significant shift in deeper hidden layers. Therefore, the method of batch normalization is proposed to reduce these unwanted shifts to speed up training and to produce more reliable models.
 
 Besides reducing internal covariate shift, batch normalization is believed to introduce many other benefits. With this additional operation, the network can use higher learning rate without vanishing or exploding gradients. Furthermore, batch normalization seems to have a regularizing effect such that the network improves its generalization properties, and it is thus unnecessary to use dropout to mitigate overfitting. It has also been observed that the network becomes more robust to different initialization schemes and learning rates while using batch normalization.
-![][batchnorm.webp]
-![][batchnorm1.webp]
+![](/img/batchnorm.webp)
+![](/img/batchnorm1.webp)
 1. Activations
 The activations from the previous layer are passed as input to the Batch Norm. There is one activation vector for each feature in the data.
 2. Calculate Mean and Variance
@@ -60,7 +60,7 @@ In addition, Batch Norm also keeps a running count of the Exponential Moving Ave
 
 We will return to this point a little later when we talk about Inference. The Moving Average calculation uses a scalar ‘momentum’ denoted by alpha. This is a hyperparameter that is used only for Batch Norm moving averages and should not be confused with the momentum that is used in the Optimizer.
 
-![][batchnorm-inference.webp]
+![](/img/batchnorm-inference.webp)
 As we discussed above, during Training, Batch Norm starts by calculating the mean and variance for a mini-batch. However, during Inference, we have a single sample, not a mini-batch. How do we obtain the mean and variance in that case?
 
 Here is where the two Moving Average parameters come in — the ones that we calculated during training and saved with the model. We use those saved mean and variance values for the Batch Norm during Inference.

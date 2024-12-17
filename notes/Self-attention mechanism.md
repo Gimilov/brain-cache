@@ -31,7 +31,7 @@ The self-attention mechanism allows the inputs to interact with each other ("sel
 Consider the word "station".
 - What kind of station? Is a radio station? The international Space Station?
 - We can use self-attention to figure that out.
-![][nlp-self-attention-in-action.png]
+![](/img/nlp-self-attention-in-action.png)
 The resulting vector is our new representation for the word "station". 
 - a representation that includes the surrounding context
 - a representation that includes part of the "train" vector, clarifying that it is a "train station"
@@ -71,7 +71,7 @@ In case of translation, the `query` would be the target sequence, and the source
 
 # Visualizing attention
 Since we are are making `query`, `key` , and `value` representations out of single input, it is adequate to the example above regarding the text classification.
-![][nlp-visualizing-attention-1.webp]
+![](/img/nlp-visualizing-attention-1.webp)
 ```python
 # 4D embeddings for each word
 Input 1: [1, 0, 1, 0] # word 1 (the)
@@ -96,7 +96,7 @@ Now, we need weights. We make up some random weights for `key`, `query`, and `va
  [1, 0, 3],
  [1, 1, 0]]
 ```
-![][nlp-visualizing-attention-2.gif]
+![](/img/nlp-visualizing-attention-2.gif)
 Get the key representation for all inputs. We stack the inputs into a matrix and multiply each weight matrix by one input matrix. A 3x4 matrix multiplies by 4x3 matrix, resulting in 3x3 matrix. 
 ```python
 # Key representation          
@@ -105,7 +105,7 @@ Get the key representation for all inputs. We stack the inputs into a matrix and
 [0, 2, 0, 2] x [0, 1, 0] = [4, 4, 0]
 [1, 1, 1, 1]   [1, 1, 0]   [2, 3, 1]
 ```
-![][nlp-visualizing-attention-3.gif]
+![](/img/nlp-visualizing-attention-3.gif)
 ```python
 # Value representation          
                [0, 2, 0]
@@ -113,7 +113,7 @@ Get the key representation for all inputs. We stack the inputs into a matrix and
 [0, 2, 0, 2] x [1, 0, 3] = [2, 8, 0]
 [1, 1, 1, 1]   [1, 1, 0]   [2, 6, 3]
 ```
-![][nlp-visualizing-attention-4.gif]
+![](/img/nlp-visualizing-attention-4.gif)
 ```python
 # Query representation          
                [1, 0, 1]
@@ -121,7 +121,7 @@ Get the key representation for all inputs. We stack the inputs into a matrix and
 [0, 2, 0, 2] x [0, 0, 1] = [2, 2, 2]
 [1, 1, 1, 1]   [0, 1, 1]   [2, 1, 3]
 ```
-![][nlp-visualizing-attention-5.gif]
+![](/img/nlp-visualizing-attention-5.gif)
 Compute attention scores by taking the dot product between input 1's `query` (red) with all `keys` (orange), including itself. 3 `keys` representations $\to$ 3 attention scores.
 ```python
 # We only use the query from Input 1.
@@ -129,12 +129,12 @@ Compute attention scores by taking the dot product between input 1's `query` (re
 [1, 0, 2] x [1, 4, 3] = [2, 4, 4]
             [1, 0, 1]
 ```
-![][nlp-visualizing-attention-6.gif]
+![](/img/nlp-visualizing-attention-6.gif)
 ```python
 # Move attention scores through the softmax function
 softmax([2, 4, 4]) = [0.0, 0.5, 0.5]
 ```
-![][nlp-visualizing-attention-7.gif]
+![](/img/nlp-visualizing-attention-7.gif)
 Multiply scores with values. The softmaxed attention scores for each input (blue) is multiplied by its corresponding `value` (purple). The result is 3 vectors (yellow) with weighted `values`. 
 ```python
 # Multiply scores with values
@@ -142,7 +142,7 @@ Multiply scores with values. The softmaxed attention scores for each input (blue
 2: 0.5 * [2, 8, 0] = [1.0, 4.0, 0.0]
 3: 0.5 * [2, 6, 3] = [1.0, 3.0, 1.5]
 ```
-![][nlp-visualizing-attention-8.gif]
+![](/img/nlp-visualizing-attention-8.gif)
 Sum weighted values to get Output #1. Take all the weighted `values` (yellow) and sum them element-wise.
 ```python
   [0.0, 0.0, 0.0]
@@ -152,5 +152,5 @@ Sum weighted values to get Output #1. Take all the weighted `values` (yellow) an
 = [2.0, 7.0, 1.5]
 ```
 Output 1 is the new embedding vector for Input #1. It's based on the query representation from Input #1 interacting with all other keys including itself.
-![][nlp-visualizing-attention-9.gif]
+![](/img/nlp-visualizing-attention-9.gif)
 Now we repeat for Output #2 and Output #3 and BOOM!

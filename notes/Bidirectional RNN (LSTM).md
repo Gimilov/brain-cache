@@ -9,8 +9,8 @@ Created: 2023-09-14 21:00
 A **Bidirectional** LSTM is a sequence processing model that consists of two LSTMs: one taking the input in a forward direction, and the other in a backwards direction.
 - BRNNs increase the amount of information available to the network
 - able to catch patterns that may have been overlooked by one-direction RNN
-![][nlp-bidirectional-rnn.png]
-![][nlp-bidirectional-rnn-1.png]
+![](/img/nlp-bidirectional-rnn.png)
+![](/img/nlp-bidirectional-rnn-1.png)
 
 | *… relying on knowledge of the future seems at first sight to violate causality. How can we base our understanding of what we’ve heard on something that hasn’t been said yet? However, human listeners do exactly that. **Sounds, words, and even whole sentences that at first mean nothing are found to make sense in the light of future context**. What we must remember is the distinction between tasks that are truly online – requiring an output after every input – and those where outputs are only needed at the end of some input segment* ¬ Graves&Schmidhuber|
 |---| 

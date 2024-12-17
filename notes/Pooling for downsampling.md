@@ -7,7 +7,7 @@ Created: 2023-10-01 01:46
 # Definition
 
 After one or more convolution operations, we usually perform pooling to reduce dimensionality. It identifies the most prominent features within each feature map.
-![][cv-pooling.jpg]
+![](/img/cv-pooling.jpg)
 Why we do pooling? Because:
 - it makes the feature dimensions smaller and more manageable
 - decreases computation time & controls overfitting

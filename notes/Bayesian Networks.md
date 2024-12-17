@@ -22,10 +22,10 @@ Some other names for Bayesian Networks are Directed Graphs or Causal Networks. A
 
 1. The structure/DAG where $nodes=variables$ and $arcs=links=relationships$ .
 2. The strength of these relationships is defined by the Conditional Probability Tables attached to each node.
-![][stats-bn.png]
-![][stats-bn-1.png]
+![](/img/stats-bn.png)
+![](/img/stats-bn-1.png)
 Based on some exemplary data:
-![][stats-bn-2.png]
+![](/img/stats-bn-2.png)
 
 # Inference
 
@@ -40,8 +40,8 @@ Previous knowledge:
 
 - Build the structure
 - Define prior probabilities of the root nodes (Fraud, Age, Sex) and conditional probabilities of the children nodes (Gas, Jewellery) for every combination of the states of its parents
-![][stats-bn-inference.png]
-![][stats-bn-inference-1.png]
+![](/img/stats-bn-inference.png)
+![](/img/stats-bn-inference-1.png)
 
 
 
@@ -52,9 +52,9 @@ Previous knowledge:
 # Algorithms for classification
 ### 1. Naïve Bayes
 Used to predict class membership probabilities based on the common aspects of each subject data (similar to logistic regression and discriminant analysis).
-![][stats-bn-naive-bayes.png]
+![](/img/stats-bn-naive-bayes.png)
 ### 2. Tree Augmented Naïve Bayes (TAN)
-![][stats-bn-tan.png]
+![](/img/stats-bn-tan.png)
 
 # Algorithms focused on causality discovery
 ### 3. Constrained-based algorithms
@@ -100,11 +100,11 @@ General heuristic optimization techniques useful for prediction.
 
 There are 3 principles or type of connections. Following these principles, it is possible to decide for any pair of variables whether they are independent given the evidence entered in the network.
 ### 1. Serial Connection
-![][stats-bn-serial-connection.png]
+![](/img/stats-bn-serial-connection.png)
 ### 2. Discounting (Explaining away)
-![][stats-bn-explaining-away.png]
+![](/img/stats-bn-explaining-away.png)
 ### 3. Divergent (Common cause)
-![][stats-bn-divergent.png]
+![](/img/stats-bn-divergent.png)
 ### D-Separation concept
 D-separation is a criterion for deciding whether a set X of variables is independent of another set Y, given one controls for a third set Z, using the three principles above.
 ### Examples

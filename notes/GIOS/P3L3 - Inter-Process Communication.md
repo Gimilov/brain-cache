@@ -19,7 +19,7 @@ Finally, the need for communication and coordination illustrates the necessity o
 ## Message Based IPC
 
 In messaged-based IPC, processes create messages and then send and receive them. The operating system is responsible for creating and maintaining the channel that is used to send these messages.
-![[P3L3-message-based-ipc.png]]
+![](/img/P3L3-message-based-ipc.png)
 The OS provides an interface to the processes so that they can send messages via this channel. The processes send/write messages to a port, and then recv/read messages from a port. The channel is responsible for passing the message from one port to the other.
 
 Since the OS is required to establish the communication and perform each IPC operation, every send and receive call requires a system call and a data copy. When we send, the data must be copied from the process address space into the communication channel. When we receive, the data must be copied from the communication channel into the process address space.
@@ -32,7 +32,7 @@ One of the positives of this approach is its relative simplicity. The OS kernel 
 The are several ways to implement message-based IPC.
 ### Pipes
 Pipes are characterized by two endpoints, so only two processes can communicate via a pipe. There is no notion of a message with pipes; instead, there is just a stream of bytes pushed into the pipe from one process and read from the pipe by the other process.
-![[P3L3-pipes.png]]
+![](/img/P3L3-pipes.png)
 One popular use of pipes is to connect the output from one process to the input of another.
 
 ```
@@ -43,13 +43,13 @@ cat /some/really/large/file | grep "needle in a haystack"
 ```
 ### Message Queues
 Messages queues understand the notion of messages that they can deliver. A sending process must submit a properly formatted message to the channel, and then the channel can deliver this message to the receiving process.
-![[P3L3-message-queues.png]]
+![](/img/P3L3-message-queues.png)
 The OS level functionality regarding message queues includes mechanisms for message priority, custom message scheduling and more.
 
 The use of message queues is supported via different APIs in Unix-based systems. Two common APIs are SysV and POSIX.
 ### Sockets
 With sockets, processes send and receive messages through the socket interface. The socket API supports `send` and `recv` operations that allow processes to send message buffers in and out of the kernel-level communication buffer.
-![[P3L3-sockets.png]]
+![](/img/P3L3-sockets.png)
 The `socket` call itself creates a kernel-level socket buffer. In addition, it will associate any kernel level processing that needs to be associated with the socket along with the actual message movement.
 
 For instance, the socket may be a TCP/IP socket, which means that the entire TCP/IP protocol stack is associated with the socket buffer.
@@ -58,7 +58,7 @@ Socket-based communication can happen between processes on different machines! I
 ## Shared Memory IPC
 
 In shared memory IPC, processes read and write into a shared memory region. The operating system is involved in establishing the shared memory channel between the processes. What this means is that the OS will map certain physical pages in memory into the virtual address spaces of both processes. The virtual addresses in each process pointing a shared physical location do not have to be the same. In addition, the shared physical memory section does not need to be contiguous.
-![[P3L3-shared-memory-ipc.png]]
+![](/img/P3L3-shared-memory-ipc.png)
 The big benefit of this approach is that once the physical memory is mapped into both address spaces, the operating system is out of the way. System calls are used only in the setup phase.
 
 Data copies are reduced, but not necessarily avoided. For data to be available to both processes, it needs to explicitly be allocated from the virtual addresses the belong to the shared memory region. If that is not the case, the data within the same address space needs to be copied in and out of the shared memory region.
@@ -153,7 +153,7 @@ One of the attributes that are used to specify the properties of the mutex or th
 The keyword for this is `PTHREAD_PROCESS_SHARED`. If we specify this in the attribute structs that are passed to mutex/condition variable initialization we will ensure that our synchronization variables will be visible across processes.
 
 One very important thing to remember is that these data structures must also live in shared memory!
-![[P3L3-pthread-sync-for-ipc.png]]
+![](/img/P3L3-pthread-sync-for-ipc.png)
 To create the shared memory segment, we first need to create our segment identifier. We do this with `ftok`, passing `arg[0]` which is the pathname for the program executable as well as some integer parameter. We pass this id into `shmget`, where we specify a segment size of 1KB and also pass in some flags.
 
 Using the segment id, we attach the segment with `shmat`, which returns a shared memory address - which we assign to `shm_address` here. `shm_address` is the virtual address in this process's address space that points to the physically shared memory.
@@ -173,7 +173,7 @@ With message queues, we can implement mutual exclusion via send/recv operations.
 
 Semaphores are an OS support synchronization construct and a binary semaphore can have two states, 0 or 1. When a semaphore has a value of 0, the process will be blocked. If the semaphore has a value of 1, the process will decrement the value (to 0) and will proceed.
 ## IPC Command Line Tools
-![[P3L3-ipc-command-line-tools.png]]
+![](/img/P3L3-ipc-command-line-tools.png)
 ## Design Considerations
 
 Let's consider two multithreaded processes in which the threads need to communicate via shared memory.

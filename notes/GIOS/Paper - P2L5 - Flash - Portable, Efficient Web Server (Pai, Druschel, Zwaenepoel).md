@@ -161,6 +161,6 @@ Source: .zip file on OMSCS reddit ([Author](https://github.com/wynand1004))
 
 
 # Paper
-![[P2L5-Flash-portable-efficient-web-server.pdf]]
+![](/img/P2L5-Flash-portable-efficient-web-server.pdf)
 
 

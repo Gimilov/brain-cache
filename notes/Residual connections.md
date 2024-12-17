@@ -7,7 +7,7 @@ Created: 2023-10-02 17:38
 # Definition
 
 If our chain is too deep, the noise starts to overwhelm gradient information, and backpropagation stops working. Your model won't train at all. This is the **vanishing gradients** problem.
-![][residual-connections.jpg]
+![](/img/residual-connections.jpg)
 A residual connection presents a dead easy fix: just add the input of a layer or block of layers back to its output.
 - The residual connection acts as an **information shortcut** around destructive or noisy blocks (blocks with ReLU, dropout, etc.)
 - information can get noiselessly through the network
@@ -30,11 +30,11 @@ residual = layers.Conv2D(64, 1)(residual)
 x = layers.add([x, residual])
 ```
 We simply set aside the residual. We use`padding="same"` to avoid downsampling.
-![][cv-padding.gif]
+![](/img/cv-padding.gif)
 The residual here had 32 filters, so we can use a 1x1 Conv2D to project it to the correct shape. No activation - we want to carry information forward, not risk losing it through non-linear transformation.
 
 1x1 convolution looks at each 32 positions and takes the elementwise-product between 32 numbers on the left and the filter. So, if we use 64 different filters, we'll project the 32 feature maps to 64 feature maps. Look at the image below.
-![][cv-cnn-residual-connection-layer.png]Afterwards, the block output and the residual have the same shape and can be added.
+![](/img/cv-cnn-residual-connection-layer.png)Afterwards, the block output and the residual have the same shape and can be added.
 
 #### 2. Case where the target block included a max pooling layer
 ```python
@@ -47,7 +47,7 @@ residual = layers.Conv2D(64, 1, strides=2)(residual)
 x = layers.add([x, residual])
 ```
 Residuals are set aside again. Here comes the block of two layers that we create our connection around. We use `padding = "same"` in both layers to avoid downsampling. Again, we use 1x1 convolution so we can add the residual layer, but use `strides = 2` to match the downsampling caused by max pooling. 
-![][cv-stride.gif]
+![](/img/cv-stride.gif)
 #### 3. Example!
 A simple convnet structure with a series of blocks:
 - two convnet layers and one optional max pooling

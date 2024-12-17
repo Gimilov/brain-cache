@@ -9,7 +9,7 @@ Created: 2023-10-01 01:33
 Padding prevents the consecutive convolution layers to shrink in height and widfh. Zero padding adds a border with values of 0.
 - helps keep information at the edges
 - prevents deep models from reducing feature map sizes too quickly.
-![][cv-padding.gif]
+![](/img/cv-padding.gif)
 
 Without padding:
 ```

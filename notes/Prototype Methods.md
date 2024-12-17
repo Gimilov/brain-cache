@@ -25,4 +25,4 @@ Each prototype has an associated class label, and classification of a query poin
 These methods can be very effective if the prototypes are well positioned to capture the distribution of each class. Irregular class boundaries can be represented, with enough prototypes in the right places in feature space. The main challenge is to figure out how many prototypes to use and where to put them. Methods differ according to the number and way in which prototypes are selected. 
 
 # References
-1. ![][ml-resources/elements-of-statistical-learning.pdf#page=478]
+1. ![](/img/ml-resources/elements-of-statistical-learning.pdf#page=478]

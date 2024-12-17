@@ -98,6 +98,6 @@ Source: .zip file on OMSCS reddit ([Author](https://github.com/wynand1004))
  - This paper developed a formal model of a third generation computer system and derived the necessary and sufficient conditions to determine whether such a machine can support a VMM.
 
 # Paper
-![[P3L5-Formal-Requirements-for-Virtualizable-Third-Generation-Architectures.pdf]]
+![](/img/P3L5-Formal-Requirements-for-Virtualizable-Third-Generation-Architectures.pdf)
 
 

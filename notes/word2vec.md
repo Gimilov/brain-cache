@@ -33,7 +33,7 @@ In the end, two methods emerge:
    - objective function:
      $$J_\Theta = \frac{1}{T}\sum_{t=1}^{T}logp(w_t|w_{t-n},...,w_{t-1},w_{t+1},...,w_{t+n})$$
    - $Q = N*D+D*log_2(V)$ 
-![][nlp-continuous-bow-model-word2vec.png]
+![](/img/nlp-continuous-bow-model-word2vec.png)
 $\text{in picture above and below C=no. of words in context}$
 $\text{V=vocabulary size, N=hidden layer size}$
 
@@ -42,16 +42,16 @@ $\text{V=vocabulary size, N=hidden layer size}$
    - objective function:
 	   $$ J_\Theta = \frac{1}{T} \sum_{t=1}^{T}{\sum_{-n\leq j\leq n\neq0}}logp(w_{j+1}|w_t) $$
    - $Q=C*(D+D*log_2(V))$ 
-![][nlp-skipgram-model-word2vec.png]
+![](/img/nlp-skipgram-model-word2vec.png)
 
 Comparison figure from the paper:
-![] [nlp-cbow-skipgram-word2vec.png]
+![] [nlp-cbow-skipgram-word2vec.png)
 
 #### How the embedding is obtained:
-![][nlp-word2vec-getting-embedding.png]
+![](/img/nlp-word2vec-getting-embedding.png)
 
 #### Paper:
-![Efficient Estimation of Word Representation in Vector Space][/ml-resources/efficient-estimation-of-word-representations-in-vector-space-word2vec.pdf]
+![Efficient Estimation of Word Representation in Vector Space][/ml-resources/efficient-estimation-of-word-representations-in-vector-space-word2vec.pdf)
 
 #### Links to this note:
 - [[Word embedding]]

@@ -7,7 +7,7 @@ Created: 2023-10-03 00:49
 # Definition
 
 The Xception architecture is a high-performing convnet. Below is the overall architecture of Xception (Entry Flow > Middle Flow > Exit Flow).
-![][cv-exception.webp]
+![](/img/cv-exception.webp)
 Let's build a mini Xception-like model.
 
 ```python

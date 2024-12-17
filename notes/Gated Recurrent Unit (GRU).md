@@ -9,9 +9,9 @@ Created: 2023-09-16 01:33
 Gated recurrent units (GRUs) are a gating mechanism in recurrent neural networks, introduced in 2014 by Kyunghyun et al. The GRU is like a [[LSTM (Long Short-Term Memory)]] with a forget gate, but has fewer parameters than LSTM, as it lacks an output gate. GRU's performance on certain tasks of polyphonic music modelling, speech signal modelling and natural language processing was found to be similar to that of LSTM.  GRUs showed that gating is indeed helpful in general, and Bengio's team came to no concrete conclusion on which of the two gating units was better. 
 
 # Architecture
-![][nlp-gru.png]
+![](/img/nlp-gru.png)
 $$vs. Wikipedia's$$
-![][nlp-gru-wiki.png]
+![](/img/nlp-gru-wiki.png)
 For Wikipedia's notation:
 $$
 z_t = \sigma(W_zx_t+U_zh_{t-1}+b_z)
@@ -46,13 +46,13 @@ Alternative activation functions are possible, provided that $\sigma (x) \in [0,
 Alternate GRU forms can be created by changing $z_t$ and $r_t$ :
 - Type 1, each gate depends only on the previous hidden state and the bias,
   $z_t = \sigma(U_zh_{t-1}+b_z)$,   $r_t = \sigma(U_rh_{t-1} + b_r)$
-  ![][nlp-gru-type-1.png]
+  ![](/img/nlp-gru-type-1.png)
 - Type 2, each gate depends only on the previous hidden state,
   $z_t = \sigma(U_zh_{t-1})$,   $r_t = \sigma(U_rh_{t-1})$
-  ![][nlp-gru-type-2.png]
+  ![](/img/nlp-gru-type-2.png)
 - Type 3, each gate is computed using only the bias,
   $z_t=\sigma(b_z)$,   $r_t=\sigma(b_r)$
-  ![][nlp-gru-type-3.png] 
+  ![](/img/nlp-gru-type-3.png) 
 
 
 

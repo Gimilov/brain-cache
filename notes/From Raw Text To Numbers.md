@@ -10,11 +10,11 @@ Since machine do not understand the language as we do, we have to align to compu
 
 From raw text to numbers:
 
-![][nlp-text-to-numbers.png]
+![](/img/nlp-text-to-numbers.png)
 
 Word embedding is basically a better alternative to one-hot encoding:
 
-![x][nlp-onehot-vs-embedding.png]
+![x][nlp-onehot-vs-embedding.png)
 
 #### Links to this note:
 - [[Text standardization]]

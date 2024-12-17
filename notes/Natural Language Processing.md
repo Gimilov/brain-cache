@@ -13,5 +13,5 @@ There are different methods of making the computer understand our language as ex
 
 Given a problem at hand and not large amounts of data to train, we can also consider [[Transfer learning]] to exploit the knowledge gained from a previous task to improve the generalization of another.
 
-![][nlp-timeline-of-nlp-models.png]
+![](/img/nlp-timeline-of-nlp-models.png)
 

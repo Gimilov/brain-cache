@@ -33,4 +33,4 @@ $$
 \lambda_{opt, j} = N^{-1/p+4}s_j,
 $$
 where $s_j$ is the sample standard deviation of $X_j$ .
-![][stats-multivariate-density-estimator.png]
+![](/img/stats-multivariate-density-estimator.png)

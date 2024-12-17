@@ -24,9 +24,9 @@ model = keras.Model(inputs, outputs)
 $\uparrow$ remember to set $return_sequences=True$ to let each step return the full sequence.
 
 #### Single LSTM vs Nested/Stacked LSTM
-![][nlp-single-lstm.png]
+![](/img/nlp-single-lstm.png)
 $$vs.$$
-![][nlp-nested-lstm.png]
+![](/img/nlp-nested-lstm.png)
 
 #### Links to this note:
 - [[LSTM (Long Short-Term Memory)]]

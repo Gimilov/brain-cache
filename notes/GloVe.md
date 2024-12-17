@@ -47,7 +47,7 @@ $$X_{ij} \qquad \text{\# of occurences of j in context i}$$
 
 Training details are present in the paper below.
 ### Paper:
-![][ml-resources/global-vectors-for-word-representations.pdf]
+![](/img/ml-resources/global-vectors-for-word-representations.pdf)
 
 #### Links to this note:
 - [[Word embedding]]

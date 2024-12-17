@@ -11,7 +11,7 @@ Regularization techniques are a set of best practices that actively impede the m
 **L2 regularization** - cost added is proportional to the **square** of the value of the weight coefficients
 
 More resistant to overfitting even though both models have the same number of parameters.
-![][overfitting-l2.png]
+![](/img/overfitting-l2.png)
 
 # Code example
 Keras basic implementation

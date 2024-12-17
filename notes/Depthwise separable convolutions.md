@@ -12,11 +12,11 @@ Using `SeparableConv2D` instead of `Conv2D` makes our models
 - **Better**. Perform a few %-points better
 
 Standard convolution applies a 2D filter at each depth level of the input tensor.
-![][cv-cnn-standard.png]
+![](/img/cv-cnn-standard.png)
 Above, we have an input tensor with dimensions 3x8x8 and use 3x3x3 filter. For one slide, we perform 3x3x3=27 multiplications and eventually we are left with 8x8 output.
 
 **Depthwise convolution keeps each channel separate**. 
-![][cv-cnn-depthwise.png]
+![](/img/cv-cnn-depthwise.png)
 There are 3 stages:
 1. Split the input into channels, and split the filter into channels.
 2. For each of the channels, convolve the input with the corresponding filter, producing an output tensor (2D).

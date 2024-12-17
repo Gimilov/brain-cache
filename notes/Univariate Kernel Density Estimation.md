@@ -27,7 +27,7 @@ $$
 \hat f_X(x_0) =\frac{1}{N\lambda} \sum^N_{i=1} K_\lambda(x_0,x_i)
 $$
 because it counts observation close to $x_0$ with weights that decrease with distance from $x_0$ . In this case, a popular choice for $K_\lambda$ is the Gaussian kernel $K_\lambda(x_0,x_i) = \phi(|x-x_0| / \lambda)$ 
-![][esl-figure-6.13.png]
+![](/img/esl-figure-6.13.png)
 Letting $\phi_\lambda$ denote the Gaussian density with mean zero and standard-deviation of $\lambda$ , then the equation above has the form of:
 $$
 \hat f_X(x) = \frac{1}{N}\sum^N_{i=1} \phi_\lambda(x-x_i)
@@ -42,4 +42,4 @@ Pros:
 Cons:
 - For multivariate data $X \in \mathbb{R}^p$ where $p$ is large, problems of sparseness are likely to occur and fewer observations in the vicinity of $x_0$ receive substantial weight by the kernel function (curse of dimensionality).
 # References
-1. ![][ml-resources/elements-of-statistical-learning.pdf#page=228]
+1. ![](/img/ml-resources/elements-of-statistical-learning.pdf#page=228]

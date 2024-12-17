@@ -143,6 +143,6 @@ Source: .zip file on OMSCS reddit ([Author](https://github.com/wynand1004))
  - VMMs also allow for backward compatibility
  - The use of VMs will expand and will provide the fundamental building block for mobility, security, and usability on the desktop
 # Paper
-![[P3L6-VMM-current-technology-and-future-trends.pdf]]
+![](/img/P3L6-VMM-current-technology-and-future-trends.pdf)
 
 

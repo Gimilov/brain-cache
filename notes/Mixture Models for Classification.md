@@ -18,7 +18,7 @@ Created: 2023-10-24 14:52
 # Definition
 
 Using [[Bayes Theorem]], separate mixture densities in each class lead to flexible models for $Pr(G|X)$.
-![][esl-figure-6.17.png]
+![](/img/esl-figure-6.17.png)
 Using the combined data, we fit a two-component mixture of the form ([[Mixture Models for Density Estimation]]):
 $$
 f(x)=\sum^M_{m=1} \alpha_m\phi(x; \mu_m, \Sigma_m)
@@ -48,4 +48,4 @@ $$\qquad \quad Yes \qquad 76 \qquad 84$$
 Although the mixture model did not use the CHD labels, it has done a fair job in discovering the two CHD subpopulations. Linear logistic regression, using CHD as a response, achieves the same error rate (32%) when fit to these data using maximum likelihood.
 
 # References
-1. ![][ml-resources/elements-of-statistical-learning.pdf#page=233]
+1. ![](/img/ml-resources/elements-of-statistical-learning.pdf#page=233]

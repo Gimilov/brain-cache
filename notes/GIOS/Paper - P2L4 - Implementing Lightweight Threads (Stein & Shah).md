@@ -241,6 +241,6 @@ int _lwp_kill(lwpid, sig);
 
 
 # Paper
-![[P2L4-Implementing-Lightweight-Threads.pdf]]
+![](/img/P2L4-Implementing-Lightweight-Threads.pdf)
 
 

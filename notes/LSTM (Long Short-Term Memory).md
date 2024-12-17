@@ -7,24 +7,24 @@ Created: 2023-09-14 01:25
 # Definition
 
 Long Short-Term Memory (LSTM) algorithms are a variant of RNNs. They add a way to carry information across many timesteps by **saving information from older loops**. This helps fight the vanishing gradient problem.
-![][nlp-rnn-to-lstm.png]
+![](/img/nlp-rnn-to-lstm.png)
 # LSTM visualized:
 1. The **forget gate** decides what information should be thrown away or kept.
-![][nlp-lstm-1.gif]
+![](/img/nlp-lstm-1.gif)
 2. The **input gate** decides what information we're going to store in the cell state
    - "Which values to update?" (sigmoid)
    - "What would be the new values?" (tanh)
    - "Do the update!" (multiply)
-![][nlp-lstm-2.gif]
+![](/img/nlp-lstm-2.gif)
 3. The cell state gets pointwise multiplied by the forget vector. This has a possibility of dropping values in the cell state if it gets multiplied by values near 0. 
-![][nlp-lstm-3.gif]
+![](/img/nlp-lstm-3.gif)
 4. Then, we take the output from the input gate and do the pointwise addition which updates the cell state to new values that the neural network finds relevant.
-![][nlp-lstm-4.gif]
+![](/img/nlp-lstm-4.gif)
 5. The **output gate** decides what **new information to pass along** as our hidden state.
    - Decide how to filter our current cell state (sigmoid)
    - Regulates our current cell state values (tanh)
    - Filter our cell state
-![][nlp-lstm-5.gif]
+![](/img/nlp-lstm-5.gif)
 
 
 Intuition, such as above, is helpful to appreciate the architecture of a LSTM cell, but:
@@ -36,10 +36,10 @@ Intuition, such as above, is helpful to appreciate the architecture of a LSTM ce
 - the same cell with **different weights** can do very different things!
 
 Keep in mind what the LSTM cell is meant to do: allow past information to be injected at a later time, thus fighting the vanishing gradient problem
-![][nlp-rnn-lstm-vanishing-gradient-1.gif]
+![](/img/nlp-rnn-lstm-vanishing-gradient-1.gif)
 
 # Wikipedia snippet about LSTM with a forget gate
-![][nlp-lstm-wikipedia.png]
+![](/img/nlp-lstm-wikipedia.png)
 $$
 f_t = \sigma_g (W_fx_t + U_fh_{t-1}+b_f)
 $$
