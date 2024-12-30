@@ -366,4 +366,4 @@ The native implementation of threads in Linux is the **Native POSIX Threads Libr
 
 In NPTL, the kernel sees every user level thread. This is acceptable because kernel trapping has become much cheaper, so user/kernel crossings are much more affordable. Also, modern platforms have more memory - removing the constraints to keep the number of kernel threads as small as possible.
 
-That being said, when we talk about super large scale or high-level processing, with many many user level threads, it may make sense to revisit more custom threading policies to make systems more scalable and less resource-intensive.
+That being said, when we talk about super large scale or high-level processing, with many user level threads, it may make sense to revisit more custom threading policies to make systems more scalable and less resource-intensive.

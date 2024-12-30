@@ -25,4 +25,4 @@ Lectures for this course include:
 - [[P4L3 - Distributed Shared Memory]]
 - [[P4L4 - Datacenter Technologies]]
 
-
+A natural continuation of this course is [[AOS - Advanced Operating Systems]].

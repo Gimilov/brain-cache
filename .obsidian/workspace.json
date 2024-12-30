@@ -11,10 +11,15 @@
             "id": "88065f9f8a4067bc",
             "type": "leaf",
             "state": {
-              "type": "graph",
-              "state": {},
-              "icon": "lucide-git-fork",
-              "title": "Graph view"
+              "type": "markdown",
+              "state": {
+                "file": "notes/AOS/AOS - Advanced Operating Systems.md",
+                "mode": "source",
+                "backlinks": true,
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "AOS - Advanced Operating Systems"
             }
           }
         ]
@@ -73,7 +78,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 631.5
+    "width": 344.5
   },
   "right": {
     "id": "76e9cae0e85bd379",
@@ -157,12 +162,32 @@
             "state": {
               "type": "review-queue-list-view",
               "state": {},
-              "icon": "SpacedRepIcon",
-              "title": "Notes Review Queue"
+              "icon": "lucide-file",
+              "title": "Plugin no longer active"
             }
           },
           {
             "id": "e1bdc3c56edb0e6e",
+            "type": "leaf",
+            "state": {
+              "type": "review-queue-list-view",
+              "state": {},
+              "icon": "lucide-file",
+              "title": "Plugin no longer active"
+            }
+          },
+          {
+            "id": "5871646a79a4991e",
+            "type": "leaf",
+            "state": {
+              "type": "review-queue-list-view",
+              "state": {},
+              "icon": "lucide-file",
+              "title": "Plugin no longer active"
+            }
+          },
+          {
+            "id": "f21a09f7796d776f",
             "type": "leaf",
             "state": {
               "type": "review-queue-list-view",
@@ -172,7 +197,7 @@
             }
           }
         ],
-        "currentTab": 6
+        "currentTab": 8
       }
     ],
     "direction": "horizontal",
@@ -192,52 +217,52 @@
   },
   "active": "88065f9f8a4067bc",
   "lastOpenFiles": [
-    "img/obsidian-graph.png",
-    "obsidian-graph.png",
-    "Screenshot from 2024-12-16 17-21-21.png",
-    "templates/ml-definition-template.md",
-    "templates/ml-MOC-template.md",
-    "templates/math_readme.md",
-    "templates/math-theorem-template.md",
-    "templates/math-definition-template.md",
-    "templates/math-axiom-template.md",
-    "templates/math-MOC-template.md",
-    "templates/GIOS-template.md",
+    "notes/AOS/AOS - Advanced Operating Systems.md",
+    "notes/AOS/L11b - Security in Andrew.md",
+    "notes/AOS/L11a - Principles of Information Security.md",
+    "notes/AOS/L10b - PTS.md",
+    "notes/AOS/L10a - TS-Linux.md",
+    "notes/AOS/L08c - Quicksilver.md",
+    "notes/AOS/L09c - Content Delivery Networks.md",
+    "notes/AOS/L09b - Map-Reduce Framework.md",
+    "notes/AOS/L09a - Giant Scale Services.md",
+    "notes/AOS/L08b - RioVista.md",
+    "notes/AOS/Illustrated Notes for AOS by Bhavin Thaker.md",
+    "notes/AOS/L07c - Distributed File System.md",
+    "notes/AOS/L08a - Lightweight Recoverable Virtual Memory.md",
+    "img/L07c_xfs_implementation.png",
+    "img/L07c_log_segment_evolution.png",
+    "notes/AOS/L07b - Distributed Shared Memory.md",
+    "notes/AOS/L06a - Spring Operating System.md",
+    "notes/AOS/L06b - Java RMI.md",
+    "notes/AOS/L06c - Enterprise Java Beans.md",
+    "notes/AOS/L07a - Global Memory Systems.md",
+    "cs-resources/Advanced OS/Illustrated Notes for AOS by Bhavin Thaker.pdf",
+    "cs-resources/Advanced OS",
+    "img/P07a_gms_with_idle_nodes.png",
+    "img/L07a_distributed_memory_systems_11.png",
+    "img/L07a_distributed_memory_systems_10.png",
+    "img/L07a_distributed_memory_systems_9.png",
+    "img/L07a_distributed_memory_systems_8.png",
+    "img/L07a_distributed_memory_systems_7.png",
+    "img/L07a_distributed_memory_systems_6.png",
+    "img/L07a_distributed_memory_systems_5.png",
+    "notes/AOS/L05e - Systems from Components.md",
+    "notes/AOS/L05d - Active Networks.md",
+    "notes/AOS/L05c - Latency Limits.md",
+    "notes/AOS/L05b - Lamport Clocks.md",
+    "notes/AOS/L05a - Definitions.md",
+    "notes/AOS/L04f - Shared Memory Multiprocessor OS.md",
+    "notes/AOS/L04e - Scheduling.md",
+    "notes/AOS/L04d - Lightweight RPC.md",
+    "notes/AOS",
     "templates",
-    "notes/word2vec.md",
-    "notes/t-SNE.md",
-    "notes/Xception.md",
-    "notes/Word embedding.md",
-    "notes/VGG16.md",
-    "notes/Unsupervised Learning.md",
-    "notes/Univariate Kernel Density Estimation.md",
-    "notes/Univariate Kernel Density Classification.md",
-    "notes/Undercomplete Autoencoders.md",
-    "notes/Transformer encoder for text classification example.md",
-    "notes/Transformer architecture.md",
-    "notes/Transfer learning.md",
-    "notes/The limits of fully connected layers for computer vision.md",
-    "notes/The convolution operation.md",
-    "notes/Text standardization.md",
-    "notes/Text splitting (tokenization).md",
-    "notes/Templates for mathematical proofs.md",
     "notes/GIOS",
     "notes",
-    "math.png",
     "cs-resources/the-linux-programming-interface-michael-kerrisk-1.pdf",
     "math-resources/discrete-mathematics/mit-ocw-math-for-cs.pdf",
     "cs-resources/Graduate Intro to OS - Papers/the-linux-programming-interface-michael-kerrisk-1.pdf",
     "cs-resources/Graduate Intro to OS - Papers/P4L3-Distributed-Shared-Memory-Concepts-and-Systems.pdf",
-    "cs-resources/Graduate Intro to OS - Papers/P4L2-Caching-in-the-Sprite-Network-File-System.pdf",
-    "cs-resources/Graduate Intro to OS - Papers/P4L1-implementing-RPC.pdf",
-    "cs-resources/Graduate Intro to OS - Papers/P3L6-VMM-current-technology-and-future-trends.pdf",
-    "img/P4L4-berkeley-data-analytics-stack.png",
-    "img/P4L4-hadoop.png",
-    "img/P4L4-cloud-service-models.png",
-    "img/P4L4-cloud-computing-requirements-2.png",
-    "img/P4L4-cloud-computing-requirements-1.png",
-    "img/P4L3-weak-consistency-2.png",
-    "img/P4L3-weak-consistency-1.png",
     "Untitled.canvas",
     "Untitled 1.canvas"
   ]
