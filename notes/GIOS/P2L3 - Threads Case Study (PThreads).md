@@ -14,7 +14,9 @@ Created: 2024-09-11 10:01
 
 
 ### PThread Creation
+
 ![](/img/P2L3-pthread-creation-comparison.png)
+
 - in `pthread_create`: 
 	- `start_routine` is equivalent to `proc` in `Fork`.  
 	- `arg` is equivalent to `args` in `Fork`.
@@ -48,7 +50,9 @@ There are several calls that support operations on Pthread Attributes:
 
 ##### Detaching Pthreads
 This mechanism was not considered by Birrell. In there, the parent thread should not exit until the children threads have completed their execution and have been joined via the explicit `join` operation.  Children may turn into zombies!
+
 ![](/img/P2L3-detaching-pthreads-birrell-comp.png)
+
 In PThreads, there's a possibility for the children threads to be detached from the parent. **Once detached, these threads cannot be joined**. If a parent exits, these children are free to continue their execution. These threads are basically the same, with the exception of the parent having some additional information on the children they've created. We can using `int pthread_detach();` or we can create threads as detached threads using the attribute DETACHED state:
 ```c
 pthread_attr_setdetachstate(attr,
@@ -185,7 +189,9 @@ int main(void) {
 
 ### PThread Mutexes
 "to solve mutual exclusion problems among concurrent threads".
+
 ![](/img/P2L3-pthreads-vs-birell.png)
+
 ... for example:
 ```c
 // BIRRELL
@@ -239,7 +245,9 @@ int pthread_mutex_destroy(pthread_mutex_t *mutex);
 
 
 ### PThread Condition Variables
+
 ![](/img/P2L3-pthreadsvs-birell-condition-variables.png)
+
 There also some other operations used in conjunction with condition variables. For example:
 - init to allocate the data structure for the condition and in order to initialize its attributes. Similarly to mutexes, we can specify the behavior that PThreads provides with conditions. For example, whether the condition variable will be used only within threads that belong to a single process or also shared across processes. NULL will result in default behaviour (condition variable private to a process).
 ```c

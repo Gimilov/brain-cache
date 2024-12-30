@@ -79,11 +79,15 @@ There's no way they would have been able to respond to this demand if they had g
 Traditionally, business would need to buy and configure the resources that were needed for their services. The number of resources to buy/configure would be based on the peak expected demand for those services.
 
 If the demand exceeded the expected capacity, the business would into a situation where requests have to be dropped, which would result in lost opportunity.
+
 ![](/img/P4L4-cloud-computing-requirements-1.png)
+
 Ideally, we would like the capacity of the available resources to scale elastically with the demand.
 
 The scaling should be instantaneous: as soon as the demand increases, so does the capacity, and vice versa. This means that the cost to support this service should be directly proportional to the demand.
+
 ![](/img/P4L4-cloud-computing-requirements-2.png)
+
 All of this scaling should be able to happen automatically, and the provisioned resources should be accessible anywhere, anytime.
 
 Note that you wouldn't potentially own these resources, but this may be a fair compromise.
@@ -136,7 +140,9 @@ Finally, **community clouds** are public clouds that are used by certain types o
 ## Cloud Service Models
 
 Clouds are often differentiated based on the service model that they provide.
+
 ![](/img/P4L4-cloud-service-models.png)
+
 Without the use of cloud computing, you run your application on premises, which means you have to take care of everything yourself.
 
 At the other extreme, you can use cloud computing services to provide you with a complete application. This is what we call **Software as a Service** (SaaS). Gmail is a great example of a SaaS platform.
@@ -192,6 +198,9 @@ Finally, the data being analyzed with these platforms is often continuously bein
 ## ## Example Big Data Stacks
 
 ### Hadoop
+
 ![](/img/P4L4-hadoop.png)
+
 ### Berkeley Data Analytics Stack (BDAS)
+
 ![](/img/P4L4-berkeley-data-analytics-stack.png)

@@ -283,6 +283,8 @@ void  sema_v(ksema_t *sp);
 
 
 # Paper
+
 ![](/img/P2L4-Multithreading-the-SunOS-Kernel.pdf)
+
 
 

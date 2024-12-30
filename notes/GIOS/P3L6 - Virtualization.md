@@ -13,7 +13,9 @@ Source: OMSCS Notes ([link](https://www.omscs-notes.com/operating-systems/virtua
 In order to concurrently run diverse workloads on the same physical hardware without requiring that a single operating system be used for all of the applications, it was necessary to come up with a model where multiple operating systems can concurrently be deployed on the same hardware platform.
 
 The solution is **virtualization**.
+
 ![](/img/P3L6-what-is-virtualization.png)
+
 With virtualization, each of the operating systems that are deployed on the same physical platform has the illusion that it actually owns the underlying hardware resources, all or in part.
 
 Each operating system, plus its applications and its virtual resources is called a **virtual machine** (VM). VMs are sometimes referred to as _guests_ or _domains_.
@@ -50,7 +52,9 @@ Virtualization also provides affordable support for legacy operating systems. Ap
 ## Virtualization Models: Bare Metal
 
 In **bare-metal** virtualization (also known as **hypervisor-based** or **type 1** virtualization, the VMM manages all the hardware resources and support execution of VMs
+
 ![](/img/P3L6-virtualization-models-bare-metal.png)
+
 One issue with this model concerns devices. According to the model, the hypervisor must manage all possible devices. In other words, device manufacturers now have to provide device drivers not just for different operating systems, but also for different hypervisors.
 
 To eliminate this problem, the hypervisor model typical integrates a special virtual machine, a service VM, that runs a standardized OS with full hardware access privileges, allowing it to manipulate hardware as if it were native.
@@ -75,7 +79,9 @@ As necessary, the VMM module will invoke devices drivers and other host componen
 One benefit of this model is that it can leverage all of the services and mechanisms that are already developed for the host operating system. Much less functionality needs to be developed for the VMM module itself.
 
 In this setup, you can run guest VMs through the VMM module as well as native applications directly on the host OS.
+
 ![](/img/P3L6-virtualization-model-hosted.png)
+
 One example of the hosted model is **kernel-based VM** (KVM) which is built into Linux. The Linux host provides all aspects of the physical hardware management and can run regular Linux applications directly.
 
 The support for running guest VMs comes from a combination of the KVM (VMM) module and a hardware emulator called **QEMU**.
@@ -192,7 +198,9 @@ To deal with this diversity, virtualization solutions adapt one of three key mod
 ## Passthrough Model
 
 In the **passthrough model**, the VMM-level driver is responsible for configuring the access permissions to a device. For example, it will allow a guest VM to have access to the memory registers corresponding to a device.
-![](/img/P3L6-passthrough-model.png)In this approach, the guest VM has exclusive access to a device. In addition, the VM can directly access the device, without interacting with the VMM. This model is also called the **VMM-bypass model**.
+
+![](/img/P3L6-passthrough-model.png)
+In this approach, the guest VM has exclusive access to a device. In addition, the VM can directly access the device, without interacting with the VMM. This model is also called the **VMM-bypass model**.
 
 The problem with this exclusive access is that is making sharing devices across VMs difficult. The hypervisor will need to continuously reassign who the device belongs to over time, and device access will not happen concurrently across VMs. This is often unfeasible.
 
@@ -204,7 +212,9 @@ This passthrough model breaks that decoupling as it binds a device to a VM. This
 ## Hypervisor Direct Model
 
 In the **hypervisor-direct model**, the hypervisor intercepts every device access request that is performed by the guest VM.
+
 ![](/img/P3L6-hypervisor-direct-model.png)
+
 The hypervisor no longer has the constraint that the requested device and the physical device match.
 
 Instead, the hypervisor can translate the device access request to some generic representation of an I/O operation for that particular family of devices - network or disk, for example - and then traverse the hypervisor resident I/O stack. The bottom of that stack is the actual real device driver, which the hypervisor will finally invoke to fulfill the request.
@@ -215,7 +225,9 @@ The downside of the model is that the device emulation step adds latency to devi
 ## Split Device Driver Model
 
 In the **split device driver model**, all of the devices accesses are controlled in a way that involves a component that resides in a guest VM and a component that resides in a hypervisor layer.
+
 ![](/img/P3L6-split-device-driver-model.png)
+
 The **front-end driver** resides in the guest VM and the actual driver for the physical device - the **back-end driver** - resides in the service VM (or the host in type 2 virtualization).
 
 Although the back-end driver doesn't necessarily have to be modified, as it is the same driver that the OS would use as if it were running natively, the front-end driver does need to be modified.
@@ -243,4 +255,5 @@ Other features were added for better security and management support.
 
 Finally, a number of new instructions were added to x86 in order to implement these new features. For example, a new instruction was added to allow switching into new protection mode.
 ## x86 VT Revolution
+
 ![](/img/P3L6-x86-VT-revolution.png)

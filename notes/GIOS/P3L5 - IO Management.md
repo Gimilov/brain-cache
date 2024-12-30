@@ -23,17 +23,23 @@ Examples of I/O devices include
 ## I/O Device Features
 
 The device space is extremely diverse.
+
 ![](/img/P3L5-io-device-features-1.png)
+
 Devices come in all shapes and sizes with a lot of variability in their hardware architecture, functionality, and interfaces. Our discussion will focus on the key features of a device that enable its integration into a system.
 
 In general, a device will have a set of control registers which can be accessed by the CPU and permit CPU/device interactions. These registers are typically divided into: **command registers**, that the CPU uses to control the device; **data registers**, that are used by the CPU to transfer data in and out of the device; **status registers** that are used by the CPU to understand what is happening on the device.
 
 Internally, the device will incorporate all other device-specific logic. This will include the **microcontroller** - which is basically the device's CPU - on device memory, as well as any other logic needed by the device. For example, some devices may need chips for converting analog to digital signals. As another example, network devices may need chips to interact with the physical network medium, be it optics or copper wire.
+
 ![](/img/P3L5-io-device-features-2.png)
+
 ## CPU Device Interconnect
 
 Devices interface with the rest of the system via a controller that is typically integrated as part of the device packaging that is used to connect the device with the rest of the CPU complex via some CPU/device interconnect.
+
 ![](/img/P3L3-cpu-device-interconnect.png)
+
 In this figure, all of the the controllers are connected to the rest of the system via a **Peripheral Component Interconnect** (PCI) bus.
 
 Modern platforms typically support **PCI Express**, which is more technologically advanced than PCI-X and PCI. PCI Express has more bandwidth, is faster, has lower latency, and supports more devices than PCI-X. For compatibility reasons, though, most platforms will include PCI-X which follows the original PCI standard.
@@ -44,7 +50,9 @@ The device controllers determine what type of interconnect a device can attach t
 ## Device Drivers
 
 Operating systems support devices via **device drivers**.
+
 ![](/img/P3L3-device-drivers.png)
+
 Device drivers are device-specific software components. The operating systems needs to include a device driver for every type of device that is included in the system.
 
 Device drivers are responsible for all aspects of device _access_, _management_ and _control_. This includes logic that determines how requests are passed from higher level components to the device and how those components respond to errors or notifications from the device. Generally, device drivers govern any device-specific configuration/operation details.
@@ -122,7 +130,9 @@ The device drivers issue commands and send data using the appropriate PIO or DMA
 Finally, once the device is configured, the device will perform the actual request. For example, a NIC will actually transmit the packet onto the network.
 
 Any results/events originating on the device will traverse this chain in reverse: from the device to the driver to the kernel and finally into the user process.
+
 ![](/img/P3l5-typical-device-access.png)
+
 ## OS Bypass
 
 It is not necessary to go through the kernel to get to a device. It is possible to configure some devices to be accessible directly from user level. This is called **operating system bypass**. In OS bypass, any memory/registers assigned for use by the device is directly available to a user process.
@@ -143,7 +153,9 @@ What happens to a user thread once an I/O request is made depends on whether the
 For synchronous operations, the calling thread will block. The OS kernel will place the thread on the corresponding wait queue associated with the device, and thread will eventually become runnable again when the response to its request becomes available.
 
 With asynchronous operations, the thread is allowed to continue as soon as it issues the request. At some later time, the user process can be allowed to check if the response is available. Alternatively, the kernel can notify the process that the operation is complete and that the results are available.
+
 ![](/img/P3L5-sync-vs-async-access.png)
+
 Remember when we talked about Flash, we discussed that the implementation mimicked asynchronous I/O by delegating all I/O calls to special helper threads. Here we are talking about true, OS-supported asynchronous I/O.
 ## Block Device Stack
 
@@ -167,7 +179,9 @@ What if different types of devices work better with different filesystem impleme
 What if files are not even local to a machine, and are accessed over the network?
 
 To solve the underlying problems that these questions pose, operating systems like Linux include a **virtual filesystem** (VFS) layer. This layer hides all details regarding the underlying filesystem(s) from the higher level consumers.
+
 ![](/img/P3L5-virtual-file-system.png)
+
 Applications continue to interact with the VFS using the same POSIX API as before, and the VFS specifies a more detailed set of filesystem-related abstractions that every single underlying filesystem must implement.
 ## Virtual File system Abstractions
 
@@ -196,7 +210,9 @@ To make sense of all of this - that is, to understand which blocks hold data, wh
 The ext2 filesystem was the default filesystem in Linux until it was replaced by ext3 and ext4 more recently.
 
 A disk partition that is used as a ext2 Linux filesystem looks as follows.
+
 ![](/img/P3L5-ext2-second-extended-filesystem.png)
+
 The first block is not used by Linux and is often used to boot the system.
 
 The rest of the partition is divided into block groups. The size of these block groups have no correlation to the physics of the actual disk these group abstract.
@@ -223,7 +239,9 @@ Finally, the block group contains the actual data blocks themselves that hold th
 ## inodes
 
 Inodes play a key role in organizing how files are stored on disk because they essentially integrate an index of all of the disk blocks that correspond to a particular file.
+
 ![](/img/P3L5-inodes.png)
+
 A file is uniquely identified by its inode. The inode contains a list of all of the blocks that correspond to the actual file. In addition to the list of blocks, an inode also contains additional metadata information.
 
 The file shown above has 5 blocks allocated to it. If we need more storage for the file, the filesystem can allocate a free block, and simply update the inode to contain a sixth entry, pointing to the newly allocated block.
@@ -234,7 +252,9 @@ The downside of this approach is that there is a limit on the file size for file
 ## inodes with Indirect Pointers
 
 One way to solve the issue of file size limits is to use **indirect pointers**
+
 ![](/img/P3L5-inodes-with-indirect-pointers.png)
+
 The first section of blocks contain blocks that point directly to data. The direct pointers will point to 1kb per entry.
 
 To extend the number a disk blocks that can be addressed via a single inode element, while also keeping the size of the inode small, we can use indirect pointers.

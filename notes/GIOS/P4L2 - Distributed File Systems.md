@@ -31,13 +31,17 @@ Finally, files can be stored on and served from all machines. This blurs the lin
 ## Remote File Service: Extremes
 
 At one extreme, we have the upload/download model. When a client wants to access a file, it downloads the entire file, performs the modifications and then uploads the entire file back to the server.
+
 ![](/img/P4L2-remote-file-server-extremes-1.png)
+
 The benefit of this model is that all of the modifications can be done locally, which means they can be done quickly, without incurring any network cost.
 
 One downside of this model is that the client has to download the entire file, even for small modifications. A second downside of this model is that it takes away file access control from the server. Once the server gives the file to the client, it has no idea what the client is doing with the file or when it will give it back.
 
 At the other extreme, we have the true remote file access. In this model, the file remains on the server and every single operation has to pass through the server. The client makes no attempt to leverage any kind of local caching or buffering.
+
 ![](/img/P4L2-remote-file-service-extremes-2.png)
+
 The benefit of this extreme is that the server now has full control and knowledge of how the clients are accessing and modifying a file. This makes it easier to ensure that the state of the filesystem is consistent.
 
 The downside of this model is that every file operations pays a network cost. In addition, this model is limited in its scalability. Since every file operation goes to the server, the server will get overloaded more quickly, and will not be able to service as many clients.
@@ -90,11 +94,15 @@ For client/server systems, these coherence mechanisms may be trigged in differen
 ### Single Node, UNIX
 
 Whenever a file is modified by any process, that change is immediately visible to any other process in the system. This will be the case even if the change isn't pushed out to disk because both processes have access to the same buffer cache.
+
 ![](/img/P4L2-single-node-unix.png)
+
 ### DFS
 
 Even if a write gets pushed to the file server immediately, it will take some time before that update is actually delivered to the file server. It is possible that another client will not see that update for a while, and every time it performs a read operation it will continue seeing "stale" data. Given that message latencies may vary, we have no way of determining how long to delay any possible read operation in order to make sure that any write from anywhere in the system arrives at the file servers so that we can guarantee no staleness.
+
 ![](/img/P4L2-dfs.png)
+
 In order to maintain acceptable performance, a DFS will typically sacrifice some of the consistency, and will accept more relaxed file sharing semantics.
 ### Session Semantics
 
@@ -143,7 +151,9 @@ Finally, we can have a solution where the filesystem is partitioned across some 
 ## Networking File System (NFS) Design
 
 In a **Networking File System** (NFS), clients access files across the network, hence the name.
+
 ![](/img/P4L2-nfs-design.png)
+
 Clients request and access files via the VFS, using the same types of file descriptors and operations that they use to access files in their local storage. The VFS layer determines if the file belongs to the local filesystem or whether the request needs to be pushed to the NFS client so that it can be passed to the remote filesystem.
 
 The NFS client interacts with the NFS server via RPC. The NFS server receives the request, forms it into a proper filesystem operation that is delivered to the local VFS. From there, the request is passed to the local file system interface. On the server machine, requests coming from the NFS server look identical to filesystem requests coming from any other application running on the server machine.
@@ -165,7 +175,9 @@ With server-side state, NFS can support locking. NFS uses a lease-based mechanis
 
 NFSv4 also supports a reader/writer lock called "share reservation". It also support mechanisms for upgrading from being a reader to a writer, and vice versa.
 ## Sprite Distributed File System
+
 ![](/img/P4L2-sprite-distributed-file-system.png)
+
 ## Sprite DFS Access Pattern Analysis
 
 In the paper on caching in the sprite system, the authors performed a study to see how files are accessed in the production filesystem used by their department.

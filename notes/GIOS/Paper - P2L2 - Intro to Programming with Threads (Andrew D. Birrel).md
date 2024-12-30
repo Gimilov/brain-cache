@@ -622,6 +622,8 @@ second buffer.
  - By using a system with good primitives and suitable libraries and along with the use of the techniques in this paper (and more) plus awareness of common pitfalls you can do it!
 
 # Paper
+
 ![](/img/P2L1-Intro-to_Programming-with-Threads.pdf)
+
 
 

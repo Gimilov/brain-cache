@@ -48,7 +48,9 @@ DSM can be supported in hardware or software.
 Hardware-supported DSM relies on some physical interconnect. The OS running on each physical node is under the impression that it has access to much larger physical memory, and is allowed to establish virtual to physical mappings that point to physical addresses on other nodes.
 
 Memory accesses that reference remote memory locations are passed to the network interconnect card, which translates remote memory accesses into interconnect messages that are then passed to the correct remote node.
+
 ![](/img/P4L3-hardware-vs-software-dsm.png)
+
 The NICs are involved in all aspects of the memory management, access and consistency and even support some atomics.
 
 While it's very convenient to rely on hardware to do everything, this type of hardware is typically very expensive and as a result is reserved for very high-end machines.
@@ -180,7 +182,9 @@ The role of the home node then becomes to keep track of who is the current owner
 In addition to creating page copies via caching, page replicas can be explicitly created for load balancing, performance or reliability reasons. In datacenter environments, it makes sense to triplicate shared state: on the main machine, on a nearby machine in the same building, and on a remote machine in another datacenter. The consistency of these nodes is either managed by the home node or some manager node.
 
 ## Summarizing DSM Architecture
+
 ![](/img/P4L3-summarizing-DSM-architecture.png)
+
 ## Indexing Distributed State
 
 When creating distributed memory systems, it's important to understand how we can determine where a particular page is physically located within the system.
@@ -198,7 +202,9 @@ This means that the metadata for local pages is partitioned across the system, w
 Certain bits from the address are used to identify the manager. There will be a fixed manager identified from that mapping function. If we want some additional flexibility we can take the object id and use it as an index into a global mapping table that will give a manager node.
 
 In this approach, we can change the manager node by updating the mapping table. We don't need to change the object identifier.
+
 ![](/img/P4L3-indexing-distributed-state.png)
+
 ## Implementing DSM
 
 One thing to consider when implementing a DSM is that the DSM layer must intercept every single access to the shared state.
@@ -237,9 +243,13 @@ In addition, for memory to behavior correctly, we will need to make some guarant
 The consistency models states that the memory behaves correctly if and only of the software follows certain rules. This implies that the softwares needs to use certain APIs for memory access, or that the software needs to set certain expectations based on the memory guarantees or lack thereof.
 
 Our notation for consistency models:
+
 ![](/img/P4L3-what-is-a-consistency-model.png)
+
 ## Strict Consistency
+
 ![](/img/P4L3-strict-consistency.png)
+
 Theoretically, for a perfect consistency model, we would like to achieve absolute ordering and immediate visibility of any state update and access.
 
 We also want this to be in the exact same manner as the updates were performed in realtime. In this model, every node in the system will see all the writes in the system in the exact same order immediately as they are applied. This is only possible if changes are instantaneous and immediately visible anywhere.
@@ -254,40 +264,54 @@ While strict consistency is a nice theoretical model, it is not sustainable in p
 Given that strict consistency is next to impossible to achieve, the next best option with reasonable cost is sequential consistency.
 
 With sequential consistency, it's not important that we see updates immediately. Rather, it's important that the ordering the way see correspond to a possible ordering that can be achieved by the operations that were applied.
+
 ![](/img/P4L3-sequential-consistency-1.png)
+
 In the above, example, it is possible to see X and m1 and then see Y at m2. It is also possible to see 0 at m1 and then Y at m2. It is not illegal to see Y at m2 and then 0 at m1, as the write to m1 happened before the write to m2.
 
 According to sequential consistency, the memory updates from different processors may be arbitrarily interleaved.
 
 However, if we let one process see one ordering of the updates, we have to make sure that all other processes see the same ordering of those updates.
+
 ![](/img/P4L3-sequential-consistency-2.png)
+
 In the above case, we cannot let P3 observe one value at a m1 while concurrently showing a different value to P4, which is also accessing m1.
 
 In sequential consistency, all processes will see the same interleaving. This interleaving may not correspond to the real way in which these operations were ordered, but it is guaranteed that every process in the system will see the same sequential ordering of the updates.
 
 One constraint of the interleaving is that the updates made by the same process will not be arbitrarily interleaved. Operations from the same process always appear in the order they were issued.
+
 ![](/img/P4L3-sequential-consistency-3.png)
+
 For example, it would not be possible for P4 to read Z at m3 and then read X at m3.
 ## Causal Consistency
 
 Forcing all processes to see the exact same order on all updates may be an overkill.
+
 ![](/img/P4L3-causal-consistency-1.png)
+
 P3 and P4 may do very different things with the values at m1 and m2, and it may not be necessary that they see the same exact value in a given moment.
 
 Furthermore, the update to m2 was not dependent on the update to m1.
+
 ![](/img/P4L3-causal-consistency-2.png)
+
 In this example, the value at m2 was written after the value at m1 was read. In this case, there may be a relationship between the update at m2 and the value at m1. The value written to m2 may depend on the value read from m1.
 
 Based on the observation of this potential dependency, it is not okay that P4 sees that value of m2 updated to Y before seeing the value of m1 updated to X.
 
 Causal consistency models guarantee that they will detect the possible causal relationship between updates, and if updates are causally related then the memory will guarantee that those writes will be correctly ordered.
+
 ![](/img/P4L3-causal-consistency-3.png)
+
 In this situation, a causal consistency model will enforce that a process must read X from m1 before reading Y from m2.
 
 For writes that are not casually-related - concurrent writes - there are no such guarantees.
 
 Just like before, causal consistency ensures that writes that are performed on the same processor will be visible in the exact same order on other processors.
+
 ![](/img/P4L3-causal-consistency-4.png)
+
 ## Weak Consistency
 
 In the consistency models that we discussed so far, the memory was accessed only by read and write operations.
@@ -295,7 +319,9 @@ In the consistency models that we discussed so far, the memory was accessed only
 In the weak consistency models, it's possible to have additional operations for accessing memory.
 
 A memory system may introduce **synchronization points**, as operations that are available to the upper layers of the software. In addition to telling the underlying memory system to read or write, you will now be able to tell the system to sync.
+
 ![](/img/P4L3-weak-consistency-1.png)
+
 A synchronization point makes sure that all of the updates that have happened prior to the synchronization point will become visible at other processors.
 
 Also, the synchronization point makes sure that all of the updates that have happened on other processors will become visible subsequently at the synchronizing processor in the future.
@@ -303,7 +329,9 @@ Also, the synchronization point makes sure that all of the updates that have hap
 If P1 performs a synchronization operation after writing to m1, that doesn't guarantee that P2 will see that particular update at this moment. P2 hasn't explicitly synchronized with the rest of the system.
 
 The synchronization point has to be called both by the process that is performing the updates and the process that wishes to see the updates.
+
 ![](/img/P4L3-weak-consistency-2.png)
+
 Once a synchronization is performed on P2, P2 will see all of the previous updates that have happened to any memory location in the system. When P2 performs the sync, it is guaranteed to see the value of m1 at the time that P1 performed the sync.
 
 While in this model, we use a single synchronization operation for all of the variables in the system, it is possible to have solutions where different synchronization operations are associated with different granularities.
