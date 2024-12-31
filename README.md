@@ -19,3 +19,8 @@ Additionally, Obsidian's extensibility through a wide range of community plugins
 ## Resources ignored
 
 Due to copyright considerations, many resources are not pushed to this repository but are instead stored on Google Drive. These include collections of books, papers, and lecture materials.
+
+Whenever there's a new resource, the following happens:
+
+1. A local copy is made and put in respective folder.
+2. The folder goes to Google Drive.
