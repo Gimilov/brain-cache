@@ -25,17 +25,17 @@ Read more here: [[Illustrated Notes for AOS by Bhavin Thaker]]
 ### Object-Based vs Procedural Design
 
 - Procedural
-	- ![[L06a_spring_os_1.png]]
+	- ![](/img/L06a_spring_os_1.png)
 	- Shared state (often global)
     - code written as one monolithic entity
 - Objects
-	- ![[L06a_spring_os_2.png]]
+	- ![](/img/L06a_spring_os_2.png)
 	- Objects contain state, not visible outside
     - Methods inside object that manipulate the state that is part of the object. Only these methods are exposed to the outside world
 - The above are well understood for writing code. Spring applied them to the OS itself. So did Tornado, covered earlier in the class
 
 ### Spring Approach
-- ![[L06a_spring_os_3.png]]
+- ![](/img/L06a_spring_os_3.png)
 - Spring was Sun’s answer to building a network operating system, using the Unix interface. Its design reflects that
 - Strong interfaces for each subsystem
 - Open, flexible, and exentisble
@@ -43,7 +43,7 @@ Read more here: [[Illustrated Notes for AOS by Bhavin Thaker]]
     - Used IDL (interface definition language) to facilitate this
     - This borrows a lot from microkernel design philosophies
 - Nucleus == the “microkernel” of Spring
-	- ![[L06a_spring_os_4.png]]
+	- ![](/img/L06a_spring_os_4.png)
 	- Abstractions are:
         - Domain (similar to a UNIX process)
             - threads execute in a particular domain. threads are similar to e.g. pthread
@@ -51,7 +51,7 @@ Read more here: [[Illustrated Notes for AOS by Bhavin Thaker]]
     - Spring kernel is the combination of the nucleus plus the memory management for handling the domain and door objects
     - This structure allows for very performant cross-domain protected procedure calls
 ### Object invocation across the network
-- ![[L06a_spring_os_5.png]]
+- ![](/img/L06a_spring_os_5.png)
 	- Proxy A: Export net handle embedding Door X to Proxy B
     - Proxy B: establishes Door Y locally so client can communicate with it.
     - Proxy B: use net handle to connect nuclei
@@ -62,7 +62,7 @@ Read more here: [[Illustrated Notes for AOS by Bhavin Thaker]]
 - Proxies can potentially employ different protocols for different connections (e.g. LAN vs WAN nodes)
 - Proxies are invisible to the client and servers. They are unaware whether they are on same or different machines, and don’t care.
 ### Secure Object Invocation
-- ![[L06a_spring_os_6.png]]
+- ![](/img/L06a_spring_os_6.png)
 - May be necessary for a server object to provide different privilege levels to different clients
 - Security provided via a “front object” that is outside the Spring semantics for object invokation.
 - The connection between front object and underlying object is entirely in the purview of the creator of the service object. Not part of Spring door mechanism
@@ -70,7 +70,7 @@ Read more here: [[Illustrated Notes for AOS by Bhavin Thaker]]
     - Can use one-time references to limit access by preventing re-use of privileged access handles
 
 ### Virtual Memory Management in Spring
-- ![[L06a_spring_os_7.png]]
+- ![](/img/L06a_spring_os_7.png)
 - Memory management is part of the kernel in Spring
 - There is a per-machine virtual memory manager
     - VMM breaks the linear address space into regions
@@ -80,7 +80,7 @@ Read more here: [[Illustrated Notes for AOS by Bhavin Thaker]]
     - Different regions of the address space can also be mapped to the same region
     - Abstraction of a “region” may map to files, swap spaces, etc
 - Memory Object Specific Paging
-	- ![[L06a_spring_os_8.png]]
+	- ![](/img/L06a_spring_os_8.png)
 	- object must be brought into DRAM
         - pager object does this
             - makes or establishes relationship between virtual and physical memory
@@ -101,13 +101,13 @@ Read more here: [[Illustrated Notes for AOS by Bhavin Thaker]]
 
 - Client and server can be on the same or different machines, without change to implementation
 - This is done using “subcontracts”
-	- ![[L06a_spring_os_9.png]]
+	- ![](/img/L06a_spring_os_9.png)
 	- The subcontract is the interface provided for realizing the IDL contract between the client and server
 - Hides the runtime behavior of the object from the actual interface
 - Client side stub generation is thus simplified, with the specific subcontract used responsible for the details
     - Subcontract can be changed at any time as needed
 - Subcontract interface for stubs
-	- ![[L06a_spring_os_10.png]]
+	- ![](/img/L06a_spring_os_10.png)
 	- First interface is for marshaling/unmarshaling
     - all details such as server location are buried in the subcontract
     - client stub just calls subcontract

@@ -24,7 +24,7 @@ Source: [LINK](https://andrewrepp.com/aos_lec_L05)
     - The corrolary of this is that there is no single “total order” universally. It is a function of whatever condition you choose to break ties
     - Once a total order is determined, the actual timestamps are no longer relevant. Only Lamport ordering actually matters for application logic
 - Distributed M.E. Lock Algorithm
-	- ![[L05b_Lamport_Clocks_1.png]]
+	- ![](/img/L05b_Lamport_Clocks_1.png)
 	- Each node maintains a queue of requests for the lock
     - Whenever a node wants the lock, adds it to its own queue and sends a request to all other nodes, which add the request to their queue. All such messages/queue entries include timestamp of the request.
     - Every process orders their queue by lamport’s clock
@@ -58,10 +58,10 @@ Source: [LINK](https://andrewrepp.com/aos_lec_L05)
             - individual drifts are small
         - PC2 (bound on mutual drift)
             - differences between the drifts of individual clocks will be small
-        - ![[L05b_Lamport_Clocks_2.png]]
+        - ![](/img/L05b_Lamport_Clocks_2.png)
     - IPC time and clock drift
 		- To avoid anomalies:
 		    - Disparity of mutual drift must not be longer than IPC time
 		    - Amount of individual clock drift should be negligible compared to IPC time
-		- ![[L05b_Lamport_Clocks_3.png]]
+		- ![](/img/L05b_Lamport_Clocks_3.png)
 	

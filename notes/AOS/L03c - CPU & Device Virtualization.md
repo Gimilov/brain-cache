@@ -77,7 +77,7 @@ Source: [LINK](https://andrewrepp.com/aos_lec_L03)
         - How the memory buffers are managed (space issue)
             - how are these allocated and managed either by guest OS or by hypervisor?
             - Xen’s async I/O rings
-	            - ![[L03c_xen_async_io_ring.png]]
+	            - ![](/img/L03c_xen_async_io_ring.png)
 	            - a data structure shared between guest and Xen
                 - any number of I/O rings can be allocated for handling all device I/O needs of a particular guest domain
                 - the I/O ring itself is just a set of descriptors
@@ -121,5 +121,5 @@ Source: [LINK](https://andrewrepp.com/aos_lec_L03)
     - Storage Usage
     - Network Usage
 - Xen vs VMWare - and Guests
-	- ![[L03c_xen_vs_vmware.png]]
+	- ![](/img/L03c_xen_vs_vmware.png)
 	- Difference from Extensible OS is a strong focus on protection and flexibility, with sharing at full OS level

@@ -43,7 +43,7 @@ Source: [LINK](https://andrewrepp.com/aos_lec_L04)
     - Contention: when lock is released, how long does it take, in presence of contention, for one thread to get lock and the others to stop trying to acquire
 
 ## Naive Spinlock (Spin on Test and Set)
-![[L04a_naive_spinlock_spinning_on_test_and_set.png]]
+![](/img/L04a_naive_spinlock_spinning_on_test_and_set.png)
 - rocessor will spin waiting to get lock
 - initialize lock to unlocked
 - spin on T+S atomic instruction
@@ -55,7 +55,7 @@ Source: [LINK](https://andrewrepp.com/aos_lec_L04)
 - disrupts useful work – when a processor acquires the lock it wants to continue doing work, but the IC contention from other processors vying for lock reduces effectiveness of the winner
 
 ## Caching Spinlock (Spin on Read)
-![[P04a_caching_spinlock_spinning_on_read.png]]
+![](/img/P04a_caching_spinlock_spinning_on_read.png)
 - Spin on cached value of lock (leverage cache coherence of architecture to ensure other caches also see correct value of lock)
 
 ### Problems with this approach
@@ -67,12 +67,12 @@ Source: [LINK](https://andrewrepp.com/aos_lec_L04)
 
 ### Two alternatives
 - Delay after lock release
-- ![[L04a_spinlock_with_delay_1.png]]
+- ![](/img/L04a_spinlock_with_delay_1.png)
 -  delay chosen differently for each processor, so even though all see the lock value change at once, only one will go check it
     - this is a static delay, though, so you will waste time on longer-delayed processors
 
 - Delay with exponential backoff
-- ![[L04a_spinlock_with_delay_2.png]]
+- ![](/img/L04a_spinlock_with_delay_2.png)
 - initial value of delay is small, but if lock is not free when check, increase value exponentially
 - this allows contention to be managed, as more contention will result in longer delays, reducing contention on future rounds of checking
 - This works even on NCC architectures as we are always checking with T+S, thus not relying on cache values being kept in agreement with each other
@@ -81,7 +81,7 @@ Source: [LINK](https://andrewrepp.com/aos_lec_L04)
 
 - Above solutions to do not consider “fairness”, only latency and contention.
 - Should we not try to give lock to the process that requested it first?
-- ![[L04a_ticket_lock.png]]
+- ![](/img/L04a_ticket_lock.png)
 - check lock after appropriate delay, estimated by difference between “my_ticket” and “now_serving”
 - Achieves fairness, but still have issues with contention when lock is released
 
@@ -91,7 +91,7 @@ Source: [LINK](https://andrewrepp.com/aos_lec_L04)
 - Ticket Lock: fair but still has problems with contention
 
 ## Array-based Queuing Lock (Anderson’s Lock)
-![[P04a_array_based_queueing_lock.png]]
+![](/img/P04a_array_based_queueing_lock.png)
 - array of flags associated with each lock – size of array is number of processes
 - array serves as circular queue
 - each element in flag array is either “has-lock” (hl) or “must-wait” (mw) state (obvious what those indicate)
@@ -104,7 +104,7 @@ Source: [LINK](https://andrewrepp.com/aos_lec_L04)
 - In situation where there is a small subset of processors requesting this lock, the array is unnecessarily large and so wastes space. This is the only downside to this approach.
 
 ## Linked List-based Queuing Lock
-![[P04a_linked_list_based_queueing_lock.png]]
+![](/img/P04a_linked_list_based_queueing_lock.png)
 - To avoid space complexity in Anderson Lock, we will use a linked list instead of an array for the queue
 - Sometimes referred to as MCS lock based on authors
 - Every lock starts with a dummy node to indicate no lock requesters
@@ -127,4 +127,4 @@ Source: [LINK](https://andrewrepp.com/aos_lec_L04)
     - both Anderson’s Lock and this lock also both take a hit if the architecture doesn’t support the more exotic atomics and you’re stuck simulating with test_and_set
 
 ## Summary of Lock Performance
-![[L04a_summary_of_lock_performance.png]]
+![](/img/L04a_summary_of_lock_performance.png)

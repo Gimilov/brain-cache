@@ -14,14 +14,14 @@ Source: [LINK](https://andrewrepp.com/aos_lec_L04)
         - Also, cache associated with each CPU
     - Dance Hall Architecture
         - CPU’s on one side, memory on other, of an IC network
-        - ![[L04a_shared_memory_machines_1.png]]
+        - ![](/img/L04a_shared_memory_machines_1.png)
     - Symmetric Multiprocessor (SMP) Architecture
 	    - Access time from any CPU to memory is the same
-	    - ![[L04a_shared_memory_machines_2.png]]
+	    - ![](/img/L04a_shared_memory_machines_2.png)
 	- Distributes Shared Memory (DSM) Architecture
 		- A piece of memory associated with each CPU
 		- Each CPU can still access all memory, but the piece that is closest will be fastest.
-		- ![[L04a_shared_memory_machines_3.png]]
+		- ![](/img/L04a_shared_memory_machines_3.png)
 - Shared Memory and Caches
 	- SMP example for simplicity
 	- cache serves exact same purpose in multiprocessor as it does in uniprocessor
@@ -53,7 +53,7 @@ Source: [LINK](https://andrewrepp.com/aos_lec_L04)
     - Pro in adding more processors is that it allows you to exploit parallelism
     - Con is the increased overhead discussed.
     - This flattens the scalability curve of adding processors to a system to increase performance.
-    - ![[L04a_hardware_cache_coherence.png]]
+    - ![](/img/L04a_hardware_cache_coherence.png)
 - Honest solution is “don’t share memory across cores”, there’s always going to be some cost if you do.
     
 - Synchronization

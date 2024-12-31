@@ -11,7 +11,7 @@ Read more here: [[Illustrated Notes for AOS by Bhavin Thaker]]
 - How do we structure the system software for a large-scale distributed system service?
 - Java Bean == reusable software component
 - N-tier applications
-	- ![[L06c_enterprise_java_beans_1.png]]
+	- ![](/img/L06c_enterprise_java_beans_1.png)
 	- application comprised of a stack of layers that each perform separate responsibilities
     - Can reuse components for each layer of the stack, as at each layer there are many similarities across applications and across requests for any given application
     - Reduce network communication (latency), security risks, increase concurrency for handling an individual request.
@@ -43,12 +43,12 @@ Read more here: [[Illustrated Notes for AOS by Bhavin Thaker]]
                 - example: stock ticker, RSS feed
         - Can be more or less granular, which affects reusability
             - finer grained is better for reusability, but requires more complex business logic
-            - ![[L06c_enterprise_java_beans_2.png]]
+            - ![](/img/L06c_enterprise_java_beans_2.png)
 	            - Does not allow appropriate concurrency for this use case
-			- ![[L06c_enterprise_java_beans_3.png]]
+			- ![](/img/L06c_enterprise_java_beans_3.png)
 				- Entity bean may be responsible for one row of the DB, or a set of rows. Up to the designer.
 				- CMP == container-managed persistence
 				- BMP == bean-managed persistence
-			- ![[L06c_enterprise_java_beans_4.png]]
+			- ![](/img/L06c_enterprise_java_beans_4.png)
 				- Associate a session facade with each client session. This allows you to construct a session and associate it with a particular client
 				- Using RMI allows entity bean to be placed wherever we want in network. Using local requires colocation with business logic and session facade, but avoids network communication and so improves performance.

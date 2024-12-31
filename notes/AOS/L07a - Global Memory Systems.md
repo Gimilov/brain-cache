@@ -16,7 +16,7 @@ Read more here: [[Illustrated Notes for AOS by Bhavin Thaker]]
 - How can we use peer memory for paging across LAN?
 
 ### Context for Global Memory System
-- ![[L07a_distributed_memory_systems_1.png]]
+- ![](/img/L07a_distributed_memory_systems_1.png)
 - Memory pressure
     - Different for each node
     - How best can we use idle cluster memory?
@@ -38,7 +38,7 @@ Read more here: [[Illustrated Notes for AOS by Bhavin Thaker]]
 - Sense of “community” to handle page faults at a node
     - Use peer memories as a supplement for the disk
 - Physical memory of a node
-	- ![[L07a_distributed_memory_systems_2.png]]
+	- ![](/img/L07a_distributed_memory_systems_2.png)
 		- Global component is where community service storage is kept
         - Boundary/size between local and global memory shifts depending on memory pressure on the node. As working set grows, global memory shrinks and vice versa.
         - Shared pages will be in the local component of node memory for multiple nodes. So pages in local memory may be private or shared.
@@ -49,42 +49,42 @@ Read more here: [[Illustrated Notes for AOS by Bhavin Thaker]]
     - As it is a global structure, it picks the globally oldest page to replace. This means age information needs to be managed by GSM
 
 ### Handling Page Faults – Case 1
-- ![[L07a_distributed_memory_systems_3.png]]
+- ![](/img/L07a_distributed_memory_systems_3.png)
 - Common Case
     - Page fault for X on node P
     - hit in global cache of some node q
 
 ### Handling Page Faults – Case 2
-- ![[L07a_distributed_memory_systems_4.png]]
+- ![](/img/L07a_distributed_memory_systems_4.png)
 - Common case with memory pressurea t P
     - page fualt for x on node p
     - Swap LRU page y for X
 
 ### Handling Page Faults – Case 3
-- ![[L07a_distributed_memory_systems_5.png]]
+- ![](/img/L07a_distributed_memory_systems_5.png)
 	- Note that if the least recently used page on R is in global section it must be clean, so can be discarded without worrying about storing. If it is in local, it could be dirty so must be stored to disk.
 - Faulting page on disk
     - page fault for x on node p
     - page not in cluster
 
 ### Handling Page Faults – Case 4
-- ![[L07a_distributed_memory_systems_6.png]]
+- ![](/img/L07a_distributed_memory_systems_6.png)
 	- Page x is copied to p’s local section but not removed from q’s local section
 - Faulting page actively shared
     - Page fault for x on node p
     - page in some peer node q’s local cache
 
 ### Summary Quiz
-![[L07a_distributed_memory_systems_7.png]]
+![](/img/L07a_distributed_memory_systems_7.png)
 
 ### GMS with Idle Nodes:
 
 - If a node remains idle for a long time-period, its Working Set is not utilized locally and will be replaced by paged-out pages from peer cluster nodes.
 - Eventually, a completely idle node becomes a memory server for peer cluster nodes. Thus, the Local-Global Memory boundary is not static but dynamically changes in response to the Local Memory Pressure existing on that node.
-![[P07a_gms_with_idle_nodes.png]]
+![](/img/P07a_gms_with_idle_nodes.png)
 
 ### Geriatrics (Age Management)
-- ![[L07a_distributed_memory_systems_8.png]]
+- ![](/img/L07a_distributed_memory_systems_8.png)
 - How can we identify the globally oldest page for our LRU page replacmenet variant?
 - Epoch parameters
     - T: Max duration
@@ -109,7 +109,7 @@ Read more here: [[Illustrated Notes for AOS by Bhavin Thaker]]
 - Think global, act local. Hammered on throughout the course, mentioned again here.
 
 ### Implementation of GSM in Unix
-- ![[L07a_distributed_memory_systems_9.png]]
+- ![](/img/L07a_distributed_memory_systems_9.png)
 - GMS integrated with DEC OSF/1
     - Access to anonymous pages and filesystem-mapped pages go through GMS on reads
 - Collecting age information to calculate global LRU is the hard part, as described above
@@ -119,7 +119,7 @@ Read more here: [[Illustrated Notes for AOS by Bhavin Thaker]]
 ### Distributed Data Structures
 
 - Must convert VA to UID (universal ID)
-	- ![[L07a_distributed_memory_systems_10.png]]
+	- ![](/img/L07a_distributed_memory_systems_10.png)
 	- derived from VM and UBC
 	- 3 key data structures
 	    - PFD
@@ -140,7 +140,7 @@ Read more here: [[Illustrated Notes for AOS by Bhavin Thaker]]
 	        - Given a UID, which node has the GCD for it?
 	        - Replicated on all nodes
 	    - In short, use POD to find GCD, use GCD to find PFD, use PFD to find PFN
-		    - ![[L07a_distributed_memory_systems_11.png]]
+		    - ![](/img/L07a_distributed_memory_systems_11.png)
 			    - in case of GCD moving to different node, POD must be updated
 - On page eviction
     - paging daemon is invoked

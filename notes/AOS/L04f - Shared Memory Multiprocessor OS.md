@@ -7,7 +7,7 @@ Created: 2024-12-30 18:28
 Source: [LINK](https://github.com/mohamedameen93/CS-6210-Advanced-Operating-Systems-Notes/blob/master/L04f.%20Shared%20Memory%20Multiprocessor%20OS.pdf)
 
 ## Challenges of Parallel Systems:
-![[L04f_OS_for_parallel_machines.png]]
+![](/img/L04f_OS_for_parallel_machines.png)
 
 - The big size of the system results in bottlenecks for the global data structures.
 - The memory latency is huge due to faster processors and more complex controllers.
@@ -21,7 +21,7 @@ Source: [LINK](https://github.com/mohamedameen93/CS-6210-Advanced-Operating-Syst
   - This particularly happens on modern processors because they tend to have larger cache blocks.
 
 ## OS Design Rules:
-![[L04f_principles.png]]
+![](/img/L04f_principles.png)
 
 - **Cache decisions**:
   - Pay attention to locality.
@@ -31,7 +31,7 @@ Source: [LINK](https://github.com/mohamedameen93/CS-6210-Advanced-Operating-Syst
 - Keep memory accesses as local as possible.
 
 ## Page Fault Service:
-![[L04f_page_fault_service.png]]
+![](/img/L04f_page_fault_service.png)
 - A page fault service consists of:
 	- **TLB and Page Table lookup**: This is thread-specific and can be done in parallel.
 	- **Locating the data on disk and moving it to the page frame, then updating the Page Table**: This is a bottleneck because these are OS functions and must be done in series.
@@ -46,8 +46,8 @@ Source: [LINK](https://github.com/mohamedameen93/CS-6210-Advanced-Operating-Syst
 ---
 
 ### Designing Scalable Structures in Parallel OS:
-![[L04f_Parallel_OS_and_page_fault_service.png]]
-![[L04f_recipe_for_scalable_structure_parallel_os.png]]
+![](/img/L04f_Parallel_OS_and_page_fault_service.png)
+![](/img/L04f_recipe_for_scalable_structure_parallel_os.png)
 
 - Determine what needs to be done for each service.
 - To ensure concurrent executions of services, minimize shared data structures.
@@ -57,9 +57,9 @@ Source: [LINK](https://github.com/mohamedameen93/CS-6210-Advanced-Operating-Syst
 ### Traditional OS
 
 Just to put into perspective:
-![[L04f_traditional_structure_of_os.png]]
+![](/img/L04f_traditional_structure_of_os.png)
 ### Tornado OS:
-![[L04f_tornado_1.png]]
+![](/img/L04f_tornado_1.png)
 
 - Tornado uses an **object-oriented approach**, where every virtual and physical resource in the system is represented by an independent object.
   - This ensures locality and independence for all resources.
@@ -74,7 +74,7 @@ Just to put into perspective:
     4. One representation per group of CPUs.
   - The consistency of these representations is maintained through Protected Procedure Calls.
 - **Objectization of Memory Management**:
-- ![[L04f_objectivization_of_mm.png]]
+- ![](/img/L04f_objectivization_of_mm.png)
   - The Address Space will be represented by the "Process Object," which is shared by all the threads executing on the CPU.
   - The Address space will be broken into regions:
     - Each region will be backed by a **File Cache Manager (FCM)** on the File System.
@@ -87,7 +87,7 @@ Just to put into perspective:
   4. The FCM will pass the file and offset to COR, which will pull the data from the desk into the DRAM’s page frame.
   5. FCM indicates to the Region Object that the physical page frame has been populated.
   6. The region Object will go through the Process Object to update the TLB.
-![[L04f_2.png]]
+![](/img/L04f_2.png)
 - Objectization decisions:
   1. The Process Object can be one per CPU, since the TLB is one per CPU.
   2. The Region Object should be one per group of CPUs.
@@ -95,28 +95,28 @@ Just to put into perspective:
   4. COR should have a single representation.
   5. DRAM Object can be one per physical memory.
 - Advantage of clustered object: Same object reference on all nodes. We can have different replications of the same object, which decreases data structures locking.
-	- ![[L04f_advantages_of_clustered_object.png]]
+	- ![](/img/L04f_advantages_of_clustered_object.png)
 
 - Implementation of Clustered Object:
   - Each CPU has:
     - **Translation Table**: Maps an object reference to a representation in memory.
     - **Miss Handling Table**: If the object reference is not present in the Translation Table so far, the Miss Handling Table maps the object reference to Object Miss Handler that decides if this object reference should point to an already existing representation or a new representation should be created. Then, it maps this object reference to its representation and installs the mapping in the Translation Table.
     - If the Object Miss Handler is not local, a Global Miss Handler will be used. Every node has a Global Miss Handler, and it knows the partitioning of the Miss Handling Table. If an object reference is presented to the Global Miss Handler, it will resolve the location of the required replica, installs it locally, and populates the Translation Table.
-    - ![[L04f_implementation_of_clustered_object.png]]
+    - ![](/img/L04f_implementation_of_clustered_object.png)
   - **Non-Hierarchical Locking**:
     - Hierarchical Locking: Whenever a thread is trying to execute a page fault, it locks the Process Object, the Region Object, the FCM, and the COR. This approach kills concurrency.
     - One way to resolve this is to use an Existence Guarantee and a Reference Count on the Process Object. This allows for concurrent operations on different regions.
-    - ![[L04f_non_hierarhical_locking.png]]
+    - ![](/img/L04f_non_hierarhical_locking.png)
 - **Dynamic Memory Allocation**:
   - Tornado OS breaks up the Heap space into multiple portions, each of which will be located on the physical memory of a specific node. This allows for scalable implementation of DMA.
   - This also prevents false sharing across nodes.
-  - ![[L04f_dynamic_memory_allocation.png]]
+  - ![](/img/L04f_dynamic_memory_allocation.png)
 
 - **Inter-Process Communication (IPC)**:
   - IPC is realized through Protected Procedure Calls (PPCs).
   - If the communication is on the same processor, no context switch happens.
   - If the communication is between different processors, a full context switch happens.
-  - ![[L04f_IPC.png]]
+  - ![](/img/L04f_IPC.png)
 
 - **Tornado OS Summary**:
   - Object-oriented design for scalability.
@@ -135,5 +135,5 @@ Just to put into perspective:
 ### Virtualization:
 - Cellular Disco project explored the possibility of decreasing the virtualization overhead.
 - The idea is to place a virtual layer between the guest OS and the I/O hardware.
-![[L04f_3.png]]
-![[L04f_virtualization_2.png]]
+![](/img/L04f_3.png)
+![](/img/L04f_virtualization_2.png)

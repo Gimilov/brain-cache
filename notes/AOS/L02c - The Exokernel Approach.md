@@ -11,7 +11,7 @@ Source: [LINK](https://andrewrepp.com/aos_lec_L02)
 ## Exokernel Approach to Extensibility
 
 - The name “Exokernel” comes from the fact that the kernel exposes hardware explicitly to the OS extensions living on top of it.
-- ![[L02c_exokernel_approach.png]]
+- ![](/img/L02c_exokernel_approach.png)
 - The core principle is to decouple authorization to use the hardware from its actual use
 - Exokernel validates requests for resources, then binds the request to the resource in question
 - Semantics of use by a given library OS is up to the library itself. Conventions may apply, of course.
@@ -100,13 +100,13 @@ Source: [LINK](https://andrewrepp.com/aos_lec_L02)
     - library OS can tell exokernel to save any reclaimed page frames to disk in advance
     - provides speedup, less back and forth with library OS
 ## Exokernel Summary
-![[L01c_exokernel_summary.png]]
+![](/img/L01c_exokernel_summary.png)
 - Under “normal” operation, library OS passes execution threads down to exokernel, which passes down to the hardware, and runs until its done or the timeslice expires
 - any discontinuities in thread running on hardware are kicked back up to exokernel, which must then pass up to library OS to handle as desired
 - exokernel maintains state for each library OS to help handle these discontinuities properly
 
 ### State Maintained by Exokernel
-![[L02c_state_maintained_by_exokernel.png]]
+![](/img/L02c_state_maintained_by_exokernel.png)
 - maintains PE data structure on behalf of each library OS
     - PE contains entry points for each library OS for dealing with the different kinds of program discontinuities0
     - similar to event handler mechanism from SPIN section

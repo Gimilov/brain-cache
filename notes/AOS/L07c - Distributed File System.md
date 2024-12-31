@@ -105,7 +105,7 @@ Read more here: [[Illustrated Notes for AOS by Bhavin Thaker]]
 	- XFS makes log cleaning a distributed activity by making the clients/stripe groups responsible for log cleaning.  
 		1. Each client is responsible for collecting the utilization information of the files it’s writing to.  
 		2. Each Stripe Group is responsible for the log cleaning activities of the files residing in this group. Each Stripe Group has a leader that assigns cleaning activities to the members of the group.
-![[L07c_log_segment_evolution.png]]
+![](/img/L07c_log_segment_evolution.png)
 
 ## XFS Implementation:
 - The metadata management on XFS is not static, it’s distributed over all the cluster nodes in the system. This is how it works:
@@ -115,7 +115,7 @@ Read more here: [[Illustrated Notes for AOS by Bhavin Thaker]]
     2. Then using the i-map data structure the i-node number will be mapped to an i-node address, which is the i-node address for the log segment associated with this file name.
     3. Using the Stripe Group Map, we can locate the storage server that contains the index node of the log segment ID that is associated with this file name.
     4. Once again, we use the Stripe Group Map to get the storage servers that contain the data blocks that correspond to this file name.
-![[L07c_xfs_implementation.png]]
+![](/img/L07c_xfs_implementation.png)
 - Caching is employed to make sure that this long path is not taken for every file access. There’re three scenarios that we can go through:
   1. The data blocks for the files are already cached locally in the client’s memory. This is the fastest path.
   2. The data blocks are not locally cached but are present on a peer cluster node’s cache memory. Then the data blocks can be fetched from the cache memory of this node.

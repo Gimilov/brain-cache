@@ -24,21 +24,21 @@ Source: [LINK](https://andrewrepp.com/aos_lec_L03)
     - open question: does guest OS or hypervisor keep the SPT (mapping PPNs to MPNs)?
         - in fully virtualized setting, must be kept with hypervisor as there is no guest OS code for handling this process
         - in paravirtualized setting, guest OS has been altered to know it is being run in a VM. In this case it can be either, but is usually housed within the guest OS
-    - ![[L03b_memory_virtualization.png]]
+    - ![](/img/L03b_memory_virtualization.png)
 ## Efficient Memory Mapping
 
 ### Fully Virtualized
 
 - in many architectures, CPU uses page table for address translation
-- ![[L03b_efficient_memory_mapping_1.png]]
+- ![](/img/L03b_efficient_memory_mapping_1.png)
 - hardware page table is really the SPT in a virtualized setting.
 - How to make this efficient?
-- ![[L03b_efficient_memory_mapping_2.png]]
+- ![](/img/L03b_efficient_memory_mapping_2.png)
 - two levels of indirection, two lookups, for every mapping is wildly inefficient
 - PT/TLB updates of guest OS are privileged, and therefore trapped to hypervisor.
 - SPT updated by hypervisor instead.
 - as a result, the actual translations are remembered in TLB/hardware PT. we bypass guest OS PT
-- ![[L03b_efficient_memory_mapping_3.png]]
+- ![](/img/L03b_efficient_memory_mapping_3.png)
 - This approach is, for example, used by VMWare’s ESX server
 ### Paravirtualized
 
@@ -83,7 +83,7 @@ Source: [LINK](https://andrewrepp.com/aos_lec_L03)
 - Alternatively, achieve the same effect but without guest OS knowing anything about it
 - The idea is to use content-based sharing
 - VMWare keeps a hash table in the hypervisor, which contains a content hash of the machine pages.
-    - ![[L03b_oblivious_VM_page_sharing.png]]
+    - ![](/img/L03b_oblivious_VM_page_sharing.png)
 - To use, hash contents of page table, scan data structure for a match to the hash.
     - If you get a match, doesn’t mean it’s for sure match, page may be dirty
     - So do a full comparison between page table contents upon match.

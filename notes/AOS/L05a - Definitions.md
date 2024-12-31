@@ -23,11 +23,11 @@ Source: [LINK](https://andrewrepp.com/aos_lec_L05)
 - Event computation time (time it takes on a single node to do some significant processing) is significantly less than the messaging time between nodes (Te « Tm)
     - Lamport definition: A system is distributed if the message transmission time is not negligible to the time between events in a single process
     - Interestingly, by this definition even a cluster is a distributed system (due to CPU speed being so good these days)
-- ![[L05a_definitions_1.png]]
+- ![](/img/L05a_definitions_1.png)
 	- This indicates that A happened before B
 	- This tells us that either A and B happened sequentially on the same process, or there is a communication event from A and B. Otherwise we would not know ordering and not be able to make this statement
-- ![[L05a_definitions_2.png]]
+- ![](/img/L05a_definitions_2.png)
 	- “Happened before” relationship is transitive
 	- “Concurrent” events are (basically) never actually at the exact same time, it’s just that we don’t have enough information to make a statement about which happened first based on the logic above
-- ![[L05a_definitions_3.png]]
+- ![](/img/L05a_definitions_3.png)
 - Showing the logic for how to determine concurrent vs ordered events. Basically it reiterates above, about how we have ordering knowledge within a process, or if there are communication events between processes (which apply transitively when determining ordering). Anything where we don’t know gets lumped into “concurrent”, highlighted here with event M

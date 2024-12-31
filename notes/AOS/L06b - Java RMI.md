@@ -32,26 +32,26 @@ This topic is also partially covered in [[P4L1 - Remote Procedure Calls]].
 
 #### Bank Example 1 - Reuse a local implementation
 
-- ![[L06b_java_rmi_1.png]]
+- ![](/img/L06b_java_rmi_1.png)
 - The remote publication of the interface is easy, using Java’s magic “remote” interface. The heavy lifting here is all done by the implementation of the bank account. Must find a way to make the location of the service visible by the clients on the network.
 
 #### Bank Example 2 - Reuse of “Remote” (better approach)
-- ![[L06b_java_rmi_2.png]]
+- ![](/img/L06b_java_rmi_2.png)
 - As before, publish methods to network using Remote interface
 - When you instantiate the implementation object, it becomes instantly visible because we inherit from the remote object classes. Heavy lifting is done by the Java runtime with this approach.
     - This is not overly clear, even in the video. Review the GIOS notes for more detail.
     - Server Side
-	    - ![[L06b_java_rmi_3.png]]
+	    - ![](/img/L06b_java_rmi_3.png)
 	- Client Side
-		- ![[L06b_java_rmi_4.png]]
+		- ![](/img/L06b_java_rmi_4.png)
 		- This has one big problem: if the invokation fails, it is not always possible to tell where in the process it failed. This is a common problem in networked applications
 ### RMI Implementation - RRL
-- ![[L06b_java_rmi_5.png]]
+- ![](/img/L06b_java_rmi_5.png)
 - Remote Reference Layer (RRL)
 	- Where the magic happens. All the marshaling/unmarshaling of arguments done here.
 	- RRL functions similarly to a subcontract. All the complexity and detail hidden there, tucked away from the clients and servers.
 ### RMI Implementation - Transport
-- ![[L06b_java_rmi_6.png]]
+- ![](/img/L06b_java_rmi_6.png)
 - Endpoint
     - Protection domain (or a JVM)
     - Has a table of remote objects it can access

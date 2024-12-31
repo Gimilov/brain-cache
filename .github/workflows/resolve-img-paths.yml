@@ -12,10 +12,12 @@ jobs:
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
       - name: Run Bash Script to Resolve Paths
         run: |
-          find . -name "*.md" -exec sed -i \
+          find ./notes -name "*.md" -exec sed -i \
           -e 's/\!\[\]\[/\!\[\]\(\/img\//g' \
           -e 's/\!\[\[/\!\[\]\(\/img\//g' \
           -e 's/\.gif\]\]/\.gif\)/g' \
@@ -33,6 +35,6 @@ jobs:
         run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
-          git add .
+          git add ./notes
           git commit --amend --no-edit || echo "No changes to amend"
           git push --force

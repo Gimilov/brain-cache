@@ -12,7 +12,7 @@ Source: [LINK](https://andrewrepp.com/aos_lec_L05)
     - Instead of starting from a clean slate, re-use software components?
     - Easier in a lot of ways, if possible. Lots of challenges, though, such as locality, redundancies, etc. 
 ### Design Framework
-- ![[L05e_systems_from_components_1.png]]
+- ![](/img/L05e_systems_from_components_1.png)
 - Design cycle
 	- specify -> code -> optimize -> deploy
 	- Specify: IOA (IO Automata)
@@ -63,7 +63,7 @@ Source: [LINK](https://andrewrepp.com/aos_lec_L05)
                 - Identifies common work happening in multiple layers
             - completely automatic
             - Generate bypass code if common case predicate (ccp) satisfied
-	            - ![[L05e_systems_from_components_2.png]]
+	            - ![](/img/L05e_systems_from_components_2.png)
 	            - CCP is basically how the protocol is supposed to react to any given event
         - Theorem prover framework can automatically prove that the bypass code creates the equivalent result as all the layers being bypassed would have. This means we get the same result but much faster.
 - Final step – convert back to ocaml

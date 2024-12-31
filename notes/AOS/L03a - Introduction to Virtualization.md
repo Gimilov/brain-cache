@@ -12,13 +12,13 @@ Source: [LINK](https://andrewrepp.com/aos_lec_L03)
 - We will cover the concept of virtualization and how it extends the concept of extensibility, allowing the simultaneous coexistence of entire OS’s.
 
 ## Platform Virtualization
-![[L03a_platform_virtualization.png]]
+![](/img/L03a_platform_virtualization.png)
 - Goal is to provide a “virtual” platform at a fraction of the cost, by eliding over providing specific hardware.
 - Predicated on the assumption that the end user doesn’t generally care how an app is run, so long as it does what the user wants
     - amortize cost of ownership, use economies of scale and use patterns to find a lot of margin here.
 - However, we as developers care quite a bit.
 - Key challenge is that usage is usually very **bursty**
-- ![[L03a_platform_virtualization_2.png]]
+- ![](/img/L03a_platform_virtualization_2.png)
 - This means that we need to be mindful of overlaps.
     - We need far more resource than the need of any individual platform user.
     - However each user then has access to far more resource than they could possibly have afforded on their own
@@ -28,7 +28,7 @@ Source: [LINK](https://andrewrepp.com/aos_lec_L03)
 - How do we isolate/protect/run multiple OS’s running on the same hardware?
 - What allocates resources? We need an OS of OS’s
 - Hypervisor! aka VMM (Virtual Machine Monitor), with OS’s on it referred to as VMs or Guest OS’s
-- ![[L03a_hypervisors.png]]
+- ![](/img/L03a_hypervisors.png)
 - Two types of hypervisor
     - Native (bare metal)
         - runs on top of bare hardware
@@ -77,4 +77,4 @@ Source: [LINK](https://andrewrepp.com/aos_lec_L03)
 - Xen product family uses this approach.
 - How much modification is actually needed for guest OS binaries with this approach?
     - Xen showed, by proof of construction, that it is less than 2% of the guest OS’s code
-    - ![[L03a_how_many_lines_to_change.png]]
+    - ![](/img/L03a_how_many_lines_to_change.png)

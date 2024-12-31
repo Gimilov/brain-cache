@@ -20,14 +20,14 @@ Source: [LINK](https://andrewrepp.com/aos_lec_L05)
             - Moving the bits from the memory to the node to the network controller. Usually accomplished using direct memory access (DMA)
                 - There are some other types where the CPU steps in, too, but this is uncommon in modern systems
             - Then out onto the wire, where network bandwidth comes into play
-            - ![[L05c_latency_limits_1.png]]
+            - ![](/img/L05c_latency_limits_1.png)
         - Software overhead
     - What the OS tacks on to the hardware overhead
     - Incurred to make message available in memory for transmission
 - Latency as a whole is software + hardware overheads
 - Focus of this lesson is how to reduce the software overhead to reduce latency
 ### Components of RPC Latency
-- ![[L05c_latency_limits_2.png]]
+- ![](/img/L05c_latency_limits_2.png)
 	- Client call
     - client has to set up arguments for procedure call, and trap into kernel
     - kernel validates and then marshalls the arguments into a network packet.

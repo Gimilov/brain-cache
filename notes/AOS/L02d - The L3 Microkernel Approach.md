@@ -73,7 +73,7 @@ Source: [LINK](https://andrewrepp.com/aos_lec_L02)
     - so all stored translations are useless and must be cleared? It depends!
     - if the TLB has a way of recognizing that VA->PA mapping is valid for currently used VA, maybe not?
     - tags for address spaces to the rescue! contain process ID for which TLB entry is valid. Flushing no longer needed!
-    - ![[L04d_l3_microkernel_approach.png]]
+    - ![](/img/L04d_l3_microkernel_approach.png)
     - this does require hardware support, though, so not always an option. if you’re on Intel, for example, what should you do instead?
 - Liedtke’s suggestion for avoiding TLB-flush when hardware support for AS-tagging is absent:
     - Exploit architectural features – e.g. segment registers in x86 + PowerPC
@@ -86,7 +86,7 @@ Source: [LINK](https://andrewrepp.com/aos_lec_L02)
         - In this case, and there is no support for AS-tagging in TLB, you’re just stuck doing a TLB-flush on address space switch
         - Costs above are explicit costs. In the case of large protection domains those are much smaller than the implicit costs.
             - Loss of locality is complete in this case, all caches are ice cold. This is a much bigger hit. Explicit cost here is 864 cycles for TLB flush in pentium, but loss of locality will be far more significant.
-	- ![[L04d_l3_microkernel_approach_2.png]]
+	- ![](/img/L04d_l3_microkernel_approach_2.png)
 ### Debunking thread switches and IPC myth
 
 - Switch involves saving all volatile state of processor – explicit cost
@@ -97,7 +97,7 @@ Source: [LINK](https://andrewrepp.com/aos_lec_L02)
 
 - This was the big “implicit cost” hit discussed above
 - Loss of locality in microkernel is much bigger than monolith/SPIN/Exokernel?
-- ![[L04d_debunking_memory_effects_myth.png]]
+- ![](/img/L04d_debunking_memory_effects_myth.png)
 - Hardware address space may not all be in physical memory, may be demand paged from disk
 - Working set slowly dragged up into higher level caches as a process runs
 - memory effects == how warm are caches when we context switch?

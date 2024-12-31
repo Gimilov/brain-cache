@@ -91,12 +91,12 @@ Source: [LINK](https://andrewrepp.com/aos_lec_L02)
     - to create an aggregate domain from two smaller protection domains. union of all entry points of component domains.
 - All the SPIN secret sauce comes from the compile-time checking of the MODULA-3 language allowing the enforcement of the protection of these domains and mechanisms.
 ## Customized OS with SPIN
-![[L02b_Customized_OS_with_SPIN.png]]
+![](/img/L02b_Customized_OS_with_SPIN.png)
 - The upshot of the logical protection domain is the ability to extend SPIN to include OS services and make it all part of the same hardware address space
     - no border crossing between the services or the mechanisms provided by SPIN
 - Above image shows example of multiple OS’s with different service selections implementing the same functionality differently, but using some shared extensions
 ## Example Extensions
-![[L02b_example_extension.png]]
+![](/img/L02b_example_extension.png)
 - UNIX Server implemented as an app on top of a normal UNIX OS on top of a SPIN extension
 - A client-server application implemented directly on top of SPIN with extension interfaces to provide only functionality actually needed for client or server to function
 ## SPIN Mechanisms for Events

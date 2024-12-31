@@ -25,7 +25,7 @@ Source: [LINK](https://andrewrepp.com/aos_lec_L02)
     - MacOS
     - Windows
 ## Monolithic Structure
-![[L02a_monolithic_structure.png]]
+![](/img/L02a_monolithic_structure.png)
 - Hardware all managed by the OS
 - Each App in its own hardware address space
     - allows protection between applications
@@ -65,7 +65,7 @@ Source: [LINK](https://andrewrepp.com/aos_lec_L02)
 ## Microkernel Structure
 
 - The missed opportunities for customization prompted OS designers to consider alternative structures that would more easily allow the OS to be tweaked to various use cases.
-- ![[L02a_microkernel_structure.png]]
+- ![](/img/L02a_microkernel_structure.png)
 - As with a monolith, each app goes in its own address space
 - The microkernel runs in a privileged mode and provides only very simple abstractions
     - threads, address space, IPC
@@ -81,7 +81,7 @@ Source: [LINK](https://andrewrepp.com/aos_lec_L02)
     - In monolithic structure, app calls for a service, one context switch to OS privileged mode. All needed services can now be accessed at normal procedure call speed
         - In a microkernel structure, app must make IPC call to contact filesystem. App must go to microkernel, microkernel calls filesystem server process, and then two hops back the other way.
         - may have to context switch far more often than otherwise needed
-        - ![[L02a_microkernel_structure_2.png]]
+        - ![](/img/L02a_microkernel_structure_2.png)
 ### Why performance Loss?
 
 - Border crossings – the sheer time spent in context switches
@@ -95,4 +95,4 @@ Source: [LINK](https://andrewrepp.com/aos_lec_L02)
 - Extensibility
 - Protection
 - These three are conflicting goals, that various designs balance against each other to try and achieve best overall experience. Throughout this course we will discuss approaches that try to accomplish this
-![[L02_what_do_we_want.png]]
+![](/img/L02_what_do_we_want.png)

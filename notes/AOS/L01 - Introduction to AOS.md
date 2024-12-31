@@ -34,7 +34,7 @@ Source: [LINK](https://andrewrepp.com/aos_lec_L01)
     - Applications
         - high level language that leverages **all** lower layers
 - Application is written at the top of the hierarchy, and traverses the stack below it. The stack below it provides all it needs for successful and safe execution
-![[L01_abstraction.png]]
+![](/img/L01_abstraction.png)
 # Hardware Resources
 
 - OS role is to control access to the physical hardware
@@ -55,7 +55,7 @@ Source: [LINK](https://andrewrepp.com/aos_lec_L01)
         - System bus connects via a bridge to the IO bus
         - Bridge is a specialized IO processor for scheduling the devices to communicate with the memory (DMA) or the CPU
         - Other high end devices, such as frame buffer for a graphics display, that may hang off the system bus to take advantage of its high-speed nature
-![[L01_hardware_resources.png]]
+![](/img/L01_hardware_resources.png)
 # OS Functionality
 
 - Section begins with a ‘quiz’ that lists some of the functionalities provided by an OS
@@ -65,7 +65,7 @@ Source: [LINK](https://andrewrepp.com/aos_lec_L01)
 - What is an OS?
     - Protected access to hardware resources
     - Arbitrates among competing requests
-![[L01_os_functionality_1.png]]
+![](/img/L01_os_functionality_1.png)
 - OS provides well defined APIs for accessing hardware resources managed by the OS
 	- resources are provided as services
 	- applications make requests for resources to the OS
@@ -73,7 +73,7 @@ Source: [LINK](https://andrewrepp.com/aos_lec_L01)
 - What happens when you click the mouse on your computer?
     - It generates a CPU interrupt
         - using an interrupt line, one of the lines on the bus	
-![[L01_os_functionality_2.png]]
+![](/img/L01_os_functionality_2.png)
 - CPU is running whatever else. An interrupt is a hardware mechanism for alerting the processor that something external requires the attention of the CPU. OS fields the interrupt.
 - OS schedules itself to run on the CPU to handle the interrupt, figures out what its intended for, and passes it to the intended recipient program for action.
 # Managing the CPU and Memory
@@ -89,7 +89,7 @@ Source: [LINK](https://andrewrepp.com/aos_lec_L01)
 - App launch time
     - OS doesn’t know much about the app, but at least has enough information to create memory footprint
         - this is provided by the OS loader
-        - ![[L01_catering_to_resource_requirements.png]]
+        - ![](/img/L01_catering_to_resource_requirements.png)
     - app asks for additional resources at runtime, OS will serve as broker for running applications
 ## Modern Operating Systems
 

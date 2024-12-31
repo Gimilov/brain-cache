@@ -9,7 +9,7 @@ Source: [LINK](https://github.com/mohamedameen93/CS-6210-Advanced-Operating-Syst
 # L04c: Communication
 
 ## Counting Barrier:
-![[L04c_counting_barrier.png]]
+![](/img/L04c_counting_barrier.png)
 - We have a counter that is initialized by the number of threads **N** to be synchronized.
 - Once a thread arrives at the barrier, it atomically decrements the counter and spins on it till it becomes zero.
 - The last thread to arrive will decrement the counter. Now the counter is zero, so that thread will reset the counter to its initial value **N**, so that it can be used for the next barrier.
@@ -17,7 +17,7 @@ Source: [LINK](https://github.com/mohamedameen93/CS-6210-Advanced-Operating-Syst
   - To solve this problem, we add another spin loop so that the threads will wait for the counter to become zero, then wait again till it becomes **N**.
 
 ## Sense Reversing Barrier:
-![[L04c_sense_reversing_barrier.png]]
+![](/img/L04c_sense_reversing_barrier.png)
 - In a Counting Barrier, we have two spin loops for each thread. One waits for the counter to become zero, and the other one waits for the counter to become **N**.
 - To avoid having two loops, we add another variable **“sense”** that is shared between all the threads to be synchronized.
 - This variable will be true for the current barrier and false for all the other barriers.
@@ -35,7 +35,7 @@ Source: [LINK](https://github.com/mohamedameen93/CS-6210-Advanced-Operating-Syst
 - This operation is executed recursively until the last thread arrives at the barrier.
 - The last thread will decrement the counter at the root of the tree to zero, which indicates that everyone arrived. This thread will then reset the counter to **N** and reverse the root’s **lock_sense** flag.
 - All the threads till the bottom of the tree will wake up recursively.
-![[L04c_barrier.png]]
+![](/img/L04c_barrier.png)
 - This allows for higher scalability since the amount of sharing is relatively small.
 
 - Disadvantages:
@@ -52,21 +52,21 @@ Source: [LINK](https://github.com/mohamedameen93/CS-6210-Advanced-Operating-Syst
 - Whenever a thread arrives at the barrier, it sets its spot in the parent’s ChildNotReady structure to `True`. The thread spins on the arrival of its own children if it has any.
 - A 4-Ary tree facilitates the best performance.
 - In a cache-coherent system, it can be arranged so that all the ChildNotReady structures can be packed in one word, so the parent processor just spins on a single memory location.
-![[L04c_msc_tree_barier.png]]
+![](/img/L04c_msc_tree_barier.png)
 - Although the arrival tree is 4-Ary as shown in the above figure, the wakeup tree is binary.
 - Each thread has a **ChildPointer** that can be used to signal the child to wake up.
-![[L04c_mcs_tree_2.png]]
+![](/img/L04c_mcs_tree_2.png)
 ## Tournament Barrier:
 
 - The barrier is represented by a tournament data structure (binary tree) with **N** players and \( \log_2 N \) rounds.
 - The winning thread of each round is predetermined. This allows the spin locations to be static.
 - Tournament Barriers don’t need a Fetch-and-\(\phi\) operation.
 - Tournament Barriers work even if the system doesn’t have shared memory, where threads can only communicate through message passing (No shared memory → Cluster machine).
-![[L04c_tournament_barrier.png]]
+![](/img/L04c_tournament_barrier.png)
 ## Dissemination Barrier:
 
 - In each round $k$, whenever a processor $P_i$  arrives at the barrier, it will signal processor $P_{(i+2^k) \text{ mod N}}$ .
 - This creates a cyclic communication order between the processors.
 - A Dissemination Barrier would need $log_2N$ rounds for all the processors to wake up.
 - Spin locations are statically determined.
-![[L04c_dissemination_barrier.png]]
+![](/img/L04c_dissemination_barrier.png)

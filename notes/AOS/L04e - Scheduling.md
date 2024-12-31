@@ -15,7 +15,7 @@ Source: [LINK](https://github.com/mohamedameen93/CS-6210-Advanced-Operating-Syst
   - Thread whose memory contents are in the CPU cache.
 
 ## Cache Affinity:
-![[L04e_cache_affinity_scheduling.png]]
+![](/img/L04e_cache_affinity_scheduling.png)
 
 - If a thread ( $T_1$ ) is running on a particular CPU ( $P_1$ ), it’s recommended to run the next call of that thread on the same CPU.
   - The reason behind this is that ( $T_1$ ) is likely to find its working set in the caches of ( $P_1$ ), which in turn saves time.
@@ -43,9 +43,9 @@ Source: [LINK](https://github.com/mohamedameen93/CS-6210-Advanced-Operating-Syst
 
 ### Minimum Intervening + queue (Processor-centric):
 - This policy considers both the affinity index and the number of threads in the queue of the CPU when making scheduling decisions.
-![[L04e_minimum_intervening.png]]
+![](/img/L04e_minimum_intervening.png)
 ## Scheduling Policies Summary:
-![[L04e_scheduling_policies_summary.png]]
+![](/img/L04e_scheduling_policies_summary.png)
 
 ## Implementation Issues:
 
@@ -54,7 +54,7 @@ Source: [LINK](https://github.com/mohamedameen93/CS-6210-Advanced-Operating-Syst
 - A thread’s position in the queue is determined by its priority:
   - **Thread priority** = Base priority + thread age + affinity.
 - If a specific processor runs out of threads, it will pull some threads from other processors.
-![[L04e_implementation_issues.png]]
+![](/img/L04e_implementation_issues.png)
 
 ## Performance:
 
@@ -67,11 +67,11 @@ Source: [LINK](https://github.com/mohamedameen93/CS-6210-Advanced-Operating-Syst
 - When picking a scheduling policy, you need to pay attention to:
   - The load on each CPU.
   - To boost performance, a CPU might choose to stay idle until the thread with the highest affinity becomes available.
-![[L04e_performance.png]]
+![](/img/L04e_performance.png)
 
 ## Cache Aware Scheduling:
-![[L04e_cache_affinity_and_multicore.png]]
-![[L04e_cache_aware_scheduling.png]]
+![](/img/L04e_cache_affinity_and_multicore.png)
+![](/img/L04e_cache_aware_scheduling.png)
 
 - In a modern multicore system, we have multiple cores on a single processor, and the cores themselves are hardware multi-threaded (switching between the core’s threads based on latency).
 - We need to ensure that all the threads on a specific core can find their contents in either the core’s L1 cache or, at most, the L2 cache.
