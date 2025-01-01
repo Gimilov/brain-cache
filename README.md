@@ -4,7 +4,7 @@ This repository serves as a storage space for notes I create during my learning 
 
 The material found here can primarily be attributed to my studies at Aarhus University or Georgia Institute of Technology. Occasionally, notes from additional learning resources may also appear here.
 
-Some of these notes may include content copied from other sources, and I’ve made an effort to include citations within the respective files. If you discover any content from your work that hasn’t been cited or cited well, please feel free to open a pull request to address it.
+Some of these notes may include content copied from other sources, and I’ve made an effort to include citations within the respective files. If you discover any content from your work that hasn’t been cited or cited well, please feel free to open an issue to address it.
 
 The notes here are primarily for personal reference and may occasionally be compiled into PDF documents for easier reading and review.
 
