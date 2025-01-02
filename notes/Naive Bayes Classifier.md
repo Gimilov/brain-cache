@@ -41,4 +41,4 @@ $$
 $$
 This has the form of a [[Generalized Additive Model]] . The models are fit in quite different ways though. The relationship between naive Bayes and generalized additive models is analogous to that between linear discriminant analysis and logistic regression. 
 # References
-1.![](/img/ml-resources/elements-of-statistical-learning.pdf#page=229]
+1.![](ml-resources/elements-of-statistical-learning.pdf#page=229]

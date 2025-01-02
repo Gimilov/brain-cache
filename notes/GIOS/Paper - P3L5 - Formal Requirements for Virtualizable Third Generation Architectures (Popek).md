@@ -99,7 +99,7 @@ Source: .zip file on OMSCS reddit ([Author](https://github.com/wynand1004))
 
 # Paper
 
-![](/img/P3L5-Formal-Requirements-for-Virtualizable-Third-Generation-Architectures.pdf)
+![](P3L5-Formal-Requirements-for-Virtualizable-Third-Generation-Architectures.pdf)
 
 
 

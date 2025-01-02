@@ -48,4 +48,4 @@ $$\qquad \quad Yes \qquad 76 \qquad 84$$
 Although the mixture model did not use the CHD labels, it has done a fair job in discovering the two CHD subpopulations. Linear logistic regression, using CHD as a response, achieves the same error rate (32%) when fit to these data using maximum likelihood.
 
 # References
-1. ![](/img/ml-resources/elements-of-statistical-learning.pdf#page=233]
+1. ![](ml-resources/elements-of-statistical-learning.pdf#page=233]

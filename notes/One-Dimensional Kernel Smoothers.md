@@ -119,4 +119,4 @@ There is a natural bias–variance trade-off as we change the width of the avera
 
 
 # References
-1. ![](/img/ml-resources/elements-of-statistical-learning.pdf#page=211]
+1. ![](ml-resources/elements-of-statistical-learning.pdf#page=211]

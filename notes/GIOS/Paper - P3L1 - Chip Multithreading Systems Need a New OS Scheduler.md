@@ -74,7 +74,7 @@ Source: .zip file on OMSCS reddit ([Author](https://github.com/wynand1004))
  - A CPI-based scheduler can expect a 2x improvement over a naive scheduler.
 # Paper
 
-![](/img/P3L1-Chip-Multithreading-Systems-Need-a-New-Operating-System-Scheduler.pdf)
+![](P3L1-Chip-Multithreading-Systems-Need-a-New-Operating-System-Scheduler.pdf)
 
 
 

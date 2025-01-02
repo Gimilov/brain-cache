@@ -623,7 +623,7 @@ second buffer.
 
 # Paper
 
-![](/img/P2L1-Intro-to_Programming-with-Threads.pdf)
+![](P2L1-Intro-to_Programming-with-Threads.pdf)
 
 
 

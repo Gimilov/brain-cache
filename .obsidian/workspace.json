@@ -13,13 +13,13 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "notes/AOS/AOS - Advanced Operating Systems.md",
+                "file": "notes/GIOS/Paper - P4L1 - Implementing Remote Procedure Calls (Birell).md",
                 "mode": "source",
                 "backlinks": true,
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "AOS - Advanced Operating Systems"
+              "title": "Paper - P4L1 - Implementing Remote Procedure Calls (Birell)"
             }
           }
         ]
@@ -192,12 +192,22 @@
             "state": {
               "type": "review-queue-list-view",
               "state": {},
+              "icon": "lucide-file",
+              "title": "Plugin no longer active"
+            }
+          },
+          {
+            "id": "a4ad7ee6eaf0713e",
+            "type": "leaf",
+            "state": {
+              "type": "review-queue-list-view",
+              "state": {},
               "icon": "SpacedRepIcon",
               "title": "Notes Review Queue"
             }
           }
         ],
-        "currentTab": 8
+        "currentTab": 9
       }
     ],
     "direction": "horizontal",
@@ -217,6 +227,16 @@
   },
   "active": "88065f9f8a4067bc",
   "lastOpenFiles": [
+    "notes/PLS-SEM - Evaluation of reflective measurement models.md",
+    "notes/PLS-SEM - Evaluation of structural models.md",
+    "bash-utilities/replace-prefix-or-postfix.sh",
+    "bash-utilities",
+    "bash-utilities/replace-with-capture-groups.sh",
+    "notes/GIOS/Paper - P4L3 - Distributed Shared Memory, Concepts and Systems (Protic).md",
+    "img/P4L1-implementing-RPC.pdf.md",
+    "notes/GIOS/Paper - P2L4 - Beyond Multiprocessing - Multithreading in the SunOS Kernel (Eykholt).md",
+    "notes/GIOS/GIOS - Graduate Introduction to Operating Systems.md",
+    "notes/AOS/Illustrated Notes for AOS by Bhavin Thaker.md",
     "notes/AOS/AOS - Advanced Operating Systems.md",
     "notes/AOS/L11b - Security in Andrew.md",
     "notes/AOS/L11a - Principles of Information Security.md",
@@ -227,7 +247,6 @@
     "notes/AOS/L09b - Map-Reduce Framework.md",
     "notes/AOS/L09a - Giant Scale Services.md",
     "notes/AOS/L08b - RioVista.md",
-    "notes/AOS/Illustrated Notes for AOS by Bhavin Thaker.md",
     "notes/AOS/L07c - Distributed File System.md",
     "notes/AOS/L08a - Lightweight Recoverable Virtual Memory.md",
     "img/L07c_xfs_implementation.png",
@@ -249,20 +268,11 @@
     "img/L07a_distributed_memory_systems_5.png",
     "notes/AOS/L05e - Systems from Components.md",
     "notes/AOS/L05d - Active Networks.md",
-    "notes/AOS/L05c - Latency Limits.md",
-    "notes/AOS/L05b - Lamport Clocks.md",
-    "notes/AOS/L05a - Definitions.md",
-    "notes/AOS/L04f - Shared Memory Multiprocessor OS.md",
-    "notes/AOS/L04e - Scheduling.md",
-    "notes/AOS/L04d - Lightweight RPC.md",
     "notes/AOS",
     "templates",
     "notes/GIOS",
     "notes",
     "cs-resources/the-linux-programming-interface-michael-kerrisk-1.pdf",
-    "math-resources/discrete-mathematics/mit-ocw-math-for-cs.pdf",
-    "cs-resources/Graduate Intro to OS - Papers/the-linux-programming-interface-michael-kerrisk-1.pdf",
-    "cs-resources/Graduate Intro to OS - Papers/P4L3-Distributed-Shared-Memory-Concepts-and-Systems.pdf",
     "Untitled.canvas",
     "Untitled 1.canvas"
   ]

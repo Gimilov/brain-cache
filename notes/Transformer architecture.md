@@ -31,4 +31,4 @@ For example. for text classification we need the encoder only. See [[Transformer
 
 
 ## References
-![](/img/attention-is-all-you-need.pdf)
+![](attention-is-all-you-need.pdf)

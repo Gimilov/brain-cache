@@ -27,4 +27,4 @@ Similarly, when Gaussian mixture models are used to represent the feature densit
 
 
 # References
-1.![](/img/ml-resources/elements-of-statistical-learning.pdf#page=482]
+1.![](ml-resources/elements-of-statistical-learning.pdf#page=482]

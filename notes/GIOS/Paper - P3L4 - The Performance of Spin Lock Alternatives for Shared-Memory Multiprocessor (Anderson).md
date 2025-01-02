@@ -229,7 +229,7 @@ Source: .zip file on OMSCS reddit ([Author](https://github.com/wynand1004))
 	 - Do real workloads have enough spin-waiting to make the additional hardware support worthwhile?
 # Paper
 
-![](/img/P3L4-Performance-of-Spin-Lock-Alternatives-for-Shared-Memory-Multiprocessor.pdf)
+![](P3L4-Performance-of-Spin-Lock-Alternatives-for-Shared-Memory-Multiprocessor.pdf)
 
 
 

@@ -5,4 +5,4 @@ tags:
 Created: 2023-10-17 21:09
 # Lecture
 
-![](/img/customer-analytics/Segmentation_IV-Introduction-to-latent-class-analysis.pdf)
+![](customer-analytics/Segmentation_IV-Introduction-to-latent-class-analysis.pdf)

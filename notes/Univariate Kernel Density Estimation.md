@@ -42,4 +42,4 @@ Pros:
 Cons:
 - For multivariate data $X \in \mathbb{R}^p$ where $p$ is large, problems of sparseness are likely to occur and fewer observations in the vicinity of $x_0$ receive substantial weight by the kernel function (curse of dimensionality).
 # References
-1. ![](/img/ml-resources/elements-of-statistical-learning.pdf#page=228]
+1. ![](ml-resources/elements-of-statistical-learning.pdf#page=228]

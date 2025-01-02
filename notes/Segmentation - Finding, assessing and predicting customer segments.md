@@ -5,4 +5,4 @@ tags:
 Created: 2023-10-17 21:09
 # Lecture
 
-![](/img/customer-analytics/Segmentation_III-Finding-assessing-and-predicting-customer-segments.pdf)
+![](customer-analytics/Segmentation_III-Finding-assessing-and-predicting-customer-segments.pdf)

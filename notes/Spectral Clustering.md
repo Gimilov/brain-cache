@@ -56,4 +56,4 @@ There are a number of issues that one must deal with in applying spectral cluste
 ![](/img/esl-figure-14.29.png)
 
 # References
-1.![](/img/ml-resources/elements-of-statistical-learning.pdf#page=563]
+1.![](ml-resources/elements-of-statistical-learning.pdf#page=563]

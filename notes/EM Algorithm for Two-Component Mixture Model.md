@@ -88,4 +88,4 @@ $$
 $$
 In the first figure of this note we can actually see the estimated Gaussian mixture density from this procedure, along with the responsibilities.
 # References
-1.![](/img/ml-resources/elements-of-statistical-learning.pdf#page=291]
+1.![](ml-resources/elements-of-statistical-learning.pdf#page=291]

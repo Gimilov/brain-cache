@@ -38,4 +38,4 @@ Pros:
 Cons:
 - Selecting $M << N$ results in a less flexible model than the kernel density estimator.
 # References
-1.![](/img/ml-resources/elements-of-statistical-learning.pdf#page=233]
+1.![](ml-resources/elements-of-statistical-learning.pdf#page=233]
