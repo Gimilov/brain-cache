@@ -15,6 +15,7 @@ The notes here are primarily for personal reference and may occasionally be comp
 Additionally, Obsidian's extensibility through a wide range of community plugins enhances its functionality far beyond basic note-taking. Currently, the version I use is **v1.7.7**.  
 ![](img/obsidian-graph.png)
 
+This repository contains a GitHub Action designed to standardize resource references. Additionally, the `bash-utilities` directory provides tools for batch editing these references efficiently
 
 ## Resources ignored
 
