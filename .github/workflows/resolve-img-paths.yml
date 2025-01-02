@@ -31,6 +31,8 @@ jobs:
           -e 's/\.pdf\]\]/\.pdf\)/g' \
           -e 's/\.pdf\]/\.pdf\)/g' {} +
 
+          ./bash-utilities/replace-prefix-or-postfix.sh prefix /img/ .pdf
+
       - name: Commit Changes
         run: |
           git config --global user.name "github-actions[bot]"
