@@ -13,13 +13,13 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "notes/GIOS/Paper - P4L1 - Implementing Remote Procedure Calls (Birell).md",
+                "file": "notes/AOS/Illustrated Notes for AOS by Bhavin Thaker.md",
                 "mode": "source",
                 "backlinks": true,
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Paper - P4L1 - Implementing Remote Procedure Calls (Birell)"
+              "title": "Illustrated Notes for AOS by Bhavin Thaker"
             }
           }
         ]
@@ -227,6 +227,8 @@
   },
   "active": "88065f9f8a4067bc",
   "lastOpenFiles": [
+    "cs-resources/Advanced OS/illustrated-notes-for-AOS-by-Bhavin-Thaker.pdf",
+    "notes/GIOS/Paper - P4L1 - Implementing Remote Procedure Calls (Birell).md",
     "notes/PLS-SEM - Evaluation of reflective measurement models.md",
     "notes/PLS-SEM - Evaluation of structural models.md",
     "bash-utilities/replace-prefix-or-postfix.sh",
@@ -266,8 +268,6 @@
     "img/L07a_distributed_memory_systems_7.png",
     "img/L07a_distributed_memory_systems_6.png",
     "img/L07a_distributed_memory_systems_5.png",
-    "notes/AOS/L05e - Systems from Components.md",
-    "notes/AOS/L05d - Active Networks.md",
     "notes/AOS",
     "templates",
     "notes/GIOS",

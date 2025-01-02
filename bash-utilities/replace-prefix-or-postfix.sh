@@ -36,14 +36,10 @@ EOF
     escaped_replacement=$(printf '%s' "$4" | sed 's|[][{}()\.*^$+?|]|\\&|g')
 
     if [[ $1 == "prefix" ]]; then
-        echo "option 1"
         find ./notes -name "*.md" -exec sed -i -E \
-        -e "s|$escaped_prefix([a-zA-Z0-9_\/\-]+)$escaped_postfix|$escaped_replacement\1$escaped_postfix|g" {} +
-        echo "s|$escaped_prefix([a-zA-Z0-9_\/\-]+)$escaped_postfix|$escaped_replacement\1$escaped_postfix|g"
+        -e "s|$escaped_prefix([a-zA-Z0-9_ \/\-]+)$escaped_postfix|$escaped_replacement\1$escaped_postfix|g" {} +
     elif [[ $1 == "postfix" ]]; then
-        echo "option 2"
-        -e "s|$escaped_prefix([a-zA-Z0-9_\/\-]+)$escaped_postfix|$escaped_prefix\1$escaped_replacement|g" {} +
-        echo "s|$escaped_prefix([a-zA-Z0-9_\/\-]+)$escaped_postfix|$escaped_prefix\1$escaped_replacement|g"
+        -e "s|$escaped_prefix([a-zA-Z0-9_ \/\-]+)$escaped_postfix|$escaped_prefix\1$escaped_replacement|g" {} +
     else
         echo "First argument should be either 'prefix' or 'postfix'."
         exit 1
