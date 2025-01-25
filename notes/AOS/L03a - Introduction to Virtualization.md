@@ -63,7 +63,7 @@ Source: [LINK](https://andrewrepp.com/aos_lec_L03)
 - Must be a bit clever to manage this, though, as the guest OS’s must still run as user-level processes. The hypervisor must still mediate access to the underlying hardware.
     - When guest OS executes privileged instructions, those instructions must trap into hypervisor, which will then emulate the intended functionality of the OS. This is called the _trap and emulate_ strategy.
     - Each guest OS thinks it is running on bare metal, and acts accordingly, trying to execute privileged instructions.
-        - Some privileged instructions may fail silently. Covered in more depth in my [GIOS Notes](https://andrewrepp.com/gios_lec_P3L6.html)
+        - Some privileged instructions may fail silently.
             - Hypervisor will resort to a binary translation strategy
                 - look for such instructions in guest OS, and through binary editing, ensure that those instructions are dealt with appropriately.
             - This has since been fixed for Intel and AMD architectures, where it was a big problem.

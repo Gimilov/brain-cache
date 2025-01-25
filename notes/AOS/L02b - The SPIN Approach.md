@@ -2,6 +2,8 @@
 tags:
   - type/lecture
   - "#AOS"
+Papers:
+  - "[[Paper - L02b - Extensibility, Safety and Performance in the SPIN OS]]"
 ---
 Created: 2024-12-30 16:56
 Source: [LINK](https://andrewrepp.com/aos_lec_L02)
