@@ -12,7 +12,7 @@ The notes are directly copied (with some formatting modifications) from these th
 - short versions: ([LINK](https://github.com/mohamedameen93/CS-6210-Advanced-Operating-Systems-Notes))
 Additional notes: [[Illustrated Notes for AOS by Bhavin Thaker]]
 
-Paper summaries will be noted scarcely.
+Paper summaries will be noted scarcely. Here's some guide how to read papers efficiently: [[How to Read a Paper Efficiently]]
 
 Lectures for this course include:
 - [[L01 - Introduction to AOS]]

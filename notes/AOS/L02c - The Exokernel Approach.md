@@ -2,6 +2,8 @@
 tags:
   - type/lecture
   - "#AOS"
+Papers:
+  - "[[Paper - L02c - Exokernel, An OS Architecture for Application-Level Resource Management]]"
 ---
 Created: 2024-12-30 17:00
 Source: [LINK](https://andrewrepp.com/aos_lec_L02)

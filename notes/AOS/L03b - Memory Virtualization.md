@@ -2,6 +2,8 @@
 tags:
   - type/lecture
   - "#AOS"
+Papers:
+  - "[[Paper - L03b&c - Xen and the Art of Virtualization]]"
 ---
 Created: 2024-12-30 17:10
 Source: [LINK](https://andrewrepp.com/aos_lec_L03)
