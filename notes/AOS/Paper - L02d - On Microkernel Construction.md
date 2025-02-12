@@ -124,4 +124,4 @@ Conclusion: The slowness of microkernels is really just problems of implementati
 
 
 ## Paper:
-![][03_microkernel.pdf]
+![](03_microkernel.pdf)

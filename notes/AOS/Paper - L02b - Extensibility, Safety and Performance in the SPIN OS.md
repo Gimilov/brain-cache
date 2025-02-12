@@ -9,4 +9,4 @@ Lecture: [[L02b - The SPIN Approach]]
 
 ## Paper:
 See underlined sections for quick reading.
-![][01_ExtensibilitySafetyPerformanceWithSPINOS.pdf]
+![](01_ExtensibilitySafetyPerformanceWithSPINOS.pdf)

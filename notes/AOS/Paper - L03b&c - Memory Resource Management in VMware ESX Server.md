@@ -12,4 +12,4 @@ First of 2 required paper summaries for CS6210 at Georgia Tech.
 
 ## Paper:
 See underlined sections for quick reading.
-![][06_MemoryResourceManagementinVMWareESXServer.pdf]
+![](06_MemoryResourceManagementinVMWareESXServer.pdf)

@@ -68,4 +68,4 @@ What exceptions happen enough to create a performance problem? Page faults and s
 
 ## Paper:
 See underlined sections for quick reading.
-![][05_XenAndArtofVortualization.pdf]
+![](05_XenAndArtofVortualization.pdf)
