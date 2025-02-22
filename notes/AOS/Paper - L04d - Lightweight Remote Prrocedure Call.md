@@ -9,4 +9,4 @@ Lecture: [[L04d - Lightweight RPC]]
 
 ## Paper:
 See underlined sections for quick reading.
-![][03_LightweightRemoteProcCalls.pdf]
+![](03_LightweightRemoteProcCalls.pdf)

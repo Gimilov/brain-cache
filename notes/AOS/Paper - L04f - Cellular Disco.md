@@ -9,4 +9,4 @@ Lecture: [[L04f - Shared Memory Multiprocessor OS]]
 
 ## Paper:
 See underlined sections for quick reading.
-![][05_CellularDisco.pdf]
+![](05_CellularDisco.pdf)

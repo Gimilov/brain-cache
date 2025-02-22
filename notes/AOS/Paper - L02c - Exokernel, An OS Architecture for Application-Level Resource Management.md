@@ -52,4 +52,4 @@ MOREOVER:
 
 ## Paper:
 See underlined sections for quick reading.
-![][02_Exokernel.pdf]
+![](02_Exokernel.pdf)

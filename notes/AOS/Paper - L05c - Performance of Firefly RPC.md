@@ -9,4 +9,4 @@ Lecture: [[L05c - Latency Limits]]
 
 ## Paper:
 See underlined sections for quick reading (if any).
-![][06_FireflyRPC.pdf]
+![](06_FireflyRPC.pdf)

@@ -9,4 +9,4 @@ Lecture: [[L04b - Synchronization]]
 
 ## Paper:
 See underlined sections for quick reading.
-![][01_AlgosScalableSyncSharedMem.pdf]
+![](01_AlgosScalableSyncSharedMem.pdf)

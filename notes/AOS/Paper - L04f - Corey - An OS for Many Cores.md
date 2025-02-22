@@ -9,4 +9,4 @@ Lecture: [[L04f - Shared Memory Multiprocessor OS]]
 
 ## Paper:
 See underlined sections for quick reading.
-![][07_Corey.pdf]
+![](07_Corey.pdf)

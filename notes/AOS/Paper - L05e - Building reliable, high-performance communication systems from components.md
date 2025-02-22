@@ -9,4 +9,4 @@ Lecture: [[L05e - Systems from Components]]
 
 ## Paper:
 See underlined sections for quick reading (if any).
-![][05_BuildingReliableHighPerformanceCommSystems.pdf]
+![](05_BuildingReliableHighPerformanceCommSystems.pdf)

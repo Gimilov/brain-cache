@@ -13,13 +13,22 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "notes/AOS/L03c - CPU & Device Virtualization.md",
+                "file": "notes/AOS/Paper - L05d - Active network vision and reality - lessons from a capsule-based system.md",
                 "mode": "source",
+                "source": false,
                 "backlinks": true,
-                "source": false
+                "backlinkOpts": {
+                  "collapseAll": false,
+                  "extraContext": false,
+                  "sortOrder": "alphabetical",
+                  "showSearch": false,
+                  "searchQuery": "",
+                  "backlinkCollapsed": false,
+                  "unlinkedCollapsed": true
+                }
               },
               "icon": "lucide-file",
-              "title": "L03c - CPU & Device Virtualization"
+              "title": "Paper - L05d - Active network vision and reality - lessons from a capsule-based system"
             }
           }
         ]
@@ -41,7 +50,8 @@
             "state": {
               "type": "file-explorer",
               "state": {
-                "sortOrder": "alphabetical"
+                "sortOrder": "alphabetical",
+                "autoReveal": false
               },
               "icon": "lucide-folder-closed",
               "title": "Files"
@@ -322,12 +332,32 @@
             "state": {
               "type": "review-queue-list-view",
               "state": {},
+              "icon": "lucide-file",
+              "title": "Plugin no longer active"
+            }
+          },
+          {
+            "id": "8b694be15c176a62",
+            "type": "leaf",
+            "state": {
+              "type": "review-queue-list-view",
+              "state": {},
+              "icon": "lucide-file",
+              "title": "Plugin no longer active"
+            }
+          },
+          {
+            "id": "fabb9b45a0ca4ae4",
+            "type": "leaf",
+            "state": {
+              "type": "review-queue-list-view",
+              "state": {},
               "icon": "SpacedRepIcon",
               "title": "Notes Review Queue"
             }
           }
         ],
-        "currentTab": 21
+        "currentTab": 23
       }
     ],
     "direction": "horizontal",
@@ -347,11 +377,34 @@
   },
   "active": "f70bf9357f803955",
   "lastOpenFiles": [
+    "img/L05d_active_networks_10.png",
+    "img/L05d_active_networks_9.png",
+    "img/L05d_active_networks_8.png",
+    "img/L05_active_networks_8.png",
+    "notes/AOS/Paper - L05d - The x-Kernel, An Architecture for Implementing Network Protocols.md",
+    "notes/AOS/L08b - RioVista.md",
+    "notes/AOS/Illustrated Notes for AOS by Bhavin Thaker.md",
+    "notes/AOS/L04e - Scheduling.md",
+    "img/L05d_active_networks_7.png",
+    "notes/AOS/Paper - L05d - Active network vision and reality - lessons from a capsule-based system.md",
+    "notes/AOS/Paper - L05b - Time, Clocks, and the Ordering of Events in a Distributed System.md",
+    "notes/AOS/Paper - L05e - Building reliable, high-performance communication systems from components.md",
+    "notes/AOS/Paper - L05c - Performance of Firefly RPC.md",
+    "notes/AOS/Paper - L05c - Limits to Low-Latency Communication on High-Speed Networks.md",
+    "cs-resources/CS6210 - Advanced OS/CS6210_AdvOS_Papers/part02_DistributedSystems/01_CommMechanismsDistributedSystems/01_TimeClocksSummary.pdf",
+    "notes/AOS/L04a - Shared Memory Machines.md",
+    "notes/GIOS/P1L2 - Introduction to Operating Systems.md",
+    "notes/AOS/L02b - The SPIN Approach.md",
+    "notes/AOS/L05e - Systems from Components.md",
+    "notes/AOS/L05d - Active Networks.md",
+    "notes/AOS/L05c - Latency Limits.md",
+    "notes/AOS/L05b - Lamport Clocks.md",
+    "notes/AOS/Paper - L04f - Corey - An OS for Many Cores.md",
+    "notes/AOS/L03c - CPU & Device Virtualization.md",
     "notes/AOS/Paper - L03b&c - Memory Resource Management in VMware ESX Server.md",
     "notes/AOS/Paper - L03b&c - Xen and the Art of Virtualization.md",
     "notes/AOS/Paper.md",
     "cs-resources/CS6210 - Advanced OS/PaperSummary-MemoryResourceManagementinVMwareESXServer.pdf",
-    "notes/AOS/L03c - CPU & Device Virtualization.md",
     "cs-resources/CS6210 - Advanced OS/Paper Summary - Memory Resource Management in VMware ESX Server.pdf",
     "img/L03b_summary-of-xen-changes.png",
     "img/L03b_xen_structure.png",
@@ -360,24 +413,6 @@
     "notes/AOS/L03a - Introduction to Virtualization.md",
     "notes/AOS/Paper - L02c - Exokernel, An OS Architecture for Application-Level Resource Management.md",
     "notes/AOS/Paper - L02b - Extensibility, Safety and Performance in the SPIN OS.md",
-    "notes/AOS/Paper - L02d - On Microkernel Construction.md",
-    "notes/AOS/L01 - Introduction to AOS.md",
-    "notes/AOS/L02a - OS Structure Overview.md",
-    "notes/AOS/L02c - The Exokernel Approach.md",
-    "notes/AOS/L02b - The SPIN Approach.md",
-    "notes/GIOS/Paper - P4L1 - Implementing Remote Procedure Calls (Birell).md",
-    "notes/AOS/L02a.md",
-    "notes/AOS/How to Read a Paper Efficiently.md",
-    "notes/AOS/Illustrated Notes for AOS by Bhavin Thaker.md",
-    "notes/AOS/L04a - Shared Memory Machines.md",
-    "notes/AOS/AOS - Advanced Operating Systems.md",
-    "notes/GIOS/P2L3 - Threads Case Study (PThreads).md",
-    "notes/GIOS/P2L1 - Processes and Process Management.md",
-    "notes/GIOS/P2L2 - Threads and Concurrency.md",
-    "notes/GIOS/P2L4 - Thread Design Considerations.md",
-    "notes/GIOS/P3L2 - Memory Management.md",
-    "DELETE ME - HOMEWORK.md",
-    "notes/AOS/L02d - The L3 Microkernel Approach.md",
     "cs-resources/Advanced OS/illustrated-notes-for-AOS-by-Bhavin-Thaker.pdf",
     "bash-utilities/replace-prefix-or-postfix.sh",
     "bash-utilities",
@@ -387,12 +422,7 @@
     "cs-resources/Advanced OS/Illustrated Notes for AOS by Bhavin Thaker.pdf",
     "cs-resources/Advanced OS",
     "img/P07a_gms_with_idle_nodes.png",
-    "img/L07a_distributed_memory_systems_11.png",
-    "img/L07a_distributed_memory_systems_10.png",
-    "img/L07a_distributed_memory_systems_9.png",
-    "img/L07a_distributed_memory_systems_8.png",
     "notes/AOS",
-    "templates",
     "Untitled.canvas",
     "Untitled 1.canvas"
   ]

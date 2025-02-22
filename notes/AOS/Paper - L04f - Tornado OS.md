@@ -9,4 +9,4 @@ Lecture: [[L04f - Shared Memory Multiprocessor OS]]
 
 ## Paper:
 See underlined sections for quick reading.
-![][04_Tornado.pdf]
+![](04_Tornado.pdf)

@@ -9,4 +9,4 @@ Lecture: [[L04f - Shared Memory Multiprocessor OS]]
 
 ## Paper:
 See underlined sections for quick reading.
-![][06_MultithreadedChipPerformance.pdf]
+![](06_MultithreadedChipPerformance.pdf)

@@ -9,4 +9,4 @@ Lecture: [[L05c - Latency Limits]]
 Summary yet to be found.
 ## Paper:
 See underlined sections for quick reading (if any).
-![][02_LimitsLowLatencyComms.pdf]
+![](02_LimitsLowLatencyComms.pdf)
